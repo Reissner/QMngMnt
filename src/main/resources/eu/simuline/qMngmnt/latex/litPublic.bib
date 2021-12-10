@@ -1,0 +1,378 @@
+% There are three kinds of entries:
+% - publicly referencable and exposable
+%   means: can be referenced to and can also be (re-)published
+% - publicly referenciable but not exposable
+%   This is if access is not free but the existence of the document
+%   can be shown to the public.
+% - not publicly referenciable, then of couse it is not exposalbe also
+% This manual must be split in publicly referenciable and other entries.
+% Some parts may be referentiable as such
+% but may give a hint to private development.
+% These parts must be hidden e.g.
+% in a bunch of references pointing in another direction.
+%
+% TBD: use company wide bib files
+% partially public partially private.
+% to see how multiple bibs are used, see
+% https://tex.stackexchange.com/questions/84099/bibliographies-from-multiple-bib-files
+
+% publicly referenciable and publicly exposable 
+
+@Book{JavaSpec,
+ author    = {J. Gosling and B. Joy and G. Steele and G. Bracha and A. Buckley},
+ title     = {{T}he {J}ava {L}anguage {S}pecification {J}ava {SE} 7 {E}dition},
+ publisher = {Oracle America, Inc. },
+ year      = {2011},
+ month     = {7},
+ note      = {JSR-000901}
+}
+
+@Manual{ManOct42,
+  title = 	 {GNU Octave},
+  author = 	 {J. W. Eaton and D. Bateman and S. Hauberg},
+  edition = 	 {3},
+  month = 	 {7},
+  year = 	 {2016},
+  note = 	 {for octave version 4.2.0}
+}
+
+@Manual{ManOct43S,
+  title = 	 {GNU Octave},
+  author = 	 {J. W. Eaton and D. Bateman and S. Hauberg and R. Wehbring},
+  edition = 	 {4},
+  month = 	 {2},
+  year = 	 {2017},
+  note = 	 {for octave version 4.3.0+}
+}
+
+@Manual{ManOct52,
+  title = 	 {GNU Octave},
+  author = 	 {J. W. Eaton and D. Bateman and S. Hauberg and R. Wehbring},
+  organization = {Free Software Foundation (FSF)},
+  address = 	 {\url{https://octave.org/doc/v5.2.0/}},
+  edition = 	 {5},
+  month = 	 {2},
+  year = 	 {2020},
+  note = 	 {for octave version 5.2.0, online }
+}
+
+@Manual{OctLib52,
+  title = 	 {Octave C++ Classes},
+  author = 	 {J. W. Eaton},
+  edition = 	 {1.0},
+  month = 	 {9.},
+  year = 	 {1993},
+  note = 	 {for octave version 5.2.0, pdf file in package octave-doc}
+}
+
+@Misc{OctRefCard,
+  author = 	 {J. W. Eaton},
+  OPTtitle = 	 {Octave Quick Reference},
+  howpublished = {pdf file in package octave-doc},
+  year = 	 {2007},
+  note = 	 {outdated. refers to octave 3.0.0}
+}
+
+@Manual{AdaM,
+  title = 	 {{A}da {R}eference {M}anual ISO/IEC 8652:1995(E) },
+  organization = {The MITRE Corporation, Inc.},
+  month = 	 {5},
+  year = 	 {2001}
+}
+
+@Manual{Python3_10,
+  title = 	 {{T}he {P}ython {L}anguage {R}eference},
+  author = 	 {Guido van Rossum and the Python development team},
+  organization = {Python Software Foundation},
+  edition = 	 {3.10.1},
+  month = 	 {12.},
+  year = 	 {2021}
+}
+
+@Manual{PythonLib3_10,
+  title = 	 {{T}he {P}ython {L}ibrary {R}eference},
+  author = 	 {Guido van Rossum and the Python development team},
+  organization = {Python Software Foundation},
+  edition = 	 {3.10.1},
+  month = 	 {12.},
+  year = 	 {2021}
+}
+
+@Manual{PythonExt3_10,
+  title = 	 {{E}xtending and {E}mbedding {P}ython},
+  author = 	 {Guido van Rossum and the Python development team},
+  organization = {Python Software Foundation},
+  edition = 	 {3.10.1},
+  month = 	 {9.},
+  year = 	 {2021}
+}
+
+@Manual{LustMan,
+  title = 	 {The Lustre V6 Reference Manual},
+  author = 	 {E. Jahier and P. Raymond an d N. Halbwachs},
+  month = 	 {12},
+  year = 	 {2016},
+  note = 	 {Software Version: master.673 }
+}
+
+@Misc{LustTut,
+  author = 	 {N. Halbwachs and P. Raymond},
+  title = 	 {A Tutorial of Lustre},
+  month = 	 {1},
+  year = 	 {2002}
+}
+
+@Misc{LustIntro,
+  author = 	 {Philipp Rümmer},
+  title = 	 {An Introduction to Lustre},
+  month = 	 {10.},
+  year = 	 {2014},
+  note = 	 {Philipp Rümmer, Uppsala University, Philipp.Ruemmer@it.uu.se}
+}
+
+@Misc{EsterIntro,
+  author = 	 {Pascal Raymond},
+  title = 	 {The Esterel language},
+  note = 	 {Pascal Raymond, Verimag-CNRS}
+}
+
+@Manual{EsterMan,
+  title = 	 {The Esterel v5 91 System Manual},
+  author = 	 {G. Berry and the Esterel Team},
+  organization = {INRIA},
+  address = 	 {2004 Route des Lucioles, 06565 Sophia-Antipolis},
+  edition = 	 {v5 91},
+  month = 	 {6.},
+  year = 	 {2000}
+}
+
+@Manual{TexM,
+  title = 	 {{T}he {TEX}book},
+  author = 	 {D. E. Knuth},
+  year = 	 {1996},
+  note = 	 {ISBN 0-201-13447-0}
+}
+
+
+
+
+
+@Book{NumD,
+  author = 	 {P. Deuflhard and A. Hohmann},
+  title = 	 {{N}umerische {M}athematik I: eine algorithmisch orientierte Einf{\"u}hrung},
+  publisher=     {de Gruyter},
+  year =         {2002}
+}
+
+@Book{IntM,
+  author = 	 {R. E. Moore and R. B. Kearfott and M. J. Cloud},
+  title = 	 {{I}ntroduction to {INTERVAL ANALYSIS}},
+  publisher = 	 {SIAM},
+  year = 	 {2009},
+  address = 	 {Philadelphia}
+}
+
+@MISC{VanSny,
+  key =          {IEEEP1788},
+  title =        {P1788 {D}raft {I}nternational {S}tandard for {I}nterval {A}rithmetic and {C}omplete {A}rithmetic},
+  type =         {PreNorm}, 
+  number =       {IEEE P1788}, 
+  howpublished = {http://grouper.ieee.org/groups/1788},
+  month =        {9},
+  year =         {2008}
+}
+
+
+@MISC{VieP,
+  key =          {ViennaProposal},
+  author =       {A. Neumaier},
+  title =        {{V}ienna proposal for interval standardization},
+  url = {http://grouper.ieee.org/groups/1788/},
+  type =         {Evaluation}, 
+  month =        {12},
+  year =         {2008}
+}
+
+@MISC{NSInt,
+  key =          {nonstandard Interval},
+  author =       {A. Neumaier},
+  title =        {{C}omputer graphics, linear interpolation, and nonstandard intervals},
+  howpublished = {http://grouper.ieee.org/groups/1788/},
+  type =         {Evaluation}, 
+  month =        {1},
+  year =         {2009}
+}
+
+@MISC{CmpLat,
+  key =          {Comparison Lattice Interval},
+  author =       {M. Nehmeier and J. W. von Gudenberg},
+  title =        {{I}nterval {C}omparisons and {L}attice {O}perations based on the {I}nterval {O}verlappig {R}elations},
+  howpublished = {http://grouper.ieee.org/groups/1788/},
+  type =         {Article}, 
+  month =        {10},
+  year =         {2010}
+}
+
+@MISC{ExtC,
+  key =          {ISO DTR 18037.2},
+  title =        {Extensions for the programming language C to support embedded processors},
+  note =         {PreNorm, VERSION FOR DTR APPROVAL BALLOT}, 
+  howpublished = {https://dokumen.tips/documents/isoiec-dtr-18037-wg14-n1005-isoiec-dtr-180372-version-for-dtr-dtr-18037-030425.html},
+  month =        {4.},
+  year =         {2003}
+}
+
+
+@Booklet{RegInvProb,
+  title = 	 {Regularisierung inverser Probleme},
+  author = 	 {B. von Harrach},
+  howpublished = {Goethe-Universität Frankfurt am Main},
+  year = 	 {2019/2020},
+  note = 	 {Lecture Note}
+}
+
+@Booklet{InvIllPosedProb,
+  title = 	 {Inverse und schlecht gestellte Probleme},
+  author = 	 {J.-F. Pietschmann, F. Wübbeling},
+  howpublished = {Universität Münster},
+  year = 	 {2012},
+  note = 	 {Lecture Note}
+}
+
+@Book{InvProbR,
+  author = 	 {A. Rieder},
+  title = 	 {Keine Probleme mit Inversen Problemen},
+  publisher = 	 {Vieweg},
+  year = 	 {2003},
+  address = 	 {Wiesbaden},
+  note = 	 {ISBN 3-528-03198-0}
+}
+
+
+
+
+
+
+% available as a book only 
+@Book{Antlr4Ref,
+  author = 	 {Terence Parr},
+  title = 	 {The Definitive ANTLR 4 Reference},
+  publisher = 	 {The Pragmatic Bookshelf},
+  year = 	 {2013},
+  month = 	 {2.},
+  note = 	 {ISBN 978-1-934356-99-9}
+}
+
+
+
+@Book{DigFiltHam,
+  author = 	 {R. W. Hamming},
+  title = 	 {Digital Filters},
+  publisher = 	 {Dover Publications},
+  year = 	 {1998},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTaddress = 	 {Mineola, New York},
+  edition = 	 {3.},
+  OPTmonth = 	 {},
+  note = 	 {ISBN 0-486-65088-X},
+  OPTannote = 	 {}
+}
+
+@Book{DSPSmith,
+  editor = 	 {S. W. Smith},
+  title = 	 {The Scientist and Engineer's Guide to Digital Signal Processing},
+  publisher = 	 {California Technical Pub},
+  year = 	 {1997},
+  edition = 	 {1.},
+  month = 	 {1.},
+  note = 	 {978-0966017632}
+}
+
+@PhdThesis{AlgKil,
+  author = 	 {L. Kiltz},
+  title = 	 {Algebraische Ableitungsschätzer in Theorie und Anwendung},
+  school = 	 {Universität des Saarlandes},
+  year = 	 {2017}
+}
+
+@book{NumMethHam,
+   title =     {Numerical methods for scientists and engineers},
+   author =    {R. W. Hamming},
+   publisher = {Dover Publications},
+   note =      {ISBN 0-486-65241-6},
+   year =      {1987},
+   series =    {},
+   edition =   {2.},
+   volume =    {},
+   url =       {http://gen.lib.rus.ec/book/index.php?md5=7513743B7EBC19AE5A1D678679F8361E}}
+
+
+
+
+% publicly referentiable, but not exposable: payed norm 
+
+@Book{Ieee754,
+  editor = 	 {Mike Cowlishaw},
+  title = 	 {{IEEE} {S}tandard for {F}loating-{P}oint {A}rithmetic},
+  publisher = 	 {Institute of Electrical and Electronics Engineers, New York},
+  year = 	 {2008},
+  key = 	 {IEEE754},
+  address = 	 {IEEE, 3 Park Avenue, New York, NY 10016-5997, USA},
+  month = 	 {8.},
+  note = 	 {ISBN978-0-7381-5752-8}
+}
+
+
+
+
+@MISC{BspSW,
+  key={optionales Feld, das eine Markenproduktion – 
+allerdings in Konkurrenz mit dem author–Feld – 
+im Literaturverzeichnis erlaubt},
+
+  type={nach DIN 1505 soll der Typ der Quelle genannt werden; mein
+Vorschlag: Softwareprogramm oder nur Programm; 
+das Feld kann aber auch leer bleiben}, 
+
+author={der Urheber der Software}, 
+
+title={der Name der Software bzw. des Programms}, 
+
+edition={die Version, z.B. Version 8.1b1}, 
+
+month={monat}, 
+year={nehmen das Veröffentlichungsdatum (Ausgabedatum) auf}, 
+
+howpublished={der Vertreiber oder Lizenzgeber der Software}, 
+
+organization={die Firma oder Institution, die die Software entwickelt
+hat und die Rechte daran besitzt Dieses Feld ist in der
+MISC
+–Funktion eigentlich nicht vorgesehen und kolli-
+diert evtl. mit dem
+howpublished
+–Feld. In den beiden Beispielen ist nur
+howpublished
+benutzt worden.}, 
+
+note={Ergänzende Angaben zum Betriebssystem, zur Größe des Pro-
+gramms, dem Datenträger usw}
+}
+
+@BOOK{BspBook,
+AUTHOR={M. Pasche},
+   TITLE={Synergetik und Evolutorische Ökonomik},
+   INSTITUTION={Universität Hannover Fachbereich Wirtschaftswissenschaften},
+   TYPE={Diskussionspapier},
+   NUMBER=179,
+   MONTH=dec,
+   YEAR=1992
+}
+
+
+
+
+
