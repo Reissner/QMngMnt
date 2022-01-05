@@ -3,11 +3,11 @@
 This project describes the quality management for simuline organization
 and applies to all its projects.
 
-The core mission is providing computational software
+The core mission is to provide computational software
 and the core technology is `java`.
 The build process is done with `maven` and maven also coins in many respects
 our notion of quality.
-As it provides deployment of software 'build' but also 'site'
+As `maven` provides deployment of software 'build' but also 'site'
 comprising documentation,
 also quality management is centered
 around [Software Deployment](#ssSoftwareDep) and
@@ -171,3 +171,6 @@ In the long run, the directory layout shall be the following tree, optional dire
 
 At the moment not even this project conforms with this.
 TBD: add also the files, not directories only.
+
+Version control is done mainly in `git` but there are still some reminiscenses to `svn`,
+e.g. in the pom's.
