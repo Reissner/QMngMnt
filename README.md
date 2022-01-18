@@ -53,6 +53,23 @@ emitted by `mvn clean`,
 `mvn deploy`  and by `mvn site-deploy` must be eliminated
 at least before next release.
 This applies for the future, but not for the next release.
+In particular, the source encoding must be set explicitly.
+UTF-8 is mandatory so there is an according entry in the properties section.
+Another pricipal which overlaps with the latter one is,
+to make the build reproducible.
+Thus one has to specify the version of maven itself and of each plugin used.
+Use the enforcer plugin.
+This implies that the properties section is as follows (maven version at time of this writing): 
+
+```
+<project ...>
+  <properties>
+    <!-- checked during validation -->
+    <versionMvn>3.6.3</versionMvn>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+</project>
+```
 
 The target `clean` shall be configured in a way,
 that it cleans all files not under version control but not ignored.
