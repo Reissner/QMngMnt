@@ -173,7 +173,25 @@ the following rules concerning bibliography apply.
   to populate the enclosing directory with further bib files required
   and that like.
 
+## Safety <a id='ssSafety'/>
+
+https://snyk.io/blog/10-maven-security-best-practices/
+
+Some literature on safety is {here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/).
+
 ## Miscellaneous <a id='ssMisc'/>
+
+https://www.mojohaus.org/license-maven-plugin/examples/example-download-licenses.html
+
+https://www.simplify4u.org/sign-maven-plugin/
+
+
+https://github.com/verhas/License3j
+
+https://github.com/yWorks/yGuard obfuscation
+
+https://web.archive.org/web/20161217190546/http://www.excelsior-usa.com/articles/java-obfuscators.html
+https://www.guardsquare.com/manual/configuration/examples
 
 ## To Be Done <a id='ssTBD'/>
 
