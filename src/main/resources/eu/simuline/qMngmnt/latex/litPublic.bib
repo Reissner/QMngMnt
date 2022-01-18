@@ -4,7 +4,8 @@
 % - publicly referenciable but not exposable
 %   This is if access is not free but the existence of the document
 %   can be shown to the public.
-% - not publicly referenciable, then of couse it is not exposalbe also
+% - not publicly referenciable, then of couse it is not exposable also.
+%   This is the only kind of references not to be included in this file. 
 % This manual must be split in publicly referenciable and other entries.
 % Some parts may be referentiable as such
 % but may give a hint to private development.
@@ -16,8 +17,12 @@
 % to see how multiple bibs are used, see
 % https://tex.stackexchange.com/questions/84099/bibliographies-from-multiple-bib-files
 
-% publicly referenciable and publicly exposable 
+% publicly referenciable and publicly exposable
+% For each of these references there must be a given a comment with the path,
+% where to find the document.
+% This must be within this project. 
 
+% no document 
 @Book{JavaSpec,
  author    = {J. Gosling and B. Joy and G. Steele and G. Bracha and A. Buckley},
  title     = {{T}he {J}ava {L}anguage {S}pecification {J}ava {SE} 7 {E}dition},
@@ -26,6 +31,73 @@
  month     = {7},
  note      = {JSR-000901}
 }
+
+% Languages/Java/jls8.pdf
+@Book{JavaSpec8,
+ author    = {J. Gosling and B. Joy and G. Steele and G. Bracha and A. Buckley},
+ title     = {{T}he {J}ava {L}anguage {S}pecification {J}ava {SE} 8 {E}dition},
+ publisher = {Oracle America, Inc. },
+ address   = {500 Oracle Parkway, Redwood City, California 94065, U.S.A.},
+ year      = {2015},
+ month     = {2},
+ note      = {JSR-337}
+}
+
+% Languages/Java/jls11.pdf
+@Book{JavaSpec11,
+ author    = {J. Gosling and B. Joy and G. Steele and G. Bracha and A. Buckley and D. Smith},
+ title     = {{T}he {J}ava {L}anguage {S}pecification {J}ava {SE} 11 {E}dition},
+ publisher = {Oracle America, Inc. },
+ address   = {500 Oracle Parkway, Redwood City, California 94065, U.S.A.},
+ year      = {2018},
+ month     = {8},
+ note      = {JSR-348}
+}
+
+% Languages/Java/jls17.pdf
+@Book{JavaSpec11,
+ author    = {J. Gosling and B. Joy and G. Steele and G. Bracha and A. Buckley and D. Smith and G. Bierman},
+ title     = {{T}he {J}ava {L}anguage {S}pecification {J}ava {SE} 17 {E}dition},
+ publisher = {Oracle America, Inc. },
+ address   = {500 Oracle Parkway, Redwood City, California 94065, U.S.A.},
+ year      = {2021},
+ month     = {8},
+ note      = {JSR-392}
+}
+
+% Languages/Java/jvms8.pdf
+@Book{JvmSpec8,
+ author    = {T. Lindholm and F. Yellin and G. Bracha and A. Buckley},
+ title     = {{T}he {J}ava {V}irtual {M}achine {S}pecification {J}ava {SE} 8 {E}dition},
+ publisher = {Oracle America, Inc. },
+ address   = {500 Oracle Parkway, Redwood City, California 94065, U.S.A.},
+ year      = {2015},
+ month     = {2},
+ note      = {JSR-337}
+}
+
+% Languages/Java/jvms11.pdf
+@Book{JvmSpec11,
+ author    = {T. Lindholm and F. Yellin and G. Bracha and A. Buckley and D. Smith},
+ title     = {{T}he {J}ava {V}irtual {M}achine {S}pecification {J}ava {SE} 11 {E}dition},
+ publisher = {Oracle America, Inc. },
+ address   = {500 Oracle Parkway, Redwood City, California 94065, U.S.A.},
+ year      = {2018},
+ month     = {8},
+ note      = {JSR-384}
+}
+
+% Languages/Java/jvms17.pdf
+@Book{JvmSpec11,
+ author    = {T. Lindholm and F. Yellin and G. Bracha and A. Buckley and D. Smith},
+ title     = {{T}he {J}ava {V}irtual {M}achine {S}pecification {J}ava {SE} 17 {E}dition},
+ publisher = {Oracle America, Inc. },
+ address   = {500 Oracle Parkway, Redwood City, California 94065, U.S.A.},
+ year      = {2021},
+ month     = {8},
+ note      = {JSR-392}
+}
+
 
 @Manual{ManOct42,
   title = 	 {GNU Octave},
@@ -252,6 +324,23 @@
 
 
 
+
+@Book{Opp99,
+  author = 	 {A. V. Oppenheim and R.W. Schafer},
+  title = 	 {Discrete Time Signal Processing},
+  publisher = 	 {Prentice Hall},
+  address = 	 {Upper Saddle River, New Jersey 07458},
+  year = 	 {1999},
+  isbn =         {0-13-754920-2},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {Signal Processing Series},
+  OPTedition = 	 {2},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
 
 % available as a book only 
 @Book{Antlr4Ref,
