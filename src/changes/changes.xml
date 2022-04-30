@@ -1,0 +1,93 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0
+			      http://maven.apache.org/xsd/changes-1.0.0.xsd">
+  
+  <!-- https://maven.apache.org/plugins/maven-changes-plugin/changes.html -->
+  <!-- action types: 
+       add: added functionality to the project.
+       fix: bug fix for the project.
+       update: updated some part of the project.
+       remove: removed some functionnality from the project. -->
+  <properties>
+    <title>QMngMnt</title>
+    <author email="reissner@simuline.eu">Ernst Reissner</author>
+  </properties>
+  <body>
+
+    <!-- TBD: write a texinfo maven plugin or search one -->
+    <!-- TBD: Tex-parser: 
+	 to be generalized according to documentation in grammar. 
+	 Tex-parser: problem with unbalanced $ in verbatim environments. 
+	 Maybe better write new one or synchronize with Latexml. 
+	 This is needed for analysis. -->
+
+   <!-- TBD: write parser for markdown, 
+	maybe extract from markdown renderer -->
+
+   <!-- TBD: Write checker which is able to find unresolved links 
+	and also base for application extracting docs with links. -->
+ 
+   <!-- TBD: https://developer.okta.com/blog/2019/12/20/five-tools-improve-java
+	jacoco, pmd, spotbugs, japicmp -->
+
+   <!-- TBD: maybe introduce parent pom -->
+
+
+   <!-- TBD: write down how to write a pom. 
+	Aims: 
+	- platform indepencence, 
+	- repeatability 
+	- quality support 
+	- internationality 
+	- all lifecycles without warnings 
+	  (this can be weakened due to external problems 
+	  or for some span of time after external update causing warnings. ) 
+	  
+	I think, using maven as such solves a lot of problems already. 
+	Using it the right way can solve all. 
+	
+	How to reach this: 
+	- properties: 
+	  - <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    for platform independence 
+          - <maven.compiler.source>16</maven.compiler.source>
+          - <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+          - <junit.jupiter.version>5.8.1</junit.jupiter.version>
+          - <junit.platform.version>1.8.1</junit.platform.version>
+	- plugins only given with versions. 
+	  (TBD: how to ensure that not forgotten, how to check that up to date?) 
+	- enforcer plugin 
+	  Rules: 
+	  - requireMavenVersion
+	  - requireJavaVersion
+	  - dependencyConvergence in the long run. 
+	  
+	  How to ensure depencency convergence? 
+	  How to be supported by vs code? 
+	  How to ensure that plugins are up to date? 
+	  Mention depencency plugin. 
+	  See https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+	  
+	  maven help plugin 
+	  
+	  Requirements on tests? 
+	 -->
+
+		<release version="0.0.1" date='2022-05-01' description='literature and its references, quality management through maven plugins'>
+			<action dev="ER" type="add">
+				added minimum to turn this into a maven project: added pom and readme. 
+			</action>
+			<action dev="ER" type="add">
+				added global bib-files 
+			</action>
+			<action dev="ER" type="add">
+				added config for certain maven plugins supervising quality: 
+				config for spotbugs, pmd and for chkstyle
+			</action>
+			<action dev="ER" type="add">
+				added a lot of pdfs
+			</action>
+	 	</release>
+  </body>
+</document>
