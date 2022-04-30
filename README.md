@@ -1,3 +1,5 @@
+<!-- markdownlint-disable no-trailing-spaces -->
+<!-- markdownlint-disable no-inline-html -->
 # Quality Management for simuline (www.simuline.eu)
 
 This project describes the quality management for simuline organization
@@ -18,8 +20,7 @@ subjects not fitting into that scheme are collected
 under a common [roof](#ssMisc).
 Aspects to be added are collected in [TBD](#ssTBD). 
 
-
-## General Thoughts <a id='ssGen'/>
+## General Thoughts <a id='ssGen'></a>
 
 At the time of this writing,
 software was not maintained for a long span of time
@@ -32,7 +33,6 @@ The core development is in java solely.
 This uniformity is important because of the tense resources of the company.
 Also tools used must kept in a small range and tools must be free.
 
-
 Sources are under version control, of course software,
 but also documentation.
 Thus internally we only use open, textual formats, like markdown or latex.
@@ -40,6 +40,13 @@ Thus internally we only use open, textual formats, like markdown or latex.
 In future `git` shall be the only version managment tool.
 At the moment, there is still subversion in use,
 but this shall be eliminated in the next release. 
+
+As regards editors or IDE's we are in the course of evaluations still, 
+but seemingly, `ms code` has a good chance to make the choice. 
+It offers a lot of extensions turning it into an IDE. 
+In contrast `eclipse` is very mighty but not lightweight. 
+Various extensions help also ensuring quality. 
+Uniformity of tools and processes also helps keeping up quality. 
 
 The core tool besides the java development kit is `maven`
 which supports the deployment process of both software and documentation.
@@ -61,7 +68,7 @@ Thus one has to specify the version of maven itself and of each plugin used.
 Use the enforcer plugin.
 This implies that the properties section is as follows (maven version at time of this writing): 
 
-```
+```xml
 <project ...>
   <properties>
     <!-- checked during validation -->
@@ -91,7 +98,6 @@ and to develop this project and the dependent one side by side.
 
 Release management must be based on `maven-release-plugin`. 
 
-
 ## The Software Deployment Process <a id='ssSoftwareDep'/>
 
 In future, when compile time warnings occur, these must be eliminated,
@@ -112,17 +118,16 @@ other projects
 |   spotbugs-maven-plugin | [spotbugs-include.xml](./src/main/resources/eu/simuline/qMngmnt/spotbugs/spotbugs-include.xml) |
 
 In future for code coverage we shall use `jacoco`.
-Evaluate https://checkerframework.org/ also.
-For an example see https://github.com/glts/safer-spring-petclinic/wiki. 
+Evaluate [https://checkerframework.org/](https://checkerframework.org/) also.
+For an example see [https://github.com/glts/safer-spring-petclinic/wiki](https://github.com/glts/safer-spring-petclinic/wik). 
 
 For tests we use `maven-surefire-plugin` and `maven-failsafe-plugin`.
-
 
 Api-documentation is mandatory.
 To create html-documentation we use `maven-javadoc-plugin`.
 In future before release, javadoc goal shall not fail and there shall be no warnings. 
 
-## The Site Deployment Process<a id='ssSiteDep'/>
+## The Site Deployment Process <a id='ssSiteDep'></a>
 
 One major part of site deployment is documentation.
 We use `docbkx-maven-plugin` and `latex-maven-plugin`.
@@ -132,6 +137,7 @@ In future, there shall be a uniform form for latex-documents
 and the according includes defining the style shall be collected in this project.
 
 At the moment, only bibliographies are standardized with the following rules:
+
 - Public references coming from external, i.e. not provided by any own project
   are collected in [litPublic.bib](src/main/resources/eu/simuline/qMngmnt/latex/litPublic.bib).
 - Publicly accessible pdf-documents shall be collected in this project also in future.
@@ -144,17 +150,19 @@ At the moment, only bibliographies are standardized with the following rules:
 
 For documents provided by any project,
 the following rules concerning bibliography apply.
+
 - A document shall use references as usual in an academic environment.
 - On its title page there must be a hint whether this document is public or private.
   Of course, in a public project there shall be no private documents,
   but the other way round it is possible.
-- On the title page also a reference to the project specific bibliography `litProjName.bib` must be given
+- On the title page also a reference 
+  to the project specific bibliography `litProjName.bib` must be given
   indicating how this document can be referred to.
 - On the titlepage there shall be a link on the project site it belongs to.
   In the long run, the site shall offer all its documents for view or download.
   One shall consider also delivering pdf's in jar-files. 
-- Any document (we shall call the *referrer*) must refer to other documents (called here *referee*)
-  by either using the
+- Any document (we shall call the *referrer*) must refer to other documents 
+  (called here *referee*) by either using the
   - internal bibliography `litProjName.bib` of its project `Name`,
   - a project specific bibliography `litProjDep.bib`
     from a project `Dep` the project `Name` depends on (in a maven sense),
@@ -173,18 +181,28 @@ the following rules concerning bibliography apply.
   to populate the enclosing directory with further bib files required
   and that like.
 
+Besides latex also markdown is used. 
+Check is performed by `markdownlint`, an extension to `vs code`. 
+We deactivate the following rules: 
+
+- no-trailing-spaces because single trailing space is good if linebreak changes 
+  but one would need a way to restrict to 1 or 2 trailing spaces. 
+- no-inline-html because there is no common uniform way 
+  to set an anchor in pure markdown and so we need to use html `a`-tag. 
+  It would be worth if all **further** inline html is avoided, 
+  whereas the a-tag shall be allowed. 
+
 ## Safety <a id='ssSafety'/>
 
-https://snyk.io/blog/10-maven-security-best-practices/
+Have a look at [https://snyk.io/blog/10-maven-security-best-practices/](https://snyk.io/blog/10-maven-security-best-practices/)
 
-Some literature on safety is {here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/).
+Some literature on safety is [here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/).
 
 ## Miscellaneous <a id='ssMisc'/>
-
+<!-- markdownlint-disable no-bare-urls -->
 https://www.mojohaus.org/license-maven-plugin/examples/example-download-licenses.html
 
 https://www.simplify4u.org/sign-maven-plugin/
-
 
 https://github.com/verhas/License3j
 
@@ -192,8 +210,9 @@ https://github.com/yWorks/yGuard obfuscation
 
 https://web.archive.org/web/20161217190546/http://www.excelsior-usa.com/articles/java-obfuscators.html
 https://www.guardsquare.com/manual/configuration/examples
+<!-- markdownlint-enable no-bare-urls -->
 
-## To Be Done <a id='ssTBD'/>
+## To Be Done <a id='ssTBD'></a>
 
 In the long run, the directory layout shall be the following tree, optional directories in brackets:
 
@@ -208,4 +227,4 @@ At the moment not even this project conforms with this.
 TBD: add also the files, not directories only.
 
 Version control is done mainly in `git` but there are still some reminiscenses to `svn`,
-e.g. in the pom's.
+e.g. in the pom's. 
