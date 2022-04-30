@@ -198,6 +198,22 @@ Have a look at [https://snyk.io/blog/10-maven-security-best-practices/](https://
 
 Some literature on safety is [here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/).
 
+## Installation <a id='ssInst'>>/a>
+
+This section is on installation of computers. 
+Currently, only general purpose computers are in use, to be more precise, laptops. 
+All are installed with suse tumbleweed. 
+The [general installation](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md) is still manual. 
+On the other hand, after the manual part, 
+one can use a script [instZypper.sh](./src/main/resources/eu/simuline/qMngmnt/installation/instZypper.sh) 
+to complete installation. 
+At times still various programs need manual installation, like chrome and emacs, 
+namely to install and configure extensions. 
+Both can be installed the second time also by copying the config files. 
+Whereas there is no replacement for chrome, we plan to replace emacs by vs code completely. 
+The latter has the advantage, that one can install all extensions 
+by a script [instVScode.sh](./src/main/resources/eu/simuline/qMngmnt/installation/instVScode.sh). 
+
 ## Miscellaneous <a id='ssMisc'/>
 <!-- markdownlint-disable no-bare-urls -->
 https://www.mojohaus.org/license-maven-plugin/examples/example-download-licenses.html

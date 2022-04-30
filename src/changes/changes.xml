@@ -76,7 +76,11 @@
 
 		<release version="0.0.1" date='2022-05-01' description='literature and its references, quality management through maven plugins'>
 			<action dev="ER" type="add">
+				added instructions for installation of computers. 
+			</action>
+			<action dev="ER" type="add">
 				added minimum to turn this into a maven project: added pom and readme. 
+				added additional: changes.xml 
 			</action>
 			<action dev="ER" type="add">
 				added global bib-files 
