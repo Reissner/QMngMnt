@@ -46,13 +46,25 @@ Thus, internally we only use open, textual formats, like Markdown or LaTeX.
 In future `git` shall be the only version management tool.
 At the moment, there is still subversion in use,
 but this shall be eliminated in the next release. 
+In the future, one shall prescribe a branching model for git. 
 
-As regards editors or IDE's we are in the course of evaluations still, 
-but seemingly, `ms code` has a good chance to make the choice. 
-It offers a lot of extensions turning it into an IDE. 
-In contrast, `eclipse` is very mighty but not lightweight. 
-Various extensions help also ensuring quality. 
+As regards editors or IDE's we are in the course of evaluations still. 
+For a long span of time, `emacs` and its extensions was the editor of choice 
+with its numerous extensions for computing languages and documentation, 
+e.g. with latex and markdown. 
+Nevertheless, the java-extension did not keep pace with development of the language. 
+Then we accepted `eclipse` as java IDE, 
+is very mighty but not lightweight and also not universally usable. 
+At time of this writing, the evaluation is not completed, 
+but seemingly, `ms code` has a good chance to make the choice, 
+replacing both `emacs` and `eclipse`, 
+coming back to a universal editor. 
+Not only `ms code` offers a lot of extensions turning it into an IDE, 
+various extensions help also ensuring quality. 
 Uniformity of tools and processes also helps keeping up quality. 
+A nice detail is that extensions of `ms code` 
+can be installed via a script, given at [Section Installation](#ssInst). 
+Using these tools including checkers helps in ensuring quality. 
 
 The core tool besides the java development kit is `maven`
 which supports the deployment process of both software and documentation.
@@ -104,7 +116,7 @@ and to develop this project and the dependent one side by side.
 
 Release management must be based on `maven-release-plugin`. 
 
-## The Software Deployment Process <a id='ssSoftwareDep'/>
+## The Software Deployment Process <a id='ssSoftwareDep'></a>
 
 In the future, when compile time warnings occur, these must be eliminated,
 at last for the release to come.
@@ -205,7 +217,7 @@ Have a look at [https://snyk.io/blog/10-maven-security-best-practices/](https://
 
 Some literature on safety is [here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/).
 
-## Installation <a id='ssInst'>>/a>
+## Installation <a id='ssInst'></a>
 
 This section is on installation of computers. 
 Currently, only general purpose computers are in use, to be more precise, laptops. 
@@ -252,3 +264,4 @@ TBD: add also the files, not directories only.
 Version control is done mainly in `git`, 
 but there are still some reminiscences to `svn`,
 e.g. in the pom's. 
+Also, a branching model shall be prescribed in the future. 
