@@ -116,6 +116,8 @@ It is advisable to use snapshot versions during development
 and to develop this project and the dependent one side by side.
 
 Release management must be based on `maven-release-plugin`. 
+Please consult the [usage page](https://maven.apache.org/maven-release/maven-release-plugin/usage.html) 
+and do a dry-run first. 
 
 ## The Software Deployment Process <a id='ssSoftwareDep'></a>
 
