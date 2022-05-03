@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <!-- coordinates for model and artifact -->
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>eu.simuline</groupId>
   <artifactId>qMngmnt</artifactId>
-  <version>0.0.1-SNAPSHOT</version><!-- TBD: change: 0.1 -->
+  <version>0.0.1</version><!-- TBD: change: 0.1 -->
   <packaging>jar</packaging>
 
   <name>Quality Management @ Simuline</name>
@@ -25,13 +23,12 @@
       <url>http://creativecommons.org/licenses/by/4.0/</url>
       <distribution>repo</distribution>
       <comments>
-	>This work is licensed under a
+	&gt;This work is licensed under a
 	Creative Commons Attribution 4.0 International License.
 	    
 	<!--a rel="license"
 	   href="http://creativecommons.org/licenses/by/4.0/">
-	  <img alt="Creative Commons License" style="border-width:0"
-	       src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+	  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 	  <br />This work is licensed under a
 	  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
 	    Creative Commons Attribution 4.0 International License</a-->.
@@ -84,6 +81,7 @@
       scm:git:https://github.com/Reissner/QMngMnt.git
     </developerConnection>
     <url>https://github.com/Reissner/QMngMnt</url>
+    <tag>qMngmnt-0.0.1</tag>
   </scm>
 
 
