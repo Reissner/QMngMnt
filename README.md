@@ -47,6 +47,7 @@ In future `git` shall be the only version management tool.
 At the moment, there is still subversion in use,
 but this shall be eliminated in the next release. 
 In the future, one shall prescribe a branching model for git. 
+Also, the config files for git and also the inc-files must be specified. 
 
 As regards editors or IDE's we are in the course of evaluations still. 
 For a long span of time, `emacs` and its extensions was the editor of choice 
