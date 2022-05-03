@@ -86,6 +86,7 @@ zypper in -y texlive `# the base` \
 # maybe needed more packages and higher versions
 zypper in -y java-11-openjdk-src java-11-openjdk java-11-openjdk-devel `#java11 already included in base installation ` \
              java-15-openjdk-src java-15-openjdk java-15-openjdk-devel `#java15 for trials` \
+             java-1_8_0-openjdk-src java-1_8_0-openjdk java-1_8_0-openjdk-devel`#java1.8 for latex plugin` \
              maven `# basic build tool`
 
 
@@ -160,7 +161,7 @@ zypper in -y --from packman ffmpeg \
 zypper in -y virtualbox
 
 
-
+zypper in -y gnome-keyring
 
 #zypper rm -y ksshaskpass
 
