@@ -1,40 +1,39 @@
 <document xmlns="http://maven.apache.org/changes/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/changes/1.0.0
 			      http://maven.apache.org/xsd/changes-1.0.0.xsd">
-  
-  <!-- https://maven.apache.org/plugins/maven-changes-plugin/changes.html -->
-  <!-- action types: 
+
+	<!-- https://maven.apache.org/plugins/maven-changes-plugin/changes.html -->
+	<!-- action types: 
        add: added functionality to the project.
        fix: bug fix for the project.
        update: updated some part of the project.
        remove: removed some functionnality from the project. -->
-  <properties>
-    <title>QMngMnt</title>
-    <author email="reissner@simuline.eu">Ernst Reissner</author>
-  </properties>
-  <body>
+	<properties>
+		<title>QMngMnt</title>
+		<author email="reissner@simuline.eu">Ernst Reissner</author>
+	</properties>
+	<body>
 
-    <!-- TBD: write a texinfo maven plugin or search one -->
-    <!-- TBD: Tex-parser: 
+		<!-- TBD: write a texinfo maven plugin or search one -->
+		<!-- TBD: Tex-parser: 
 	 to be generalized according to documentation in grammar. 
 	 Tex-parser: problem with unbalanced $ in verbatim environments. 
 	 Maybe better write new one or synchronize with Latexml. 
 	 This is needed for analysis. -->
 
-   <!-- TBD: write parser for markdown, 
+		<!-- TBD: write parser for markdown, 
 	maybe extract from markdown renderer -->
 
-   <!-- TBD: Write checker which is able to find unresolved links 
+		<!-- TBD: Write checker which is able to find unresolved links 
 	and also base for application extracting docs with links. -->
- 
-   <!-- TBD: https://developer.okta.com/blog/2019/12/20/five-tools-improve-java
+
+		<!-- TBD: https://developer.okta.com/blog/2019/12/20/five-tools-improve-java
 	jacoco, pmd, spotbugs, japicmp -->
 
-   <!-- TBD: maybe introduce parent pom -->
+		<!-- TBD: maybe introduce parent pom -->
 
 
-   <!-- TBD: write down how to write a pom. 
+		<!-- TBD: write down how to write a pom. 
 	Aims: 
 	- platform indepencence, 
 	- repeatability 
@@ -74,6 +73,23 @@
 	  Requirements on tests? 
 	 -->
 
+
+	 <!-- Release plan: 
+		- upload seems to be quite long. 
+		  Maybe two jars: one full with all pdfs and the main jar without: 
+			just what is needed to configure maven and also bib-files. 
+	 -->
+		<release version="0.0.2" date='2022-05-05' description='literature and its references, quality management through maven plugins'>
+			<action dev="ER" type="fix">
+				Eliminated checkstyle rule for line length due to a bug. 
+				Now newer versions of checksyle can be used. 
+				(This is actually the motivation for this hotfix release.)
+			</action>
+			<action dev="ER" type="add">
+				In README.md added requirements on plugins to be specified. 
+			</action>
+		</release>
+
 		<release version="0.0.1" date='2022-05-01' description='literature and its references, quality management through maven plugins'>
 			<action dev="ER" type="add">
 				added instructions for installation of computers. 
@@ -92,6 +108,6 @@
 			<action dev="ER" type="add">
 				added a lot of pdfs
 			</action>
-	 	</release>
-  </body>
+		</release>
+	</body>
 </document>
