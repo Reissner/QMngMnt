@@ -125,7 +125,7 @@
 
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
-        <module name="LineLength"/>
+        <!--module name="LineLength"/--> <!-- eliminated because of a bug -->
         <module name="MethodLength"/>
         <module name="ParameterNumber"/>
 
