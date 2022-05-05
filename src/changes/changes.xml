@@ -78,8 +78,11 @@
 		- upload seems to be quite long. 
 		  Maybe two jars: one full with all pdfs and the main jar without: 
 			just what is needed to configure maven and also bib-files. 
+		- warning about java1.5 which seems strange to me 
+		- in `mvn site-deploy` eliminate [WARNING] No issue management URL defined in POM. Links to your issues will not work correctly.
+		- check why in many cases release plugin 3.2.0 does not work. 
 	 -->
-		<release version="0.0.2" date='2022-05-05' description='literature and its references, quality management through maven plugins'>
+		<release version="0.0.2" date='2022-05-05' description='bugfix checkstyle'>
 			<action dev="ER" type="fix">
 				Eliminated checkstyle rule for line length due to a bug. 
 				Now newer versions of checksyle can be used. 
