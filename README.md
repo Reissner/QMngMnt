@@ -9,7 +9,7 @@ The core mission of the simuline organization,
 is to provide computational software and the core technology is `java`. 
 Since computational software is particularly useful 
 if integrated into programming languages, 
-we deal also with the `matlab` language, i.e. with the matlab-interpreters 
+we deal also with the `matlab` language, i.e. with the `matlab` language interpreters 
 `matlab` and its free clone `octave`, 
 but also with `python`. 
 
@@ -97,15 +97,41 @@ This implies that the properties-section is as follows (maven version at time of
 </project>
 ```
 
-The target `clean` shall be configured in a way,
-that it cleans all files not under version control but not ignored.
-On the other hand, it shall not remove files under version control.
-All this must be checked with a command like `git status` in the root directory. 
+For use of `release-plugin` (see below), 
+the `scm` element with sub-elements in particular `developerConnection` 
+shall be present. 
 
-Deployment of releases must be preceded by target `clean`,
-so use `mvn clean deploy` and `mvn cleansite-deploy`.
+In the `build` element, the extensions `wagon-ftp`, `wagon-file` and `wagon-http` 
+shall be present. 
+In the `plugins` sub-element of the `build` element, 
+the following plugins must be specified: 
 
-The `maven-enforcer-plugin` must be used.
+- The `maven-enforcer-plugin` must be used 
+  to determine the maven version and the java version at least. 
+- The `maven-help-plugin` must be there to get info on the project or system. 
+- The `maven-clean-plugin` is to clean a build. 
+- The `maven-release-plugin` must be used to update releases. 
+  Deployment of releases must be preceded by target `clean`,
+  so use `mvn clean deploy` and `mvn clean site-deploy`.
+
+  The target `clean` shall be configured in a way,
+  that it cleans all files not under version control but not ignored.
+  On the other hand, it shall not remove files under version control.
+  All this must be checked with a command like `git status` in the root directory. 
+
+The `reporting` element with its `plugin` sub-element must be present 
+which must contain 
+
+- The `maven-project-info-reports-plugin`
+- The `versions-maven-plugin` to check for plugin updates. 
+- The `maven-changes-plugin` to create a change report 
+  from the `changes.xml` file 
+
+To unveil further plugins to be specified, run 
+
+```[sh]
+mvn versions:display-plugin-updates
+```
 
 All projects shall depend on this quality management project.
 They shall use all mechanisms for quality management
@@ -210,7 +236,7 @@ We deactivate the following rules:
   but one would need a way to restrict to 1 or 2 trailing spaces. 
 - `no-inline-html` because there is no common uniform way 
   to set an anchor in pure markdown, and so we need to use `html`, 
-  namely an `a`-tag. 
+  namely an a-tag. 
   It would be worth if all **further** inline `html` is avoided, 
   whereas the a-tag shall be allowed. 
 
