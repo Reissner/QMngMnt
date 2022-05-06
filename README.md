@@ -290,6 +290,14 @@ In the long run, the directory layout shall be the following tree, optional dire
 At the moment not even this project conforms with this.
 TBD: add also the files, not directories only.
 
+Besides the directory layout also the pom layout shall follow a scheme. 
+The ordering shall be as given by 
+[the official documentation for maven](https://maven.apache.org/ref/3.8.5/maven-model/maven.html). 
+All top level elements shall be present, either active or commented out. 
+
+For `maven-project-info-reports-plugin` do research on the set of available reports. 
+Maybe the pom spec gives the deceicive hint. 
+
 Version control is done mainly in `git`, 
 but there are still some reminiscences to `svn`,
 e.g. in the pom's. 
