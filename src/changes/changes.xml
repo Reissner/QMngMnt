@@ -74,14 +74,36 @@
 	 -->
 
 
-	 <!-- Release plan: 
+		<!-- Release plan: 
 		- upload seems to be quite long. 
 		  Maybe two jars: one full with all pdfs and the main jar without: 
 			just what is needed to configure maven and also bib-files. 
 		- warning about java1.5 which seems strange to me 
 		- in `mvn site-deploy` eliminate [WARNING] No issue management URL defined in POM. Links to your issues will not work correctly.
 		- check why in many cases release plugin 3.2.0 does not work. 
+		- check litPublic.bib and make rules. 
+		  Maybe a document checking all would be nice. 
+			There seem to be problems with capital. 
+			Write down somewhere that urls shall work. 
+			Maybe it is test.tex. 
+		- agree on a common include file. 
 	 -->
+
+		<release version="0.0.3" date='2022-05-06' description='bugfix bibtex, document on latex'>
+			<action dev="ER" type="fix">
+				Eliminated checkstyle rule for line length due to a bug. 
+				Now newer versions of checksyle can be used. 
+				(This is actually the motivation for this hotfix release.)
+			</action>
+			<action dev="ER" type="add">
+				In README.md added pom layout
+			</action>
+			<action dev="ER" type="add">
+				Added test.tex, used to check litPublic.bib but also for elementary rules 
+				ensuring quality of tex sources. 
+			</action>
+		</release>
+
 		<release version="0.0.2" date='2022-05-05' description='bugfix checkstyle'>
 			<action dev="ER" type="fix">
 				Eliminated checkstyle rule for line length due to a bug. 
