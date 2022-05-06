@@ -1,0 +1,130 @@
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+\documentclass[12pt]{article}
+\synctex=1
+
+\usepackage[a4paper]{geometry}%, showframe
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\bibliographystyle{alpha}
+
+\begin{document}
+
+\title{On writing \LaTeX{} documents for the simuline organization}
+\author{Dr.Ernst Reißner}
+\maketitle
+
+
+\newpage
+
+\tableofcontents % to create file .toc
+\listoffigures
+\listoftables
+%\newpage
+
+\section{Introduction}
+
+This document contains rules how to write documents specifically in \LaTeX. 
+Of course all rules for writing documents apply (TBD: reference) 
+and this documents focuses on aspects specific for latex documents. 
+The rules here are followed for simuline organization, 
+but is applicable in a broader context maybe with modifications. 
+
+At the current stage, this document is only a torso. 
+Its purpose is to check whether the overall bibliography is usable. 
+
+
+\section{Tools}\label{sec:tools}
+
+\LaTeX{} is a compiled language. 
+Thus, one needs an editor, possibly with an according \LaTeX-extension, 
+the proper compiler and a viewer for each output format. 
+
+As an editor \texttt{emacs} with extension \texttt{auctex} 
+is a possible choice but we chose visual code with an according extension. 
+The main viewer is \texttt{okular} but also \texttt{chrome} with markdown extension (TBD: which) 
+is needed. 
+What makes latex difficult from a point of view of tooling is, 
+that there is not a single converter but a universe of related tools, 
+e.g. to make a bibliography or an index, 
+and also latex itself must be enriched loading appropriate packages. 
+
+TBD: add reference to the installation script \texttt{zypper} 
+and installation script for visual code extensions, among them also those for latex. 
+TBD: think about how to reference documents in markdown format. 
+
+
+As \texttt{maven} is the general build tool, we bundle all those converters 
+in a single maven plugin which does nothing but invoking converters by need. 
+For our special needs, we developed the 
+[\texttt{latex-maven-plugin}](https://github.com/Reissner/latex-maven-plugin). 
+Starting from version 1.5, it has a goal \texttt{vrs} listing all converters 
+with their applicable versions. 
+It is recommended to have all of them installed. 
+In addition, there are lots of latex-packages required, 
+all of them in the \texttt{texlife} distribution 
+which contains also most of the converters, but not all of them. 
+The site of the plugin gives hints on the pieces of software used by the plugin 
+and provides a manual covering the full functionality. 
+
+What is important from the point of view of quality management is, 
+that the plugin detects failures and warnings so 
+that if conversely the build process completes without error or warning, 
+one can be sure that the result is without failure also. 
+Another point is that the plugin is for building all documents in one build run 
+but supports also development of a single document. 
+Maybe the most widely used tool for building a single \LaTeX{} document 
+is \texttt{latexmk} and the plugin is designed to cooperate with \texttt{latexmk}, 
+switching to \texttt{latexmk} if an error occurs or if a section must be added 
+and then again switching back to the plugin if all documents shall be complied. 
+
+
+
+In the long run, 
+all projects, even this one shall use the \texttt{latex-maven-plugin}. 
+This is currently not possible because this would introduce a cyclic dependency, 
+because on the one hand, the latex plugin is subject to the rules 
+prescribed in this quality management project and must be referenced in the latex plugin project, 
+and on the other hand, this quality management project needs the plugin to build. 
+This can only be resolved if this one project refers to a lower version of the sibling project. 
+At the beginning, this is not possible. 
+
+For now, this document is generated locally 
+only using command line tools \texttt{latex} and \texttt{bibtex} 
+or using \texttt{latexmk}. 
+
+
+\section{Sections}\label{sec:secs}
+
+Each document needs a title and an author and an identification of the version of the document. 
+What is not allowed is a date, because this corrupts certain equality checks. 
+If a document refers to software, as e.g. a manual, 
+the version of the document is that of the software. 
+
+Each document requires a table of contents. 
+If there are figures, tables or listings, then also an according table, e.g. table of figures, is required. 
+
+All documents shall have a reference, an index and a glossary. 
+Each of them must have an entry in the table of contents. 
+
+An introductory section is mandatory and in most cases, 
+it is advisable to have a summary or a miscellaneous section, 
+or a section with open points. 
+
+
+\section{Miscellaneous}\label{sec:misc}
+
+A big subject is how to obtain reproducible documents. 
+Also documents which contain computed data, either figure or computed pictures. 
+A discussion on \texttt{pythontex} can be found in \cite{Poo15}. 
+We are lucky that \texttt{pythontex} allows computations in python but also in octave, i.e. in the matlab language,  
+the two major languages we use besides our developing language java. 
+
+Note that there are alternatives to 
+
+\bibliography{litPublic}
+
+\end{document}
