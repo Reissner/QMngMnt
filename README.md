@@ -296,7 +296,7 @@ The ordering shall be as given by
 All top level elements shall be present, either active or commented out. 
 
 For `maven-project-info-reports-plugin` do research on the set of available reports. 
-Maybe the pom spec gives the deceicive hint. 
+Maybe the pom spec gives the decisive hint. 
 
 Version control is done mainly in `git`, 
 but there are still some reminiscences to `svn`,
