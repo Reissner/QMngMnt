@@ -11,11 +11,7 @@ zypper in -y MozillaThunderbird MozillaThunderbird-translations-common
 
 
 
-# TBD: reactivate later 
-#zypper ar http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
-#wget https://dl.google.com/linux/linux_signing_key.pub
-#rpm --import linux_signing_key.pub
-#zypper ref -f
+# addrepo.sh adds special repo for that 
 zypper in -y google-chrome-stable mathjax
 
 # `okular` and `okular-lang` are installed in basic version but needed are also
@@ -48,21 +44,10 @@ zypper in -y gcc gcc-c++ gcc-fortran gcc-ada gcc-go cross-arm-gcc10 \
  mono-core js `# mono used for tikz editor only, js broadly used `
 
 
-rpm --import https://packages.microsoft.com/keys/microsoft.asc
-#zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
-#zypper refresh
-zypper in -y code
-# please run instVScode.sh also 
-
-#code --list-extensions
-#code --install-extension ms-vscode.cpptools
-#code --uninstall-extension ms-vscode.csharp
-#code --install-extension Gimly81.matlab
-#code --install-extension DavidAnson.vscode-markdownlint
-
-zypper in -y emacs  `#emacs-auctex, maybe emacs no longer needed, maybe aspell for emacs only` \
- aspell aspell-de aspell-fr aspell-it aspell-pt_BR aspell-tl
-
+zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell for emacs only` \
+ aspell aspell-de aspell-fr aspell-it aspell-pt_BR aspell-tl `#spellchecker for emacs` \
+ code
+# please for vs code run instVScode.sh also 
 
 # texlive base and more 
 zypper in -y texlive `# the base` \
@@ -92,7 +77,7 @@ zypper in -y java-11-openjdk-src java-11-openjdk java-11-openjdk-devel `#java11 
 
 # some utilities 
 zypper in -y kruler cheese `# webcam` \
- uucp cutecom moreutils zip bzip2-doc gparted \
+ system-user-uucp uucp cutecom moreutils zip bzip2-doc gparted \
  dhex ktorrent \
  xsane spectacle gimp k3b `#scanning, screenshot, image processing and burning` \
  vlc `# films` \
@@ -142,12 +127,8 @@ zypper in -y yum rpm-build `#to build rpm packages`
 
 
 
-#if [[ -z zypper repos | egrep "^[0-9][0-9]* \| packman"]] ; then
-#zypper addrepo -cfp 90 \
-#       https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ \
-#       packman
-#fi
-#zypper refresh
+
+# addrepo.sh adds special repo for that 
 zypper dist-upgrade -y --from packman --allow-vendor-change
 # TBD: following not found
 # libavcodec58 libavdevice58 libavfilter7 libavformat58 libavutil56 
@@ -155,17 +136,24 @@ zypper in -y --from packman ffmpeg \
      gstreamer-plugins-bad gstreamer-plugins-libav gstreamer-plugins-ugly \
      libavresample4 vlc-codecs
 
-
-
-
 zypper in -y virtualbox
-
 
 zypper in -y gnome-keyring
 
 #zypper rm -y ksshaskpass
 
 # deinstall python 2.7 and dependencies
-#zypper rm -y#gimp-plugins-python python-gobject2 python-gtk  python2-pycairo 
-#zypper rm -y python # python-xml python-base 
-#zypper rm -y libpython2_7-1_0
+# this is a hack only
+if rpm -q python  >/dev/null ;
+then
+      zypper rm -y gimp-plugins-python python-gobject2 python-gtk  python2-pycairo 
+      zypper rm -y python `# python-xml python-base` 
+      zypper rm -y libpython2_7-1_0
+fi
+
+
+#zypper in -y teams
+if rpm -q teams  >/dev/null ;
+then
+      zypper rm -y teams
+fi
