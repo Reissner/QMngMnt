@@ -258,7 +258,7 @@
   <reporting>
     <plugins>
       <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.2.2</version>
         <configuration>
@@ -271,21 +271,21 @@
       mvn versions:display-dependency-updates
       mvn versions:display-property-updates
       -->
-  <plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>versions-maven-plugin</artifactId>
-    <!-- TBD: uniform version -->
-    <version>2.9.0</version>
-    <reportSets>
-      <reportSet>
-        <reports>
-          <report>dependency-updates-report</report>
-          <report>plugin-updates-report</report>
-          <report>property-updates-report</report>
-        </reports>
-      </reportSet>
-    </reportSets>
-  </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <!-- TBD: uniform version -->
+        <version>2.9.0</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
 
 
 
@@ -300,7 +300,7 @@
             </reports>
           </reportSet>
         </reportSets>
-       </plugin>
+      </plugin>
 
     </plugins>
   </reporting>
