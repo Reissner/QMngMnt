@@ -102,6 +102,9 @@
 				Added test.tex, used to check litPublic.bib but also for elementary rules 
 				ensuring quality of tex sources. 
 			</action>
+			<action dev="ER" type="add">
+				Added infrastructure for online linting (see readme). 
+			</action>
 		</release>
 
 		<release version="0.0.2" date='2022-05-05' description='bugfix checkstyle'>

@@ -262,6 +262,18 @@ Whereas there is no replacement for chrome, we plan to replace `emacs` by `vs co
 The latter has the advantage, that one can install all extensions 
 by a script [instVScode.sh](./src/main/resources/eu/simuline/qMngmnt/installation/instVScode.sh). 
 
+## Online Linting and Formatting <a id='ssLintFormat'></a>
+
+VS code is used with plugin `redhat.java` which includes linting and formatting also. 
+The configuration can be done locally, but also via internet. 
+We use the latter way to obtain uniformity accross the projects 
+and to minimize installation overhead. 
+We are aware that there are also drawbacks as e.g. lot of work when changing the ruleset. 
+The [Ruleset](./src/site/resources/java/eclipse-java-google-style.xml) 
+is derived from the according config used by google. 
+It is accessible on the site via 
+[site](https://www.simuline.eu/QualityManagement/java/eclipse-java-google-style.xml).
+
 ## Miscellaneous <a id='ssMisc'></a>
 <!-- markdownlint-disable no-bare-urls -->
 https://www.mojohaus.org/license-maven-plugin/examples/example-download-licenses.html
