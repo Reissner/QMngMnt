@@ -181,7 +181,8 @@ This directory also contains further files, e.g. rpm's and folders
 needed by this script. 
 One example is used to be `teams...`. 
 Note that in those cases, there is no automatic upgrade. 
-Now `teams` gets onto my nerves because of the splash screen it shows always when booting the computer. 
+Now `teams` gets onto my nerves 
+because of the splash screen it always shows when booting the computer. 
 Thus, the script uninstalls it. 
 
 A very good feature of visual code is, 
@@ -208,7 +209,7 @@ From `yast` install
   Does not work: Write an email, right click and "Add dictionary" choose `german`
   and install German language pack.
 
-- Google chrome is the browser we choose
+- Google Chrome is the browser we choose
   (*CAUTION*: package `google-chrome-stable` as given by the script).
   As browsers `firefox`, `chromium` and Google `chrome` are available,
   Google `chrome` is the only non-open source, but it is the sole
@@ -220,7 +221,7 @@ From `yast` install
   and in the menu choose (**bottom!**) 
   "Open Chrome Webstore" and from that choose the extensions we need: 
   
-  - "markdown viewer". Allow file access and collect errors. 
+  - "Markdown Viewer". Allow file access and collect errors. 
     An icon "m" occurs in the toolbar. 
     I feel theme markdown is best. 
     I would switch on all compiler options and all content options. 
@@ -231,8 +232,7 @@ From `yast` install
     if designing something for `html` 
     like markdown or code documentation (`javadoc` or `doxygen`). 
     Switch on "Bypass cache when reloading the page"
-  
-  - "video downloader plus 7.2.0" (fun but also to store tutorials)
+  - "Video downloader plus 7.2.0" (fun but also to store tutorials)
   
 <!-- - `mathjax` to render math in the browser -->
 
@@ -402,7 +402,7 @@ for building octave from the source. -->
   Also time by time Options--!>"Show/Hide" contains valuable aspects
   like column/line number and even global line numbers.
 
-  Next point is the `emacs` packages: Options--!>"ManagePackages"
+  Next point is the `emacs` packages: Options--!>"Manage Packages"
   Experimental:
   It seems as if in `~/.emacs` one has to add the following
   to see the full range of packages in `melpa` (package manager):
@@ -416,16 +416,16 @@ for building octave from the source. -->
 
   Then we can add the packages we need:
 
-  - for markup/down (the latter TBC): `markdown-mode-2.3` and `markup` 
-  - `csharp-mode` for csharp
+  - `markdown-mode-2.3` and `markup` for markup/down (the latter TBC), 
+  - `csharp-mode` for c-sharp
   - for `php`: `ac-php` and `phps-mode`
   - for python: `jedi`, maybe more like `importmagic`, `lsp-jedi` 
     (TBC: which lsp server)
-  - For java we mainly rely on eclim which is based on eclipse. 
+  - for java we mainly rely on `eclim` which is based on eclipse. 
     It is not at all clear how to install this. 
     Maybe headless. TBC
     Seemingly, only plugins are available in tumbleweed. 
-    Then there must be an installation of eclim, TBD. 
+    Then there must be an installation of `eclim`, TBD. 
     What are clear, are the `emacs` packages to access eclipse via `eclim` 
     or directly. 
     Also, TBC: which of the packages are obsolete if we have `eclim`. 
@@ -438,33 +438,33 @@ for building octave from the source. -->
 
     (not tried `meghananda`)
 
-   - For latex: 
-     - `auctex-12.2.0` TBC: seems to be a YaST package also `emacs-auctex` 
-	   which is already installed. 
+    - For latex: 
+      - `auctex-12.2.0` TBC: seems to be a YaST package also `emacs-auctex` 
+        which is already installed. 
         `auctex` in turn is quite complex and needs to be configured:  
-		LaTeX--!>xxx--!>"Browse Options" then select:  
-		"Tex command"--!>"Tex view" 
-		Here there is something to do 
-	 
-		 - "Tex View Program Selection". 
+        LaTeX--!>xxx--!>"Browse Options" then select:  
+        "Tex command"--!>"Tex view" 
+      Here there is something to do 
+
+      - "Tex View Program Selection". 
            Here, under `output-pdf` replace `evince` by `okular`. 
-		   Then forward search shall already work. 
-		 - "Tex Source Correlate Mode": on  
-		 - "Tex Source Correlate Start Server": on  
-	   
-		 - To enable backward search in `okular` 
-		   choose Settings--!>"Configure Okular"
-		   Select Editor and choose `emacsclient`. 
-	   
-		 - Also there seems a bug in current `auctex` and `okular` 
-		   as the "Tex View Program List" is just empty. 
-		   The old setting is no longer valid as masterdir disappeared. 
-	      	Thus in `.gnu-emacs-custom` after
-	       `TeX-source-correlate-start-server` add 
-		   
+       Then forward search shall already work. 
+      - "Tex Source Correlate Mode": on  
+      - "Tex Source Correlate Start Server": on  
+
+      - To enable backward search in `okular` 
+        choose Settings--!>"Configure Okular"
+         Select Editor and choose `emacsclient`. 
+      
+      - Also, there seems a bug in current `auctex` and `okular` 
+       as the "Tex View Program List" is just empty. 
+       The old setting is no longer valid as master directory disappeared. 
+          Thus, in `.gnu-emacs-custom` after
+          `TeX-source-correlate-start-server` add 
+        
 ```[lisp]
 '(TeX-source-correlate-start-server t)
-		   '(TeX-view-program-list
+      '(TeX-view-program-list
 (quote
     ;(("Okular" "okular -unique %o#src:%n%(masterdir)./%b"))
      (("Okular" "okular -unique %o#src:%n./%b"))
@@ -473,24 +473,22 @@ for building octave from the source. -->
 
 <!-- 
  -->
+    The above tells okular to stick with a single frame
+    even if invoked with new location. 
+    also `%n` is the line number in the source tex-file given by `%b`. 
 
-	    which tells okular to stick with a single 
-		even if invoked with new location. 
-		also `%n` is the line number in the source tex-file given by `%b`. 
-	
-		No adaption but a hint: 
-		LaTeX-->xxx-->"Browse Options" then select:  
-	 	"Tex command"-->"Latex view" 
-	 	Here the default is `latex` but if you run, it is `pdflatex`. 
-	 	This really makes a difference (bounding box of graphics). 
-	 
-	 - `auctex-latexmk` to access `latexmk`
-	 - `math-symbol-lists` to access math symbols of latex 
-	 - `lsp-latex` which needs an lsp server TBD: install 
-	  - `lsp-treemacs`
-	  - `go-mode` for go. 
-	 
-	 
+    No adaption but a hint: 
+    LaTeX-->xxx-->"Browse Options" then select:  
+    "Tex command"-->"Latex view" 
+    Here the default is `latex` but if you run, it is `pdflatex`. 
+    This really makes a difference (bounding box of graphics). 
+
+    - `auctex-latexmk` to access `latexmk`
+    - `math-symbol-lists` to access math symbols of latex 
+    - `lsp-latex` which needs an lsp server TBD: install 
+    - `lsp-treemacs`
+    - `go-mode` for go. 
+
 <!--
 - `autoconf`, `automake`, `libtool`
 	   
@@ -599,8 +597,8 @@ for building octave from the source. -->
 
 - `gimp` TBC: which packages in addition -->
 
-- `icu` international components for unicode 
-  This is needed also for dotnet core. 
+- `icu` international components for Unicode 
+  This is needed also for `dotnet core`. 
   
 <!-- - `disount` a package providing command `markdown` -->
 
@@ -637,7 +635,7 @@ for building octave from the source. -->
   To do this just command `usermod -aG docker $user` with the according user.
   This seems to work properly only after reboot. 
   
-  To run `docker push` and `docker pull` preceed this by `docker login`
+  To run `docker push` and `docker pull` precede this by `docker login`
   and after finishing, command `docker logout`. 
   TBD: eliminate warning on unencrypted password. 
   
@@ -662,93 +660,97 @@ for building octave from the source. -->
   well, maybe a very thin wrapper around command line. 
 -->
 
-- for java: `eclipse`. 
+- For java: `eclipse`. 
   The script installs `eclipse-jdt` (eclipse java development tools) 
   which includes among others `eclipse-platform`. 
   
   Some manual adaption is needed: 
   Startup on command line with `eclipse` and choose workspace. 
-  In the long run maybe `Software` or `OpenSource` and `ClosedSource` or sth. 
+  In the long run maybe `Software` or `OpenSource` and `ClosedSource` or something. 
   This creates the workspace if not present and also creates `~/.eclipse` 
   in which also the location of the workspace is stored. 
   
-  Open eclipse and select Help-->"Install new Software". 
-  After "Work with" type  http://download.eclipse.org/releases/2020-03 
-  which opens a tree of ?plugins? which can be installed. 
+  Open eclipse and select Help->"Install new Software". 
+  After "Work with" type http://download.eclipse.org/releases/2020-03 
+  which opens a tree of '?plugins?', which can be installed. 
   We need 
   - Collaboration 
     - Git integration for Eclipse (maybe)
   - General Purpose Tools
-     - m2e maven Integration for eclipse
-	 - marketplace client
+    - m2e maven Integration for eclipse
+    - marketplace client
   - Programming Languages 
-     - Eclipse Java Development Tools (maybe)
+    - Eclipse Java Development Tools (maybe)
 
   Note that one has to install this for each workspace anew. 
   
   CAUTION: be sure to uncheck "Contact all update sites..."
   
   Open eclipse and select Help --!>"Market Place" and use find
-  - xtext 
-  - jbc (byte code)
-  - antlr 4 ide 
+  - `xtext` 
+  - `jbc` (byte code)
+  - `antlr 4 ide` 
   
 - `virtualbox` is installed by the script, but nevertheless, 
-   additional manual steps are required. 
-   First it is advisable to put its icon on the desktop. 
-   The next steps are all asked when trying to start `virtualbox`: 
-   - add user to `vboxusers` group.  
+  additional manual steps are required. 
+  First it is advisable to put its icon on the desktop. 
+  The next steps are all asked when trying to start `virtualbox`: 
+  - add user to `vboxusers` group.  
      This can be done with YaST `user and group management`. 
-	 Dont forget to login anew. 
-   - accept activation of usb device (`enable`). 
-   - enable cut and paste and others through guest additions: 
+  Don't forget to log in anew. 
+  - Accept activation of `usb` device (`enable`). 
+  - Enable cut and paste and others through guest additions: 
      For each vm crated choose from the menu bar 
-	 Devices--!>"insert guest additions CD image..." 
-	 even if you don't have a CD image. 
-	 Then it is looking for it on internet. 
-	 It shows the URL and asks whether to download. Confirm this. 
-	 Confirm also the rest (at the end it will ask whether allowed to run a scipt)
-   - from the menu bar 
-	 - Devices--!>"Shared Clipboard" choose "bidirectional" 
-	 - Devices--!>"Drag and Drop" choose "bidirectional" 
-   - The window is small. 
+  Devices--!>"insert guest additions CD image..." 
+  even if you don't have a CD image. 
+  Then it is looking for the guest addition on internet. 
+  It shows the URL and asks whether to download. Confirm this. 
+  Confirm also the rest (at the end it will ask whether allowed to run a script)
+  - from the menu bar 
+  - Devices--!>"Shared Clipboard" choose "bidirectional" 
+  - Devices--!>"Drag and Drop" choose "bidirectional" 
+  - The window is small. 
      To solve that problem shutdown the machine 
-	 and from `virtualbox`'s menu choose Machine --!>Settings--!>Display 
-	 - 'Scale Factor' as 200% (why so ever) and in next boot back to 100%
-	 - 'Graphics controller' as 'VboxVGA' and then back to `VMSVGA`
-   - for Ubuntu: root with `sudo -s`. 
+     and from `virtualbox`'s menu choose Machine --!>Settings--!>Display 
+    - 'Scale Factor' as 200% (why so ever) and in next boot back to 100%
+    - 'Graphics controller' as `VboxVGA` and then back to `VMSVGA`
+    - for Ubuntu: root with `sudo -s`. 
   
 #### YaST Virtualization Hypervisor
 
 Choose KVM server and tools
 
-## Installation with SUSE one click install / zypper
+## Installation with SUSE one click install / `zypper`
 
 To find something like that, just google like `suse one click install eclipse`. 
-Then the site recognizes already the distribution, which is tumbleweed for
-me. 
+Then the site recognizes already the distribution, which is tumbleweed for us. 
 One click install offers `direct install` and `Expert Download`. 
 The latter offers you command line operation 
 typically consisting of the steps 
 Normally `zypper addrepo`, `zypper refresh` and `zypper install`. 
-We use that directly on the console as, in contrast to `direct install`, 
+If we use that directly on the console as, in contrast to `direct install`, 
 
 - we find out what is wrong if something does not work, 
-- we know how to include this into the installation script `./instZypper.sh`. 
+- we know how to include this into the installation scripts: in 
+  - [`addRepos.sh`](./addRepos.sh) add `zypper addrepo`, ignore `zypper refresh` 
+    because this is already present and 
+  - [`instZypper.sh`](./instZypper.sh) add `zypper install`. 
 
 ## Installation with yum and `zypper` <a id="instYZ"></a>
 
-conda. As this relies on python, 
-first install that through `yast` as specified there. 
+## Installing `conda` <a id="ssInstConda"></a>
 
-as described in 
+This presupposes `python3` 
+
+`conda`. As this relies on python, 
+first install that through `yast` as specified there as described in 
 
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/rpm-debian.html
 for rpm based systems (also for Debian as suggested by the URL). 
 
-	CAUTION: `conda` can be installed via `pip` also 
-	(`pip install conda`) but this does not yield conda 
-	as a standalone application as we need. 
+CAUTION: `conda` can be installed via `pip` also 
+(`pip install conda`) but this does not yield `conda` 
+as a standalone application as we need. 
 
 Check installation with `conda info`. 
 Activate shell support now typing `conda init bash` 
@@ -762,7 +764,7 @@ Seemingly, for anaconda there is no rpm available.
 
 A word on `anaconda`, `miniconda` and `conda`: 
 anaconda and `miniconda` are distributions. 
-`conda` is their common package manager. 
+`conda` is their common package manager and environment manager. 
 `miniconda` is a subset of anaconda containing not much more than 
 
 - `python`, 
@@ -776,17 +778,16 @@ Thus, `mbed-cli` shall be used in `conda` environment only.
 Take the following steps: 
 
 - check `python -V` displays version 3.8.3, 
-- initialize bash shell to display environment: `conda init bash`.  
-  Close bash and re-open and check that environment is indicated `(base)`
+- initialize bash shell to display environment: `conda init bash`;  
+  close bash and re-open and check that environment is indicated `(base)`
 - create an environment: `conda create --name envForMbedPy3.7.1 python=3.7.1`
-  creates an environment with the given name based on python 3.7.1. 
+  creates an environment with the given name based on python 3.7.1, 
 - change into this environment: `conda activate envForMbedPy3.7.1` 
   and check python -V is 3.7.1, 
 - update pip through `pip install -U pip` 
 - install via `pip install XXX` the packages: 
-  `pytest-shutil`, ...
-
-- install `mbed` tool via `pip install mbed-cli` 
+  `pytest-shutil`, ...,
+- install `mbed` tool via `pip install mbed-cli`, 
   and check by `mbed --version` whether version is still 
 - `cd` into some `mbed-os` and upgrade via `pip install -r requirements.txt`
   Result is that this works for python versions 
@@ -807,13 +808,13 @@ Take the following steps:
     mbed config --global GCC_ARM /home/ernst/SysAdmin/GccArmNoneEabi/latest/bin
   ```
 
-  To check whether all is ok, one could download the blinky example via 
+  To check whether all is ok, one could download the 'blinky' example via 
 
   ```[sh]
     mbed import http://os.mbed.com/teams/mbed-os-examples/code/mbed-os-example-blinky/
   ```
 
-  and compile with `mbed compile --flash`. 
+  ...and compile with `mbed compile --flash`. 
   
 ## Installation by direct download <a name="instDL"></a>
 
@@ -855,7 +856,7 @@ prior to extracting folders, like `tgz` or related.
   Another problem: there is no script version of it. 
   
 - `dotnet sdk`: 
-  For opensuse consult https://snapcraft.io/install/dotnet-sdk/opensuse 
+  For openSUSE consult https://snapcraft.io/install/dotnet-sdk/opensuse 
   CAUTION: for tumbleweed type 
 
   ```[sh]
@@ -909,10 +910,10 @@ prior to extracting folders, like `tgz` or related.
   
   By the way, `dotnet new --list` lists the kinds of applications supported, 
   among others `console` and `wpf`. 
-  If I understand right, wpf can be developed on linux, 
+  If I understand right, WPF can be developed on Linux, 
   but it cannot run... hm. 
   
-  For several reasons, among those, wpf is not cross platform 
+  For several reasons, among those, WPF is not cross-platform 
   and needs a lot of boilerplate, and is ugly, well... 
   We decided to give `AvaloniaUI` a trial. 
   A how-to which seems to be excellent can be found in 
