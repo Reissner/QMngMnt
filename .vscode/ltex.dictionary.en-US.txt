@@ -2,3 +2,4 @@ Reißner
 YaST
 Webstore
 Windoofs
+Okular
