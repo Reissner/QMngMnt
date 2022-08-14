@@ -53,16 +53,20 @@ zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell fo
 zypper in -y texlive `# the base` \
  texlive-xurl texlive-import texlive-verbatimbox `# xurl: line break in urls` \
  texlive-splitindex texlive-robustindex xindy texlive-uptex `# indices` \
+ texlive-bib2gls texlive-bib2gls-bin texlive-bib2gls-doc `# glossaries` \
  texlive-hanging texlive-stackengine texlive-tocloft texlive-etoc `# for doxygen` \
  pdftk texlive-pdfpagediff texlive-pdfpagediff-doc `# for pdf` \
        texlive-pdfprivacy texlive-pdfprivacy-doc`# for pdf` \
        exif exiftool `# show exif meta data, exiftool is better ` \
        `# Photini, exiv2 and gexif along the same lines as exif` \
  texlive-latex2man texlive-latex2nemeth latex2rtf `# converter` \
- unoconv pandoc texi2html texinfo libreoffice` # converter` \
+ unoconv pandoc texinfo libreoffice` # converter; texinfo implies texihtml and texiroff` \
  xfig gnuplot inkscape `# converter` \
  docbook2x discount `# the latter providing command 'markdown'` \
  rubber `#make utils texlive-arara? latexmake not present`
+mkdir -p /usr/share/texmf/bibtex/bst/abstract/
+wget -O /usr/share/texmf/bibtex/bst/abstract/abstract.bst http://tug.ctan.org/tex-archive/biblio/bibtex/utils/bibtools/abstract.bst
+texconfig rehash
 # TBD: more to come
 # TBD: add for git
 
