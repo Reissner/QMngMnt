@@ -31,6 +31,10 @@
 	jacoco, pmd, spotbugs, japicmp -->
 
 		<!-- TBD: maybe introduce parent pom -->
+		<!-- need a terminology database. 
+			suggestion: bib-format. 
+			terms: precision, accuracy, tolerance -->
+		<!-- for latex documents: imports of packages and definitions. -->
 
 
 		<!-- TBD: write down how to write a pom. 
@@ -89,11 +93,24 @@
 		- agree on a common include file. 
 	 -->
 
+	 <!-- Latex and related: 
+		- Require bibliographies written for biblatex and biber which shall be the default. 
+		- Require terminology management: l2r or XFPNumber or what else. 
+		- Write terms in bib format and use bib2gls for glossaries 
+		- require a certain version of the latex plugin (not yet implemented). 
+		- require standardized inputs. 
+		- require latex plugin support \includeonly command
+	 -->
+
+		<release version="0.0.4" date='2022-xx-xx' description=''>
+			<!--action dev="ER" type="fix">
+				Eliminated errors and warnings in litPublic.bib.
+			</action-->
+		</release>
+
 		<release version="0.0.3" date='2022-05-06' description='bugfix bibtex, document on latex'>
 			<action dev="ER" type="fix">
-				Eliminated checkstyle rule for line length due to a bug. 
-				Now newer versions of checksyle can be used. 
-				(This is actually the motivation for this hotfix release.)
+				Eliminated errors and warnings in litPublic.bib.
 			</action>
 			<action dev="ER" type="add">
 				In README.md added pom layout
