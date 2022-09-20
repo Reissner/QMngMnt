@@ -41,6 +41,7 @@ code --force --install-extension redhat.fabric8-analytics
 #
 #code --force --install-extension Gimly81.matlab
 #code --force --install-extension ms-python.python
+code --force --install-extension ms-python.pylint
 #code --force --install-extension bmewburn.vscode-intelephense-client # php
 #code --install-extension v--force scjava.vscode-java-pack# includes java5 runner
 
@@ -66,19 +67,44 @@ code --force --install-extension valentjn.vscode-ltex
 # groovy
 code --force --install-extension mellowmarshmallow.groovy
 code --force --install-extension nicolasvuillamy.vscode-groovy-lint
+code --force --install-extension argylewolflabs.vscode-groovy
+code --force --install-extension marlon407.code-groovy
+code --force --install-extension dontshavetheyak.groovy-guru
 
 # java
-code --force --install-extension redhat.java
-code --force --install-extension vscjava.vscode-java-test
-code --force --install-extension vscjava.vscode-java-dependency
-code --force --install-extension vscjava.vscode-java-debug
-code --force --install-extension vscjava.vscode-maven
 code --force --install-extension vscjava.vscode-java-pack
+# this also installs the following: 
+#code --force --install-extension redhat.java
+#code --force --install-extension vscjava.vscode-java-test
+#code --force --install-extension vscjava.vscode-java-dependency
+#code --force --install-extension vscjava.vscode-java-debug
+#code --force --install-extension vscjava.vscode-maven
+#code --force --install-extension VisualStudioExptTeam.vscodeintellicode
+code --force --install-extension wmanth.jar-viewer
+
+code --force --install-extension shengchen.vscode-checkstyle
+code --force --install-extension chuckjonas.apex-pmd
+code --force --install-extension sonarsource.sonarlint-vscode
+
 code --force --install-extension tintinweb.vscode-decompiler
 code --force --install-extension dgileadi.java-decompiler
 
 
+code --force --install-extension ryanluker.vscode-coverage-gutters
 
+# octave 
+code --force --install-extension leafvmaple.octave
+code --force --install-extension toasty-technologies.octave
 
 # makefile 
 code --force --install-extension carlos-algms.make-task-provider
+
+# emails
+code --force --install-extension tomashubelbauer.email-viewer
+
+# misc
+code --force --install-extension trond-snekvik.simple-rst
+code --force --install-extension maarti.jenkins-doc
+
+
+
