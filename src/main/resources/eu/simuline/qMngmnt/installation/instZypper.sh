@@ -158,7 +158,7 @@ fi
 
 
 #zypper in -y teams
-if rpm -q teams  >/dev/null ;
-then
-      zypper rm -y teams
-fi
+#if rpm -q teams  >/dev/null ;
+#then
+#      zypper rm -y teams
+#fi
