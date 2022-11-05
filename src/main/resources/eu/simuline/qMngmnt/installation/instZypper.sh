@@ -76,6 +76,7 @@ texconfig rehash
 zypper in -y java-11-openjdk-src java-11-openjdk java-11-openjdk-devel `#java11 already included in base installation ` \
 	     java-13-openjdk-src java-13-openjdk java-13-openjdk-devel `#java13 for trials` \
              java-15-openjdk-src java-15-openjdk java-15-openjdk-devel `#java15 for trials` \
+	     java-17-openjdk-src java-17-openjdk java-17-openjdk-devel `#java17 needed for redhead plugin` \
              java-1_8_0-openjdk-src java-1_8_0-openjdk java-1_8_0-openjdk-devel`#java1.8 for latex plugin` \
              maven `# basic build tool`
 

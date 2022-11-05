@@ -75,12 +75,20 @@ code --force --install-extension dontshavetheyak.groovy-guru
 code --force --install-extension vscjava.vscode-java-pack
 # this also installs the following: 
 #code --force --install-extension redhat.java
-#code --force --install-extension vscjava.vscode-java-test
-#code --force --install-extension vscjava.vscode-java-dependency
 #code --force --install-extension vscjava.vscode-java-debug
+#code --force --install-extension vscjava.vscode-java-test
 #code --force --install-extension vscjava.vscode-maven
 #code --force --install-extension VisualStudioExptTeam.vscodeintellicode
+
+# also from vscjava: 
+# code --force --install-extension vscjava.vscode-java-dependency
+
 code --force --install-extension wmanth.jar-viewer
+code --force --install-extension cracrayol.java-pmd
+
+# alternative test runner: 
+# code --force --install-extension javatest.java-test
+
 
 code --force --install-extension shengchen.vscode-checkstyle
 code --force --install-extension chuckjonas.apex-pmd
@@ -95,6 +103,9 @@ code --force --install-extension ryanluker.vscode-coverage-gutters
 # octave 
 code --force --install-extension leafvmaple.octave
 code --force --install-extension toasty-technologies.octave
+
+# lisp
+code --force --install-extension mattn.lisp
 
 # makefile 
 code --force --install-extension carlos-algms.make-task-provider
