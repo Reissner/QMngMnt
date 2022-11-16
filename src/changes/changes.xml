@@ -93,8 +93,15 @@
 		- agree on a common include file. 
 	 -->
 
+	 <!-- Synchronization between vscode and maven. 
+	Best would be a plugin extracting everything from pom and transforming into setting. 
+	For the moment: just go through the projects and analyze what settings are required. 
+	These shall be documented. 
+	Of course this must be described in this project. -->
+
 	 <!-- Latex and related: 
 		- Require bibliographies written for biblatex and biber which shall be the default. 
+		- synchronize literature stored and literature in bibliography. 
 		- Require terminology management: l2r or XFPNumber or what else. 
 		- Write terms in bib format and use bib2gls for glossaries 
 		- require a certain version of the latex plugin (not yet implemented). 
