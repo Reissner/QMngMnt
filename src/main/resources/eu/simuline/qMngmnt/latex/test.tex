@@ -9,12 +9,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\usepackage{hyperref}
+
 \bibliographystyle{alpha}
 
 \begin{document}
 
 \title{On writing \LaTeX{} documents for the simuline organization}
-\author{Dr. Ernst Reißner}
+\author{Dr.~Ernst Reißner}
 \maketitle
 
 
@@ -28,7 +30,7 @@
 \section{Introduction}
 
 This document contains rules how to write documents specifically in \LaTeX. 
-Of course all rules for writing documents apply (TBD: reference) 
+Of course all rules for writing documents apply (TBD\@: reference) 
 and this documents focuses on aspects specific for latex documents. 
 The rules here are followed for simuline organization, 
 but is applicable in a broader context maybe with modifications. 
@@ -44,23 +46,24 @@ Thus, one needs an editor, possibly with an according \LaTeX-extension,
 the proper compiler and a viewer for each output format. 
 
 As an editor \texttt{emacs} with extension \texttt{auctex} 
-is a possible choice, but we chose visual code with an according extension. 
-The main viewer is \texttt{okular} but also \texttt{chrome} with markdown extension (TBD: which) 
+is a possible choice, but we chose visual \texttt{code} with an according extension. 
+TBD\@: add a reference to the install script for \texttt{code}. 
+The main viewer is \texttt{okular} but also \texttt{chrome} with markdown extension (TBD\@: which) 
 is needed. 
 What makes latex difficult from a point of view of tooling is, 
 that there is not a single converter but a universe of related tools, 
-e.g. to make a bibliography or an index, 
+e.g.\@ to make a bibliography or an index, 
 and also latex itself must be enriched loading appropriate packages. 
 
-TBD: add reference to the installation script \texttt{zypper} 
+TBD\@: add reference to the installation script \texttt{zypper} 
 and installation script for visual code extensions, among them also those for latex. 
-TBD: think about how to reference documents in Markdown format. 
+TBD\@: think about how to reference documents in Markdown format. 
 
 
 As \texttt{maven} is the general build tool, we bundle all those converters 
 in a single maven plugin which does nothing but invoking converters by need. 
 For our special needs, we developed the 
-[\texttt{latex-maven-plugin}](https://github.com/Reissner/latex-maven-plugin). 
+\href{https://github.com/Reissner/latex-maven-plugin}{\texttt{latex-maven-plugin}}. 
 Starting from version 1.5, it has a goal \texttt{vrs} listing all converters 
 with their applicable versions. 
 It is recommended to have all of them installed. 
@@ -101,11 +104,12 @@ or using \texttt{latexmk}.
 
 Each document needs a title and an author and an identification of the version of the document. 
 What is not allowed is a date, because this corrupts certain equality checks. 
-If a document refers to software, as e.g. a manual, 
+If a document refers to software, as e.g\@. a manual, 
 the version of the document is that of the software. 
 
 Each document requires a table of contents. 
-If there are figures, tables or listings, then also an according table, e.g. table of figures, is required. 
+If there are figures, tables or listings, then also an according table, 
+e.g.\@ table of figures, is required. 
 
 All documents shall have a reference, an index and a glossary. 
 Each of them must have an entry in the table of contents. 
@@ -119,11 +123,42 @@ or a section with open points.
 
 A big subject is how to obtain reproducible documents. 
 Also documents which contain computed data, either figure or computed pictures. 
-A discussion on \texttt{pythontex} can be found in \cite{Poo15}. 
-We are lucky that \texttt{pythontex} allows computations in python but also in octave, i.e. in the matlab language,  
+A discussion on \texttt{pythontex} can be found in~\cite{Poo15}. 
+We are lucky that \texttt{pythontex} allows computations in python but also in octave, 
+i.e.\@ in the matlab language,  
 the two major languages we use besides our developing language java. 
 
 Note that there are alternatives to 
+
+
+\subsection{How to deal with ltex}\label{subsec:ltex}
+
+Ltex has many rules but there is one particular, which is difficult to conform with. 
+It is about spacing. 
+
+The root of the problem is, that \LaTeX{} inserts more space after full stop, 
+but not after other dot followed by a space. 
+But how does \LaTeX{} decide this? If the dot is preceeded by a lower case letter, 
+then it assumes a full stop, after an upper case letter it assumes no full stop. 
+This rule applies in most cases but not in all. 
+Here are two examples: 
+%
+\begin{itemize}
+  \item ``Apple Inc. sells phones''% chktex 12
+  Here, \LaTeX{} thinks the period ends a sentence and wrongly adds an extra space.
+  \item ``My school scores were all A. Einstein would be proud of me!'
+  Here, \LaTeX{} does not realize that the period ends a sentence and does not add the expected space. 
+  Note that chtex does not find this problem. 
+\end{itemize}
+
+The problem is solved by adding an invisible lower case letter by \texttt{\textbackslash@}. 
+Note how spacing improves: 
+\begin{itemize}
+  \item ``Apple Inc.\@ sells phones''
+  \item ``My school scores were all A\@. Einstein would be proud of me!'
+\end{itemize}
+
+
 
 \bibliography{litPublic}
 
