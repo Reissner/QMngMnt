@@ -1,0 +1,71 @@
+% Encoding: UTF-8
+
+@comment{This is a first draft}
+% maybe this glossary shall be hidden to give no hint on the activity of the company 
+
+
+% resolution 
+
+@entry{accM,
+%accuracy of measurement
+name = {accuracy},
+%plural = {geese},
+description = {Accuracy of measurement determines how close your measurement is to the actual value.}
+}
+
+@entry{precM,
+%precision of measurement
+name = {precision},
+%plural = {geese},
+%first={}
+description = {Precision of measurement is the degree to which it may vary from one to the next. },
+seealso={precN}
+}
+
+@entry{tolM,
+%tolerance of measurement
+name = {tolerance},
+%plural = {geese},
+description = {Tolerance of measurement is the pre-determined, acceptable \gls{accM} of measurement.}%
+}
+
+@entry{accN,
+% accuracy of machine number
+name = {accuracy},
+%plural = {geese},
+description = {Accuracy of a fixed/floating point number is the number of correct digits. 
+For an interval it is the width of the interval}
+}
+
+@entry{precN,
+%precision of machine number
+name = {precision},
+%plural = {geese},
+description = {Precision is the number of digits in a number (format). 
+The maximum number p of significant digits that can be represented in a format, 
+or the number of digits to that a result is rounded. IEEE754}
+}
+
+@entry{tolN,
+%tolerance of number
+name = {tolerance},
+%plural = {geese},
+description = {Tolerance is the pre-determined, acceptable level of \gls{accN} of a number.}
+}
+
+% analogous to @abbreviation is @acronym
+@abbreviation{xml, 
+short={XML},
+long={eXtendable Markup Language}
+}
+
+@symbol{pi,
+name={\ensuremath{\pi}},
+description={Archimedes' constant},
+value={3.14159\dots}
+}
+@symbol{e,
+name={\ensuremath{e}},
+description={Eulers constant},
+value={2.71828\dots}
+}
