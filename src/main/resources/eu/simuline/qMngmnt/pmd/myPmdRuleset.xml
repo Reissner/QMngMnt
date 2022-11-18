@@ -171,7 +171,11 @@
 
   <!--rule ref="category/java/design.xml/ClassWithOnlyPrivateConstructorsShouldBeFinal" /--><!--C-->
 
-  <rule ref="category/java/design.xml/CognitiveComplexity" />
+  <rule ref="category/java/design.xml/CognitiveComplexity">
+    <properties>
+      <property name="reportLevel"    value="16"/><!-- SUtils: javaPath -->
+    </properties>
+  </rule>
   <rule ref="category/java/design.xml/CollapsibleIfStatements" /><!--D-->
   <!--rule ref="category/java/design.xml/CouplingBetweenObjects" /--><!--C-->
   <!--rule ref="category/java/design.xml/CyclomaticComplexity" /--><!--C-->
