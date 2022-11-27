@@ -109,6 +109,13 @@
 		- require latex plugin support \includeonly command
 	 -->
 
+	 <!-- .latexmkrc: shall be moved to the latex plugin, 
+		but not before this can be added as a dependency. 
+	There is one disadvantage: if the .latexmkrc file changes, 
+this requires an update of quality management, which is slow. 
+but then it requires even an update of the latex plugin. 
+Note also that one has to take care of cyclic dependencies between the two projects. -->
+
 		<release version="0.0.4" date='2022-xx-xx' description=''>
 			<!--action dev="ER" type="fix">
 				Eliminated errors and warnings in litPublic.bib.

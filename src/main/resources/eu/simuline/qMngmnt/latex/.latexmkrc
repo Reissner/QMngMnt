@@ -1,5 +1,8 @@
-$pdf_mode=4;
-push @generated_exts, "synctex.gz";
+$pdf_mode=4; # lualatex
+$bibtex_use=2; # bbl files are never precious; applies to biber also 
+@generated_exts = (@generated_exts, 'nav', 'vrb', 'snm', 'run.xml', 'synctex.gz');
+$cleanup_includes_cusdep_generated=1;
+$cleanup_includes_generated=1;
 
 
 # Implementing glossary with bib2gls and glossaries-extra, with the
