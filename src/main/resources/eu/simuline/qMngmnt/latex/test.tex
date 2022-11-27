@@ -1,22 +1,36 @@
 
 \RequirePackage[l2tabu, orthodox]{nag}
 
-\documentclass[12pt]{article}
+\documentclass[a4paper,12pt]{article}
 \synctex=1
 
-\usepackage[a4paper]{geometry}%, showframe
+\usepackage{geometry}%, showframe
 \usepackage{microtype}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usepackage{listings}
 
 \usepackage{hyperref}
+\usepackage{rerunfilecheck}
 
-\bibliographystyle{alpha}
+\usepackage[toc, record]{glossaries-extra}% after hypertex
+
+\GlsXtrLoadResources[
+  %dual-entry-backlink={false},
+  src={../glossary},
+  sort={en-GB}
+]
+
+\bibliographystyle{abstract}%{alpha}%{aaai-named}%
+%\bibliographystyle{alpha}
+
 
 \begin{document}
 
 \title{On writing \LaTeX{} documents for the simuline organization}
 \author{Dr.~Ernst Reißner}
+%\date{\today}% date is not allowed 
 \maketitle
 
 
@@ -94,16 +108,63 @@ prescribed in this quality management project and must be referenced in the late
 and on the other hand, this quality management project needs the plugin to build. 
 This can only be resolved if this one project refers to a lower version of the sibling project. 
 At the beginning, this is not possible. 
+In general, compilation should work with default parameters. 
 
 For now, this document is generated locally 
-only using command line tools \texttt{latex} and \texttt{bibtex} 
-or using \texttt{latexmk}. 
+only using command line tools \texttt{lualatex} and \texttt{bibtex} 
+(in future we will require \texttt{biber} which presupposes the package \texttt{biblatex}). 
+Later we require a glossary and an index, glossary with \texttt{bib2gls} 
+and an index, where the tooling is not yet so clear. 
+Instead of directly using the combination of these tools, 
+one could use \texttt{latexmk} with an appropriate config file \texttt{.latexmkrc}. 
 
+\subsection{Configuration}\label{subsec:toolConf}
+
+This section collects configuration of tex documents. 
+A big part of configuration is the set of packages used 
+and the optios of the packages. 
+Note that these packages partially presuppose the abovementioned tools. 
+These tools are mandatory also in other cases for sake of reproducibility. 
+
+Some packages must be loaded before declaration of the \texttt{documentclass}. 
+This document is just an example. 
+
+\lstinputlisting[firstline=2, lastline=2]{test}%\RequirePackage
+
+Then comes the declaration of the \texttt{documentclass}. 
+Currently we support the classes \texttt{article}, \texttt{book} and \texttt{beamer}. 
+Since this is a (western) european company, only a4 paper is supported. 
+This shall be provided by the package \texttt{geometry}, 
+but the option shall be given not as package option but as documentclass option 
+to make it available to other packages also. 
+Font size of 12pt shall be in general used. 
+
+\lstinputlisting[firstline=4, lastline=4]{test}%\documentclass
+
+It is a requirement to support ``document development''. 
+This includes making a development environment as much 
+WYSIWIG\footnote{What you see is what you get}-like as possible. 
+To that end, one shall activate synctex as follows 
+
+\lstinputlisting[firstline=5, lastline=5]{test}%\documentclass
+
+
+After that, in the long run further packages shall be input from a general header file. 
+In the time to be, we specify here the packages needed and prohibited: 
+%
+\begin{description}
+  \item[prohibited] \texttt{inputenc}, \texttt{fontenc} because these do not fit \texttt{lualatex}. 
+  \item[mandatory] \texttt{geometry}, \texttt{microtype}, \texttt{rerunfilecheck}, \texttt{listings}, \texttt{hyperref}. 
+  This listing is incomplete. 
+  \item[future] in future \texttt{biblatex} is mandatory. 
+\end{description}
 
 \section{Sections}\label{sec:secs}
 
 Each document needs a title and an author and an identification of the version of the document. 
-What is not allowed is a date, because this corrupts certain equality checks. 
+What is not allowed is a date, because this corrupts certain equality checks: 
+A generated PDF file shall change only if this is really intended and not because the date changes 
+(which happens every day).  
 If a document refers to software, as e.g\@. a manual, 
 the version of the document is that of the software. 
 
@@ -158,8 +219,19 @@ Note how spacing improves:
   \item ``My school scores were all A\@. Einstein would be proud of me!'
 \end{itemize}
 
+\subsection{Terminology Management, Glossaries}\label{subsec:glos}
+
+Terminology management means that basic terms are defined at a single source. 
+It is decided that this places is a file in BIB format read by \texttt{bib2bls}. 
+It is conceivable to have more than one of these BIB files 
+but each term must be defined once over all BIB files. 
+
+A very good example of how useful and necessary terminology management is, 
+are the terms \gls{precN} and \gls{accN} referring to numbers 
+versus \gls{precM} and \gls{accM} referring to measurement. 
 
 
+\printunsrtglossaries%
 \bibliography{litPublic}
 
 \end{document}

@@ -140,6 +140,7 @@ Note also that one has to take care of cyclic dependencies between the two proje
 			<action dev="ER" type="add">
 				Added test.tex, used to check litPublic.bib but also for elementary rules 
 				ensuring quality of tex sources. 
+				Currently, this is not conform with what it requires. 
 			</action>
 			<action dev="ER" type="add">
 				Added infrastructure for online linting (see readme). 
