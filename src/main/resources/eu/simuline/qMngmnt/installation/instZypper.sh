@@ -55,6 +55,7 @@ zypper in -y texlive `# the base` \
  texlive-splitindex texlive-robustindex xindy texlive-uptex `# indices` \
  texlive-bib2gls texlive-bib2gls-bin texlive-bib2gls-doc `# glossaries` \
  texlive-hanging texlive-stackengine texlive-tocloft texlive-etoc `# for doxygen` \
+ texlive-draftwatermark texlive-draftwatermark-doc `# for watermarks like confidential or DRAFT` \
  pdftk texlive-pdfpagediff texlive-pdfpagediff-doc `# for pdf` \
        texlive-pdfprivacy texlive-pdfprivacy-doc`# for pdf` \
        exif exiftool `# show exif meta data, exiftool is better ` \
