@@ -117,12 +117,6 @@ but then it requires even an update of the latex plugin.
 Note also that one has to take care of cyclic dependencies between the two projects. -->
 
 		<release version="0.0.4" date='2022-xx-xx' description=''>
-			<!--action dev="ER" type="fix">
-				Eliminated errors and warnings in litPublic.bib.
-			</action-->
-		</release>
-
-		<release version="0.0.3" date='2022-05-06' description='bugfix bibtex, document on latex'>
 			<action dev="ER" type="add">
 				Added .latexmkrc for quite advanced use. 
 				Note that currently, the latex plugin does not support all those features in the current version. 
@@ -130,12 +124,39 @@ Note also that one has to take care of cyclic dependencies between the two proje
 			<action dev="ER" type="add">
 				Added glossary.bib to define basic terms.
 				Note that currently, the latex plugin does not support this feature in the current version. 
-			</action>
-			<action dev="ER" type="fix">
-				Eliminated errors and warnings in litPublic.bib.
+				Still a description was added to test.tex
 			</action>
 			<action dev="ER" type="add">
-				In README.md added pom layout
+				POM: added latex plugin to create via latex, but not yet active. 
+			</action>
+			<action dev="ER" type="add">
+				Developed test.tex, used to check litPublic.bib but also for elementary rules 
+				ensuring quality of tex sources. 
+				Still, this is not conform with what it requires. 
+			</action>
+			<action dev="ER" type="add">
+				Added infrastructure for online linting (see readme). 
+				Also added entries to false positives and to dictionary to have zero warnings. 
+			</action>
+			<action dev="ER" type="add">
+				Software installation: Added software to be installed by script instZypper.sh, 
+				in particular watermarks in latex documents. 
+				Reworked readme for installation, 
+				added script addRepo.sh and script instConda.sh and added a lot of material 
+				to installation of packages for vs code. 
+			</action>
+			<action dev="ER" type="add">
+				Added Literature, e.g. zypper cheat sheet 
+				and added entry in according BIB file. 
+			</action>
+			<action dev="ER" type="update">
+				POM: versions of dependencies. 
+			</action>
+		</release>
+
+		<release version="0.0.3" date='2022-05-06' description='bugfix bibtex, document on latex'>
+			<action dev="ER" type="fix">
+				Eliminated errors and warnings in litPublic.bib.
 			</action>
 			<action dev="ER" type="add">
 				Added test.tex, used to check litPublic.bib but also for elementary rules 
@@ -143,7 +164,7 @@ Note also that one has to take care of cyclic dependencies between the two proje
 				Currently, this is not conform with what it requires. 
 			</action>
 			<action dev="ER" type="add">
-				Added infrastructure for online linting (see readme). 
+				In README.md added pom layout
 			</action>
 		</release>
 
