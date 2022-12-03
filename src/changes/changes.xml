@@ -116,7 +116,14 @@ this requires an update of quality management, which is slow.
 but then it requires even an update of the latex plugin. 
 Note also that one has to take care of cyclic dependencies between the two projects. -->
 
-		<release version="0.0.4" date='2022-xx-xx' description=''>
+		<release version="0.0.4" date='2022-12-03' description='very inhomogeneous improvements'>
+			<action dev="ER" type="update">
+				Updated versions of software to be installed. 
+				Also the transition pdflatex to lualatex is a kind of update. 
+			</action>
+			<action dev="ER" type="update">
+				PMD and its rules. 
+			</action>
 			<action dev="ER" type="add">
 				Added .latexmkrc for quite advanced use. 
 				Note that currently, the latex plugin does not support all those features in the current version. 
@@ -130,7 +137,11 @@ Note also that one has to take care of cyclic dependencies between the two proje
 				POM: added latex plugin to create via latex, but not yet active. 
 			</action>
 			<action dev="ER" type="add">
-				Developed test.tex, used to check litPublic.bib but also for elementary rules 
+				Extended and updated bibliography. 
+			</action>
+				<action dev="ER" type="add">
+				Developed test.tex, used describe how to write documentation in latex 
+				and in particular to check litPublic.bib but also for elementary rules 
 				ensuring quality of tex sources. 
 				Still, this is not conform with what it requires. 
 			</action>
