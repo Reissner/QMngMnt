@@ -7,7 +7,7 @@
   
   <groupId>eu.simuline</groupId>
   <artifactId>qMngmnt</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Quality Management @ Simuline</name>
@@ -64,7 +64,7 @@
       scm:git:https://github.com/Reissner/QMngMnt.git
     </developerConnection>
     <url>https://github.com/Reissner/QMngMnt</url>
-    <tag>qMngmnt-0.0.4</tag>
+    <tag>HEAD</tag>
   </scm>
 
 
