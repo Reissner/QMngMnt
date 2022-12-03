@@ -846,6 +846,8 @@ prior to extracting folders, like `tgz` or related.
   If `latex` is installed, this file is likely to be created anew. 
   Just delete it, and `tikzedt` will do it for you. 
   If you leave it, it cannot recover. 
+
+  Note that we decided to use `lualatex` so in the options replace the default `pdflatex` by `lualatex`. 
   
 - To compile with `mbed-cli`, 
   the package `arm-none-eabi-gcc` must be downloaded from 
@@ -962,4 +964,3 @@ prior to extracting folders, like `tgz` or related.
   
   Within eclipse from menu choose `help-->Eclipse Marketplace` and search for
   `acute` and install it. 
-  
