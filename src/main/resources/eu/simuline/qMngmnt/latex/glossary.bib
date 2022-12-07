@@ -53,6 +53,24 @@ name = {tolerance},
 description = {Tolerance is the pre-determined, acceptable level of \gls{accN} of a number.}
 }
 
+@entry{IllCond,
+name={ill-conditioned},
+description = {A parametrized problem is called ill-conditioned, 
+if the solution depends sensitively on the parameters, 
+%Numeric definition: 
+i.e., if prescribed \gls{accN} of the solution requires high \gls{accN} of a parameter. 
+%Pragmatic definition: i.e., if the \gls{accN} with which parameters are given 
+%do not allow to determine the solution with the needed \gls{accN}. 
+}
+}
+
+@entry{NumUnstab,
+name={numerically unstable},
+description = {A numeric algorithm to solve a problem is called numerically unstable, 
+if its accuracy to solve the problem has impact on the accuracy of the solution 
+beyond the \gls{accN} of the parameters. }
+}
+
 % analogous to @abbreviation is @acronym
 @abbreviation{xml, 
 short={XML},
@@ -66,6 +84,6 @@ value={3.14159\dots}
 }
 @symbol{e,
 name={\ensuremath{e}},
-description={Eulers constant},
+description={Euler's constant},
 value={2.71828\dots}
 }
