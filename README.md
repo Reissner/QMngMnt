@@ -314,3 +314,14 @@ Version control is done mainly in `git`,
 but there are still some reminiscences to `svn`,
 e.g. in the pom's. 
 Also, a branching model shall be prescribed in the future. 
+
+We did not talk a lot on documentation. 
+Most is done in latex, but also markdown plays some role. 
+
+There is a code checker for latex and for Markdown 
+at the same time, `ltex`. 
+Its [documentation](https://valentjn.github.io/ltex/settings-de.html)
+shows, among other things, how to treat documents with mixed language. 
+
+Essentially, one has to write in general on documentation, 
+then elaborate which is specific for the languages under use. 
