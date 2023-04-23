@@ -264,12 +264,12 @@ by a script [instVScode.sh](./src/main/resources/eu/simuline/qMngmnt/installatio
 
 ## Online Linting and Formatting <a id='ssLintFormat'></a>
 
-VS code is used with plugin `redhat.java` which includes linting and formatting also. 
+VS Code is used with plugin `redhat.java` which includes linting and formatting also. 
 The configuration can be done locally, but also via internet. 
-We use the latter way to obtain uniformity accross the projects 
+We use the latter way to obtain uniformity across the projects 
 and to minimize installation overhead. 
-We are aware that there are also drawbacks as e.g. lot of work when changing the ruleset. 
-The [Ruleset](./src/site/resources/java/eclipse-java-google-style.xml) 
+We are aware that there are also drawbacks as e.g. a lot of work when changing the ruleset. 
+The [ruleset](./src/site/resources/java/eclipse-java-google-style.xml) 
 is derived from the according config used by google. 
 It is accessible on the site via 
 [site](https://www.simuline.eu/QualityManagement/java/eclipse-java-google-style.xml).
