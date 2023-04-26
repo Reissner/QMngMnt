@@ -16,6 +16,9 @@ code --force --install-extension shd101wyy.markdown-preview-enhanced
 code --force --install-extension alanwalk.markdown-navigation
 code --force --install-extension tchayen.markdown-links
 
+# Velocity Template Language (VTL)
+code --force --install-extension luqimin.velocity
+
 # antlr
 code --force --install-extension mike-lischke.vscode-antlr4
 code --force --install-extension ncthbrt.antlr4
@@ -24,12 +27,27 @@ code --force --install-extension ncthbrt.antlr4
 code --force --install-extension redhat.vscode-xml
 code --force --install-extension dotjoshjohnson.xml
 
-# latex
+# latex and friends 
 code --force --install-extension james-yu.latex-workshop
+code --force --install-extension mathematic.vscode-latex
+# bib
 code --force --install-extension phr0s.bib
 code --force --install-extension twday.bibmanager
-code --force --install-extension mathematic.vscode-latex
+# nothing found for tikz
+# metapost 
+code --force --install-extension fjebaker.vscode-metapost
+# gnuplot is separate below 
 # TBD: zotero
+
+# gnuplot
+code --force --install-extension marioschwalbe.gnuplot
+code --force --install-extension fizzybreezy.gnuplot
+
+# svg
+code --force --install-extension jock.svg
+code --force --install-extension simonsiefke.svg-preview
+
+
 
 #git
 code --force --install-extension eamodio.gitlens
@@ -51,6 +69,10 @@ code --force --install-extension ms-python.pylint
 
 code --force --install-extension ithildir.java-properties
 
+# C and C++
+code --force --install-extension ms-vscode.cpptools-extension-pack
+
+
 # for docker 
 code --force --install-extension ms-azuretools.vscode-docker
 code --force --install-extension ms-vscode-remote.remote-containers
@@ -70,6 +92,9 @@ code --force --install-extension nicolasvuillamy.vscode-groovy-lint
 code --force --install-extension argylewolflabs.vscode-groovy
 code --force --install-extension marlon407.code-groovy
 code --force --install-extension dontshavetheyak.groovy-guru
+
+# perl
+code --force --install-extension d9705996.perl-toolbox
 
 # java
 code --force --install-extension vscjava.vscode-java-pack
