@@ -247,6 +247,34 @@
         <version>3.2.0</version>
       </plugin>
 
+
+      			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.4.2</version>				<!-- 3.3.0 -->
+
+				<executions>
+					<!-- creates jar-with-dependencies 
+	       which is used by translate.sh -->
+					<!-- TBD: how to avoid jar. maybe build-helper-maven-plugin... -->
+
+					<execution>
+						<id>assemble_tgz</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>true</appendAssemblyId>
+							<descriptors>
+								<descriptor>src${file.separator}assembly${file.separator}installer.xml</descriptor>
+							</descriptors>
+							<!--formats>tar.gz</formats-->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-install-plugin</artifactId>

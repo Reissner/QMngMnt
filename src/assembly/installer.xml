@@ -1,0 +1,48 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0
+			      http://maven.apache.org/xsd/assembly-2.1.0.xsd">
+  <!-- TBC: creates ArithIntOctave-1.0-SNAPSHOT-octave-package.tar.gz 
+       or more generally, 
+       project.artifactId-project.version-assembly.id.assembly.formats.format 
+       which is not conform with what octave expects: 
+       It whould expect empty id, but assembly plugin does not support that. -->
+  <id>installer</id>
+  <formats><format>tar.gz</format></formats>
+  <!--includeBaseDirectory>false</includeBaseDirectory-->
+  <fileSets>
+    <!-- Files fundamental to the projet -->
+    <fileSet>
+      <directory>src/main/resources/eu/simuline/qMngmnt/installation</directory>
+      <outputDirectory>${file.separator}</outputDirectory>
+      <!--includes>
+        <include>README*</include>
+        <include>LICENSE*</include>
+        <include>NOTICE*</include>
+      </includes-->
+    </fileSet>
+    <!-- files in package -->
+    <!--fileSet>
+      <directory>${project.build.directory}${file.separator}package</directory>
+      <outputDirectory>${file.separator}</outputDirectory>
+      <includes>
+        <include>*</include>
+	<include>inst/**/*.m</include>
+	<include>inst/java.opts</include>
+ 	<include>doc/**/*</include>
+      </includes>
+      <excludes>
+	<exclude>PKG_*.m</exclude>
+      </excludes>
+    </fileSet-->
+  </fileSets>
+
+  <!--dependencySets>
+    <dependencySet>
+      <outputDirectory>${file.separator}inst</outputDirectory>
+      <includes>
+        <include>${arithGrp}:${arithId}</include>
+      </includes>
+    </dependencySet>
+  </dependencySets-->
+</assembly>
