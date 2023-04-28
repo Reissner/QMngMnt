@@ -105,6 +105,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <versionTikzuml>tikzuml-v1.0-2016-03-29</versionTikzuml>
+    <versionJabref>5.9-1.x86_64</versionJabref>
   </properties>
 
 
@@ -192,6 +194,25 @@
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <version>3.1.0</version>
+        <configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
+							<includes>
+								<include>${versionTikzuml}.tbz</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>src/main/resources/eu/simuline/qMngmnt/installation/${versionTikzuml}</directory>
+						</fileset>
+            <fileset>
+							<directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
+							<includes>
+								<include>jabref-${versionJabref}.rpm</include>
+							</includes>
+						</fileset>
+          </filesets>
+        </configuration>
       </plugin>
 
       <plugin>
