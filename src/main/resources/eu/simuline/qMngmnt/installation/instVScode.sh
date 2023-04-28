@@ -72,6 +72,8 @@ code --force --install-extension ithildir.java-properties
 # C and C++
 code --force --install-extension ms-vscode.cpptools-extension-pack
 
+# makefile
+code --force --install-extension ms-vscode.makefile-tools
 
 # for docker 
 code --force --install-extension ms-azuretools.vscode-docker
