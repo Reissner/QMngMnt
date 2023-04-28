@@ -85,7 +85,7 @@ texconfig rehash # part of texlive
 # TBD: It is not ok just to patch into an existing and clean texlive installation. 
 # To improve this, one shall install texlive in the standardized way, not via suse. 
 tikzVersion=tikzuml-v1.0-2016-03-29
-wget -nc -O $tikzVersion.tbz https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/src/tikzuml-v1.0-2016-03-29.tbz
+wget -nc -O $tikzVersion.tbz https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/src/$tikzVersion.tbz
 chmod a+w $tikzVersion.tbz
 if ! [[ -e $tikzVersion ]]; then
   tar -xvf $tikzVersion.tbz
@@ -107,8 +107,9 @@ fi
 cp ./tex4ht/longtable.4ht /usr/share/texmf/tex/generic/tex4ht/longtable.4ht 
 
 #zypper in -y jabref# this did not work: older version, problem with javafx
-wget -nc -O ./jabref-5.9-1.x86_64.rpm https://www.fosshub.com/JabRef.html?dwl=jabref-5.9-1.x86_64.rpm
-rpm -i ./jabref-5.9-1.x86_64.rpm
+jabrefVersion=5.9-1.x86_64
+wget -nc -O ./jabref-$jabrefVersion.rpm https://www.fosshub.com/JabRef.html?dwl=jabref-$jabrefVersion.rpm
+rpm -i ./jabref-$jabrefVersion.rpm
 pushd /usr/local/bin/
 ln -sf /opt/jabref/bin/JabRef JabRef
 popd
