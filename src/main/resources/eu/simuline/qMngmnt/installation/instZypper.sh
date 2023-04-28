@@ -1,8 +1,13 @@
 #!/bin/sh -
 
-# This is a shell script to install all software needed on a computer with minimal installation of suse tumbleweed. 
-# It can also be used for update of these pieces of software although `zypper dup` shall be used. 
-# This script is used prior to `zypper dup` in order to inform the user about most significant changes. 
+# This is a shell script to install all software needed on a computer 
+# with minimal installation of suse tumbleweed. 
+# It can also be used for update of these pieces of software 
+# although `zypper dup` shall be used. 
+# This script is used prior to `zypper dup` 
+# in order to inform the user about most significant changes. 
+# Prior to invoking this, configure the zypper repositories 
+# running addRepos.sh fist. 
 
 # basically this installation script is based on invocations of zypper 
 # but there are cases where other programs are used for installation 
@@ -14,8 +19,6 @@ systemctl enable snapd
 zypper in -y MozillaThunderbird MozillaThunderbird-translations-common
 # If the main directory is not preserved `~/.thunderbird` must be reconstructed.
 # Also ensure that there is a link to thunderbird on the desktop
-
-
 
 # addrepo.sh adds special repo for that 
 zypper in -y google-chrome-stable mathjax
@@ -57,18 +60,19 @@ zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell fo
 
 # texlive base and more 
 zypper in -y texlive `# the base` \
-  texlive-xurl texlive-import texlive-verbatimbox `# xurl: line break in urls` \
-  texlive-leaflet  texlive-leaflet-doc `# to support leaflets` \
+  texlive-xurl       texlive-import texlive-verbatimbox `# xurl: line break in urls` \
+  texlive-leaflet    texlive-leaflet-doc `# to support leaflets` \
   texlive-splitindex texlive-robustindex xindy texlive-uptex `# indices` \
-  texlive-bib2gls texlive-bib2gls-bin texlive-bib2gls-doc `# glossaries` \
-  texlive-hanging texlive-stackengine texlive-tocloft texlive-etoc `# for doxygen` \
+  texlive-bib2gls    texlive-bib2gls-bin texlive-bib2gls-doc `# glossaries` \
+  texlive-hanging    texlive-stackengine texlive-tocloft texlive-etoc `# for doxygen` \
   texlive-draftwatermark texlive-draftwatermark-doc `# for watermarks like confidential or DRAFT` \
   texlive-jupynotex-doc `# for jupyter notebook` \
-  pdftk texlive-pdfpagediff texlive-pdfpagediff-doc `# for pdf` \
+  texlive-latex2man  texlive-latex2nemeth latex2rtf `# converter` \
   texlive-pdfprivacy texlive-pdfprivacy-doc`# for pdf` \
+  texlive-dratex     texlive-dratex-doc `# only used to compile tex2ht` \
+  texlive-pdfpagediff texlive-pdfpagediff-doc pdftk `# for pdf` \
   exif exiftool `# show exif meta data, exiftool is better ` \
     `# Photini, exiv2 and gexif along the same lines as exif` \
-  texlive-latex2man texlive-latex2nemeth latex2rtf `# converter` \
   unoconv pandoc texinfo libreoffice` # converter; texinfo implies texihtml and texiroff` \
   xfig gnuplot inkscape `# converter` \
   docbook2x discount `# the latter providing command 'markdown'` \
@@ -78,22 +82,28 @@ mkdir -p /usr/share/texmf/bibtex/bst/abstract/
 wget -nc -O /usr/share/texmf/bibtex/bst/abstract/abstract.bst http://tug.ctan.org/tex-archive/biblio/bibtex/utils/bibtools/abstract.bst
 texconfig rehash # part of texlive 
 
-# TBD: TikzUml/tikzuml-v1.0-2016-03-29 must be in QMngMnt und auf SysAdmin gelinkt. 
-# this must be done with wget also. 
-# In addition it is not ok just to patch into an existing and clean texlive installation. 
+# TBD: It is not ok just to patch into an existing and clean texlive installation. 
 # To improve this, one shall install texlive in the standardized way, not via suse. 
-pushd TikzUml/tikzuml-v1.0-2016-03-29
-mkdir -p /usr/share/texmf/tex/latex/tikz-uml/
-cp tikz-uml.sty /usr/share/texmf/tex/latex/tikz-uml/
-mkdir -p /usr/share/texmf/doc/latex/tikz-uml
-cp -r doc/* /usr/share/texmf/doc/latex/tikz-uml
-popd
-# TBD: more to come
-# TBD: add for git
+tikzVersion=tikzuml-v1.0-2016-03-29
+wget -nc -O $tikzVersion.tbz https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/src/tikzuml-v1.0-2016-03-29.tbz
+chmod a+w $tikzVersion.tbz
+if ! [[ -e $tikzVersion ]]; then
+  tar -xvf $tikzVersion.tbz
+  chmod -R a+w $tikzVersion
+  pushd $tikzVersion
+  mkdir -p /usr/share/texmf/tex/latex/tikz-uml/
+  cp tikz-uml.sty /usr/share/texmf/tex/latex/tikz-uml/
+  mkdir -p /usr/share/texmf/doc/latex/tikz-uml
+  cp -r doc/* /usr/share/texmf/doc/latex/tikz-uml
+  popd
+fi
+
 
 # TBD: this shall be done inside the project. 
 # this is a patch, which shall not be necessary in the long run. 
 # It may even cause a problem if the package is updated. 
+# The patch is from a dark channel 
+# https://tex.stackexchange.com/questions/682383/htlatex-problem-with-caption-in-longtable/682399?noredirect=1#comment1693273_682399
 cp ./tex4ht/longtable.4ht /usr/share/texmf/tex/generic/tex4ht/longtable.4ht 
 
 #zypper in -y jabref# this did not work: older version, problem with javafx
