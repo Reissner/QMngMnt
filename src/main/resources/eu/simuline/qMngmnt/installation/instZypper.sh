@@ -78,9 +78,13 @@ zypper in -y texlive `# the base` \
   docbook2x discount `# the latter providing command 'markdown'` \
   rubber `# make utils texlive-arara? latexmake not present` \
   epstool `# eps files in latex also for octave`
+
+
+# TBD: It is not ok just to patch into an existing and clean texlive installation. 
+# To improve this, one shall install texlive in the standardized way, not via suse. 
 mkdir -p /usr/share/texmf/bibtex/bst/abstract/
 wget -nc -O /usr/share/texmf/bibtex/bst/abstract/abstract.bst http://tug.ctan.org/tex-archive/biblio/bibtex/utils/bibtools/abstract.bst
-texconfig rehash # part of texlive 
+
 
 # TBD: It is not ok just to patch into an existing and clean texlive installation. 
 # To improve this, one shall install texlive in the standardized way, not via suse. 
@@ -105,6 +109,9 @@ fi
 # The patch is from a dark channel 
 # https://tex.stackexchange.com/questions/682383/htlatex-problem-with-caption-in-longtable/682399?noredirect=1#comment1693273_682399
 cp ./tex4ht/longtable.4ht /usr/share/texmf/tex/generic/tex4ht/longtable.4ht 
+
+texconfig rehash # part of texlive 
+
 
 #zypper in -y jabref# this did not work: older version, problem with javafx
 jabrefVersion=5.9-1.x86_64
