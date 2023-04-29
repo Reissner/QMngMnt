@@ -88,7 +88,8 @@ wget -nc -O /usr/share/texmf/bibtex/bst/abstract/abstract.bst http://tug.ctan.or
 
 # TBD: It is not ok just to patch into an existing and clean texlive installation. 
 # To improve this, one shall install texlive in the standardized way, not via suse. 
-tikzVersion=tikzuml-v1.0-2016-03-29
+tikzVersion=${versionTikzuml}
+#tikzuml-v1.0-2016-03-29
 wget -nc -O $tikzVersion.tbz https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/src/$tikzVersion.tbz
 chmod a+w $tikzVersion.tbz
 if ! [[ -e $tikzVersion ]]; then
@@ -114,7 +115,7 @@ texconfig rehash # part of texlive
 
 
 #zypper in -y jabref# this did not work: older version, problem with javafx
-jabrefVersion=5.9-1.x86_64
+jabrefVersion=${versionJabref}
 wget -nc -O ./jabref-$jabrefVersion.rpm https://www.fosshub.com/JabRef.html?dwl=jabref-$jabrefVersion.rpm
 rpm -i ./jabref-$jabrefVersion.rpm
 pushd /usr/local/bin/
