@@ -131,6 +131,7 @@
       </extension>
     </extensions>
 
+    <!-- copy into target/classes -->
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -182,7 +183,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>        <!-- TBD: check why 3.2.0 does not work -->
+        <version>3.1.0</version>        <!-- TBD: check why 3.1.0 works whereas 3.2.0 does not -->
       </plugin>
 
       <plugin>
@@ -210,6 +211,12 @@
               <directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
               <includes>
                 <include>jabref-${versionJabref}.rpm</include>
+              </includes>
+            </fileset>
+            <fileset>
+              <directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
+              <includes>
+                <include>find_uno.py</include>
               </includes>
             </fileset>
           </filesets>
@@ -248,32 +255,29 @@
       </plugin>
 
 
-      			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.4.2</version>				<!-- 3.3.0 -->
+      <!-- writes the tar.gz file for the suse tumbleweed installer -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.4.2</version>        <!-- 3.3.0 -->
 
-				<executions>
-					<!-- creates jar-with-dependencies 
-	       which is used by translate.sh -->
-					<!-- TBD: how to avoid jar. maybe build-helper-maven-plugin... -->
-
-					<execution>
-						<id>assemble_tgz</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<appendAssemblyId>true</appendAssemblyId>
-							<descriptors>
-								<descriptor>src${file.separator}assembly${file.separator}installer.xml</descriptor>
-							</descriptors>
-							<!--formats>tar.gz</formats-->
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+        <executions>
+          <execution>
+            <id>assemble_tgz</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <appendAssemblyId>true</appendAssemblyId>
+              <descriptors>
+                <descriptor>src${file.separator}assembly${file.separator}installer.xml</descriptor>
+              </descriptors>
+              <!--formats>tar.gz</formats-->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

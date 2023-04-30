@@ -170,12 +170,22 @@ The directory of this README contains a bunch of scripts to perform installation
 
 The first step to extend it, is to add repositories invoking [`addRepos.sh`](./addRepos.sh). 
 This is mostly a sequence of `zypper`'s `addrepo` commands followed by a final `refresh` command. 
+Note that if running this script if a repository is added already, 
+an error is displayed. 
+There is no simple way to tell `zypper` to add a repository if not yet added. 
+So we accept the errors. 
 
 Then run the script [`instZypper.sh)`](./instZypper.sh) 
 which is mostly a sequence of commands `zypper in -y ...`. 
-Note that in rare cases, also software is uninstalled, using `zypper rm ...`. 
+Note that in rare cases, also software is uninstalled, using `zypper rm ...` so as for `python2`. 
+In particular, `wget` and `snapd` are installed that way and later used to install further software 
+not available via `zypper` directly. 
+Whereas `snap` provided by `snapd` is standalone like `zypper`, `wget` is just for downloading. 
+It is used in conjunction with `rpm` to install software. 
+Note that `rpm`, like `zypper` is available on the base system. 
 
-Note that for several pieces of software, 
+
+CAUTION: For several pieces of software, 
 an additional configuration is needed. 
 This directory also contains further files, e.g. rpm's and folders 
 needed by this script. 
@@ -188,6 +198,11 @@ Thus, the script uninstalls it.
 A very good feature of visual code is, 
 that it allows installing extensions and updating them by script also. 
 To that end run [`instVScode.sh`](./instVScode.sh) as user, not as root. 
+
+Similar mechanisms are available for our browsers to install extensions 
+and for `conda` to install packages via `pip`. 
+Some packages are also installed outside `conda` environments. 
+These are installed via [`instPip.sh`](./instPip.sh). 
 
 ### Installation from `yast`
 

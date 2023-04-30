@@ -1,9 +1,3 @@
-#see https://pypi.org/project/unoserver/: 
-#To find all Python installations that have the relevant LibreOffice libraries installed, you can run a script called find_uno.py:
-#wget -O find_uno.py https://gist.githubusercontent.com/regebro/036da022dc7d5241a0ee97efdf1458eb/raw/find_uno.py
-#python3 find_uno.py
-
-# for video; priority 90
 
 # ar is a shortcut for addrepo, 
 # -f is a shortcut for --refresh and this is AUTO-refresh 
