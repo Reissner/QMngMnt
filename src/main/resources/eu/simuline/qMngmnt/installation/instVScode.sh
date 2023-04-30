@@ -1,3 +1,5 @@
+#!/bin/sh -
+
 # The following commands control vs code's extension manager: 
 #code --list-extensions --show-versions
 #code --install-extension ms-vscode.cpptools
