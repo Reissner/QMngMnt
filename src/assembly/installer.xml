@@ -1,40 +1,39 @@
-<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0
-			      http://maven.apache.org/xsd/assembly-2.1.0.xsd">
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.1
+			      http://maven.apache.org/xsd/assembly-2.1.1.xsd">
   <!-- TBC: creates ArithIntOctave-1.0-SNAPSHOT-octave-package.tar.gz 
        or more generally, 
        project.artifactId-project.version-assembly.id.assembly.formats.format 
        which is not conform with what octave expects: 
        It whould expect empty id, but assembly plugin does not support that. -->
   <id>installer</id>
-  <formats><format>tar.gz</format></formats>
+  <formats>
+    <format>tgz</format>
+  </formats>
   <!--includeBaseDirectory>false</includeBaseDirectory-->
   <fileSets>
     <!-- Files fundamental to the projet -->
     <fileSet>
-      <directory>src/main/resources/eu/simuline/qMngmnt/installation</directory>
-      <outputDirectory>${file.separator}</outputDirectory>
-      <!--includes>
-        <include>README*</include>
-        <include>LICENSE*</include>
-        <include>NOTICE*</include>
-      </includes-->
-    </fileSet>
-    <!-- files in package -->
-    <!--fileSet>
-      <directory>${project.build.directory}${file.separator}package</directory>
+      <directory>target/classes/eu/simuline/qMngmnt/installation/</directory>
       <outputDirectory>${file.separator}</outputDirectory>
       <includes>
-        <include>*</include>
-	<include>inst/**/*.m</include>
-	<include>inst/java.opts</include>
- 	<include>doc/**/*</include>
+        <include>*.sh</include>
       </includes>
+      <fileMode>0744</fileMode>
+    </fileSet>
+    <!-- TBD: this is a workaround of a bug in the resources plugin 
+    resetting the file permissions. 
+    On the other hand, we do not use the most current version. 
+    If we manage to update, check whether the bug sill persists 
+    and if not eliminate this workaround -->
+   <fileSet>
+      <directory>target/classes/eu/simuline/qMngmnt/installation/</directory>
+      <outputDirectory>${file.separator}</outputDirectory>
       <excludes>
-	<exclude>PKG_*.m</exclude>
+        <exclude>*.sh</exclude>
       </excludes>
-    </fileSet-->
+      <!--fileMode>0644</fileMode-->
+    </fileSet>
   </fileSets>
 
   <!--dependencySets>
