@@ -202,22 +202,13 @@
               <directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
               <includes>
                 <include>${versionTikzuml}.tbz</include>
-              </includes>
-            </fileset>
-            <fileset>
-              <directory>src/main/resources/eu/simuline/qMngmnt/installation/${versionTikzuml}</directory>
-            </fileset>
-            <fileset>
-              <directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
-              <includes>
+                <include>find_uno.py</include>
+                <include>*.xpi</include>
                 <include>jabref-${versionJabref}.rpm</include>
               </includes>
             </fileset>
             <fileset>
-              <directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
-              <includes>
-                <include>find_uno.py</include>
-              </includes>
+              <directory>src/main/resources/eu/simuline/qMngmnt/installation/${versionTikzuml}</directory>
             </fileset>
           </filesets>
         </configuration>

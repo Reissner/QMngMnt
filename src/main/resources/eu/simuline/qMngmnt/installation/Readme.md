@@ -187,6 +187,23 @@ Whereas `snap` provided by `snapd` is standalone like `zypper`, `wget` is just f
 It is used in conjunction with `rpm` to install software. 
 Note that `rpm`, like `zypper` is available on the base system. 
 
+The rest of the installation scripts are performed 
+not as `root` but as user. 
+
+At this point `code` is installed already, 
+but the extensions are still missing 
+and shall be installed invoking [`instVScode.sh`](./instVScode.sh). 
+
+Also defined is `firefox` but still the extensions are missing 
+and shall be installed invoking [`instFFexts.sh`](./instFFexts.sh). 
+The user still has to acknowledge manually twice 
+and close the browser also manually for each extension. 
+After the last extension is installed, the script returns. 
+
+
+
+
+
 
 CAUTION: For several pieces of software, 
 an additional configuration is needed. 
