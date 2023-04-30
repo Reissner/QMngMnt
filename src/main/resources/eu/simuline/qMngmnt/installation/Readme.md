@@ -187,6 +187,15 @@ Whereas `snap` provided by `snapd` is standalone like `zypper`, `wget` is just f
 It is used in conjunction with `rpm` to install software. 
 Note that `rpm`, like `zypper` is available on the base system. 
 
+At this point in particular Google Chrome is already installed, 
+but still the extensions are missing 
+and shall be installed invoking [`instGCexts.sh`](./instGCexts.sh). 
+Note that this script uses a JSON [template](.chromeExtId.json). 
+For details on [`instGCexts.sh`](./instGCexts.sh), 
+in particular how to generalize and to extend the script, 
+see [here](./instGCexts.md). 
+
+
 The rest of the installation scripts are performed 
 not as `root` but as user. 
 
@@ -194,14 +203,14 @@ At this point `code` is installed already,
 but the extensions are still missing 
 and shall be installed invoking [`instVScode.sh`](./instVScode.sh). 
 
-Also defined is `firefox` but still the extensions are missing 
-and shall be installed invoking [`instFFexts.sh`](./instFFexts.sh). 
+Because neither Google Chrome nor Firefox 
+work perfectly we need both browsers. 
+At this stage Firefox is installed 
+and to install the extensions also, 
+invoke [`instFFexts.sh`](./instFFexts.sh). 
 The user still has to acknowledge manually twice 
 and close the browser also manually for each extension. 
 After the last extension is installed, the script returns. 
-
-
-
 
 
 
@@ -226,10 +235,30 @@ These are installed via [`instPip.sh`](./instPip.sh).
 
 ### Installation from `yast`
 
-TBD: rework: the focus is no longer on `yast`, 
-since we have an installation script now 
+Note that besides installation, `yast` offers queries, 
+update and uninstallation also. 
+Among the queries is the file list. 
 
-Note that besides installation, `yast` offers update and uninstallation also. 
+The focus is no longer on `yast`, 
+since we have an installation script now, 
+but it is still a good idea to try to install with `yast` first. 
+The first step would be to look up the desired package. 
+If found, that way the correct name is unveiled 
+which can be added 
+to the installation script [`instZypper.sh`](./instZypper.sh). 
+Never install via `yast` to keep the scripts consistent, 
+and if you do for check, uninstall the installed package immediately. 
+
+Sometimes the desired package does not show up. 
+Maybe only because the repository is not added. 
+In this case try a [one click install](#sssOneClick). 
+
+
+
+#### YaST Virtualization Hypervisor
+
+Choose KVM server and tools
+### Manual configurations 
 
 First add a link to `yast` to the desktop. 
 From `yast` install
@@ -248,14 +277,15 @@ From `yast` install
   (*CAUTION*: package `google-chrome-stable` as given by the script).
   As browsers `firefox`, `chromium` and Google `chrome` are available,
   Google `chrome` is the only non-open source, but it is the sole
-  supporting the important markdown extension markdown viewer 3.9. 
-  It is installed by the installation script already. What we need is extensions. 
+  supporting the important markdown extension markdown viewer. 
+  It is installed by the installation script already 
+  and also the extensions are assumed to be installed with a script. 
+  Let us skip the [details](#sssInstScript) for now. 
   Make the default browser. 
 
-  Enter Settings--!>Extensions, activate "Developer Mode" 
-  and in the menu choose (**bottom!**) 
-  "Open Chrome Webstore" and from that choose the extensions we need: 
-  
+  Enter Settings--!>Extensions, activate "Developer Mode". 
+  One of the extensions must still be configured manually: 
+
   - "Markdown Viewer". Allow file access and collect errors. 
     An icon "m" occurs in the toolbar. 
     I feel theme markdown is best. 
@@ -263,11 +293,18 @@ From `yast` install
     Most notably: `mathjax` and `toc`, 
     but not pedantic as this removes newline from code!!
     Appearance: show home button and bookmark bar. 
+
+  Two further extensions shall be mentioned:
+
   - "Super Auto Refresh Plus" very important 
     if designing something for `html` 
     like markdown or code documentation (`javadoc` or `doxygen`). 
     Switch on "Bypass cache when reloading the page"
   - "Video downloader plus 7.2.0" (fun but also to store tutorials)
+
+
+  and in the menu choose (**bottom!**) 
+  "Open Chrome Webstore" and from that choose the extensions we need: 
   
 <!-- - `mathjax` to render math in the browser -->
 
@@ -374,17 +411,6 @@ for building octave from the source. -->
   - also `wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`
   This enables us to run nuget as `mono nuget.exe` -->
 
-- The script installs `texlive` .... a lot of packages including `latexmk` 
-  Unfortunately, there are packages including python 2.7 still. 
-  The script removes these packages and also python 2.7 
-  after having installed `texlive`. 
-  In fact, `texlive` not only installs packages we don't need, 
-  in contrary, we need additional packages 
-  also installed by the script. 
-  
-  `texlive` includes `texlive-latexmk` providing the "make tool" `latexmk`. 
-  Here also an evaluation 
-  of `texlive-arara`, `rubber` and `texlive-cluttex` would be fine. 
   
 <!--
   Another aspect is connecting the beautiful world of latex with 
@@ -536,28 +562,8 @@ for building octave from the source. -->
   for windows we found the site adoptopenjdk.net with installers, 
   currently also for java11.  -->
   
-- whereas `java11` is installed directly, 
-  all packages `java-15-openjdk***` must be installed explicitly.  
+
   
-- `maven`: must be installed explicitly and  
-  in addition the following plugins are needed: TBC: really? 
-  At the moment did not install. 
-  `antlr4-maven-plugin`, `exec-maven-plugin`, `maven-assembly-plugin`, 
-  `maven-checkstyle-plugin`, `maven-clean-plugin`, 
-  `maven-compiler-plugin`, `maven-dependency-plugin`, `maven-deploy-plugin`, 
-  `maven-failsafe-plugin`, `maven-install-plugin`, `maven-jar-plugin`, 
-  `maven-javadoc-plugin`, `maven-jaxb2-plugin`, ...
-  `maven-surefire-provider-junit` and `maven-surefire-provider-junit5` 
-  and `maven-surefire-provider-junit5-javadoc` 
-  
-- `antlr`: package `antlr4-maven-plugin` described in the context of maven 
-  presupposes most of the pieces of software required for antlr4. 
-  The only packages to be installed in addition currently are  
-  `antlr4-javadoc` 
-  and `python3-antlr4-python3-runtime` to use in python runtime.
-  
-- `gradle`: downloaded experimental
-  this requires `ecj` and `jgit` from eclipse foundation. 
 
 - We already installed `python` in the course of latex, 
   or maybe it is in the base system already. 
@@ -751,11 +757,9 @@ for building octave from the source. -->
     - 'Graphics controller' as `VboxVGA` and then back to `VMSVGA`
     - for Ubuntu: root with `sudo -s`. 
   
-#### YaST Virtualization Hypervisor
 
-Choose KVM server and tools
 
-## Installation with SUSE one click install / `zypper`
+### Installation with SUSE one click install / `zypper` <a id='sssOneClick'></a>
 
 To find something like that, just google like `suse one click install eclipse`. 
 Then the site recognizes already the distribution, which is tumbleweed for us. 
@@ -770,6 +774,9 @@ If we use that directly on the console as, in contrast to `direct install`,
   - [`addRepos.sh`](./addRepos.sh) add `zypper addrepo`, ignore `zypper refresh` 
     because this is already present and 
   - [`instZypper.sh`](./instZypper.sh) add `zypper install`. 
+  
+Please uninstall after manual installation, e.g. with `yast`, 
+extend the scripts accordingly and run them to reinstall with scripts. 
 
 ## Installation with yum and `zypper` <a id="instYZ"></a>
 
