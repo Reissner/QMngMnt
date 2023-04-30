@@ -213,6 +213,6 @@ fi
 #fi
 #
 # already in zypper 
-snap install whatsdesk
+snap install whatsdesk #teams-for-linux
 
 pwd
