@@ -14,6 +14,8 @@
 	</properties>
 	<body>
 
+		<!-- write software for various formats to check links. 
+			Most important this is for markdown and for latex, but also for apidocs, maybe html. -->
 		<!-- TBD: write a texinfo maven plugin or search one -->
 		<!-- TBD: Tex-parser: 
 	 to be generalized according to documentation in grammar. 
