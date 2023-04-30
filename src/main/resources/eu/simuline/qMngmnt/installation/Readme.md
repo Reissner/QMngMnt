@@ -168,14 +168,17 @@ After [basic installation](#ssBasic), we have an outdated and very rudimentary s
 At least a bash shell shall be available. 
 The directory of this README contains a bunch of scripts to perform installations. 
 
-The first step to extend it, is to add repositories invoking [`addRepos.sh`](./addRepos.sh). 
+First become the `root` user. 
+
+The first step to extend the base installation is 
+to add repositories invoking [`./addRepos.sh`](./addRepos.sh). 
 This is mostly a sequence of `zypper`'s `addrepo` commands followed by a final `refresh` command. 
 Note that if running this script if a repository is added already, 
 an error is displayed. 
 There is no simple way to tell `zypper` to add a repository if not yet added. 
 So we accept the errors. 
 
-Then run the script [`instZypper.sh)`](./instZypper.sh) 
+Then run the script [`instZypper.sh`](./instZypper.sh) 
 which is mostly a sequence of commands `zypper in -y ...`. 
 Note that in rare cases, also software is uninstalled, using `zypper rm ...` so as for `python2`. 
 In particular, `wget` and `snapd` are installed that way and later used to install further software 
