@@ -1,25 +1,33 @@
-wget -O find_uno.py https://gist.githubusercontent.com/regebro/036da022dc7d5241a0ee97efdf1458eb/raw/find_uno.py
+#see https://pypi.org/project/unoserver/: 
+#To find all Python installations that have the relevant LibreOffice libraries installed, you can run a script called find_uno.py:
+#wget -O find_uno.py https://gist.githubusercontent.com/regebro/036da022dc7d5241a0ee97efdf1458eb/raw/find_uno.py
 #python3 find_uno.py
+
 # for video; priority 90
 
 # ar is a shortcut for addrepo, 
 # -f is a shortcut for --refresh and this is AUTO-refresh 
 
-zypper ar -c 90 https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman
+
+# Note that there seems to be no simple way to add a repository if not yet present. 
+# Thus except at first run this script displays errors on repos already added. 
+
+zypper ar --refresh https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman
 
 # for whatsapp 
-zypper ar --refresh https://download.opensuse.org/repositories/home:plater/Tumbleweed/home:plater.repo 
+zypper ar --refresh https://download.opensuse.org/repositories/home:plater/Tumbleweed/home:plater.repo
 
 # for skype
 zypper addrepo --refresh https://download.opensuse.org/repositories/home:alveus:main/openSUSE_Tumbleweed/home:alveus:main.repo
 
 # for google chrome 
 zypper ar --refresh http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
-if ! test linux_signing_key.pub ;
-then
-  wget https://dl.google.com/linux/linux_signing_key.pub
-fi
-rpm --import linux_signing_key.pub
+rpm --import https://dl.google.com/linux/linux_signing_key.pub
+# if ! test linux_signing_key.pub ;
+# then
+#   wget -nc https://dl.google.com/linux/linux_signing_key.pub
+# fi
+# rpm --import linux_signing_key.pub
 
 
 # for visual code
@@ -37,7 +45,7 @@ zypper --gpg-auto-import-keys refresh
 zypper addrepo --refresh https://download.opensuse.org/repositories/home:fstrba:maven/openSUSE_Tumbleweed/home:fstrba:maven.repo
 
 # for jabref
-zypper addrepo --refresh https://download.opensuse.org/repositories/home:jloehel/openSUSE_Tumbleweed/home:jloehel.repo
+zypper addrepo --refresh https://download.opensuse.org/repositories/home:jloehel/openSUSE_Tumbleweed/home:jloehel.repo 
 
 zypper refresh -f
 
