@@ -16,23 +16,6 @@
     <fileSet>
       <directory>target/classes/eu/simuline/qMngmnt/installation/</directory>
       <outputDirectory>${file.separator}</outputDirectory>
-      <includes>
-        <include>*.sh</include>
-      </includes>
-      <fileMode>0744</fileMode>
-    </fileSet>
-    <!-- TBD: this is a workaround of a bug in the resources plugin 
-    resetting the file permissions. 
-    On the other hand, we do not use the most current version. 
-    If we manage to update, check whether the bug sill persists 
-    and if not eliminate this workaround -->
-   <fileSet>
-      <directory>target/classes/eu/simuline/qMngmnt/installation/</directory>
-      <outputDirectory>${file.separator}</outputDirectory>
-      <excludes>
-        <exclude>*.sh</exclude>
-      </excludes>
-      <!--fileMode>0644</fileMode-->
     </fileSet>
   </fileSets>
 
