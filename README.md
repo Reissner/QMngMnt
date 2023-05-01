@@ -81,16 +81,17 @@ and to tackle questions on license management and reverse engineering.
 
 
 All computers are installed with openSUSE Tumbleweed. 
-The [general installation](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md) is still manual. 
-On the other hand, after the manual part, 
-one can use a script [instZypper.sh](./src/main/resources/eu/simuline/qMngmnt/installation/instZypper.sh) 
-to complete installation. 
-The same script also updates the installed packages. 
-
+General information on installation can be fond in an according 
+[Readme.md](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md). 
 On the [project site](http://www.simuline.eu/QualityManagement/general.html) 
 there is a link to a file `xxx.tgz` which can be unpacked with `tar -xvf xxx.tgz` 
-which provides all what is needed to perform a script based installation. 
-
+which provides all what is needed to perform all parts of an installation. 
+In particular, it contains the abovementioned `Readme.md`. 
+As described therein, the first part with basic and uniform installation is manual, 
+but for the second, specific part, 
+[one can use scripts](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md#sssInstScript) 
+to complete installation. 
+These scripts are also contained in the `xxx.tgz` file. 
 
 
 ## Tools <a id='ssTools'></a>
