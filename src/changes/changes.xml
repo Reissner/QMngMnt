@@ -118,6 +118,36 @@ this requires an update of quality management, which is slow.
 but then it requires even an update of the latex plugin. 
 Note also that one has to take care of cyclic dependencies between the two projects. -->
 
+		<release version="0.0.5" date='2023-05-01' description='very inhomogeneous improvements'>
+      <action dev="ER" type="add">
+        For script based installation now also extension of browsers are included 
+        and installations with python pip. 
+      </action>
+    	<action dev="ER" type="fix">
+				Complete rework on installation scripts. 
+        In particular included all files on which the scripts depend. 
+        This requires not only scripts but a folder with scripts and further resources. 
+        This in turn requires providing an archive `qMngmnt-xxx-installer.tgz`. 
+        Finally the site must be extended with a lot of explanation. 
+			</action>
+    	<action dev="ER" type="add">
+				Extended test.tex. 
+        Added literature on patents. 
+			</action>
+    	<action dev="ER" type="fix">
+				Corrected mistakes in litPublic.bib: removed dot in month. 
+        This is in preparation of using biber which would emit a warning. 
+			</action>
+      <action dev="ER" type="add">
+				Added config of vscode. 
+			</action>
+    	<action dev="ER" type="fix">
+				Eliminated warnings from ltex. 
+			</action>
+      <action dev="ER" type="add">
+				Extended glossary.bib. 
+			</action>
+    </release>
 		<release version="0.0.4" date='2022-12-03' description='very inhomogeneous improvements'>
 			<action dev="ER" type="update">
 				Updated versions of software to be installed. 
