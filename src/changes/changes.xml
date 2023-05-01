@@ -118,7 +118,7 @@ this requires an update of quality management, which is slow.
 but then it requires even an update of the latex plugin. 
 Note also that one has to take care of cyclic dependencies between the two projects. -->
 
-		<release version="0.0.5" date='2023-05-01' description='very inhomogeneous improvements'>
+		<release version="0.0.5" date='2023-05-01' description='Emphasis on script based installation'>
       <action dev="ER" type="add">
         For script based installation now also extension of browsers are included 
         and installations with python pip. 
