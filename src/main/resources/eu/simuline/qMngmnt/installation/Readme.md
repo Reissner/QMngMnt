@@ -481,7 +481,7 @@ for building octave from the source. -->
   - `csharp-mode` for c-sharp
   - for `php`: `ac-php` and `phps-mode`
   - for python: `jedi`, maybe more like `importmagic`, `lsp-jedi` 
-    (TBC: which lsp server)
+    (TBC: which `lsp`server)
   - for java we mainly rely on `eclim` which is based on eclipse. 
     It is not at all clear how to install this. 
     Maybe headless. TBC
@@ -667,7 +667,7 @@ for building octave from the source. -->
 <!-- - `scrot` screenshot capture utility (seems not to work and quite simple), 
   `kshot`-->
 
-- `prosody` to use jitsi meet video conference
+- `prosody` to use `jitsi` meet video conference
 <!-- - `k3b` for burning cd's-->
 
 - `docker`... `kubernetes`, and the part of ecosystem we need. 
@@ -850,7 +850,7 @@ Take the following steps:
     mbed config --global GCC_ARM /home/ernst/SysAdmin/GccArmNoneEabi/latest/bin
   ```
 
-  To check whether all is ok, one could download the 'blinky' example via 
+  To check whether all is ok, one could download the `blinky` example via 
 
   ```[sh]
     mbed import http://os.mbed.com/teams/mbed-os-examples/code/mbed-os-example-blinky/
