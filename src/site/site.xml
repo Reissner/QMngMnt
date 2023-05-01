@@ -1,0 +1,12 @@
+<project name="Quality Management for Simuline Organization">
+  <publishDate position="right"/>
+  <version position="right"/>
+  <body>
+  <menu name="Overview">
+  <item name="Generalities" href="general.html" />
+  </menu>
+  <menu ref="parent" />
+  <menu ref="reports" />
+  <menu ref="modules" />
+  </body>
+</project>

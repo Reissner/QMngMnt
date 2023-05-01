@@ -87,9 +87,13 @@ one can use a script [instZypper.sh](./src/main/resources/eu/simuline/qMngmnt/in
 to complete installation. 
 The same script also updates the installed packages. 
 
+On the [project site](http://www.simuline.eu/QualityManagement/general.html) 
+there is a link to a file `xxx.tgz` which can be unpacked with `tar -xvf xxx.tgz` 
+which provides all what is needed to perform a script based installation. 
 
 
-## Tools <a id='ssTools></a>
+
+## Tools <a id='ssTools'></a>
 
 This section describes the set of tools under use. 
 

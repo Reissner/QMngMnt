@@ -1,0 +1,16 @@
+<!-- markdownlint-disable no-trailing-spaces -->
+<!-- markdownlint-disable no-inline-html -->
+
+# Generalities 
+
+This project
+
+- provides general principles of quality 
+    and derives processes and decisions on tools realizing these principles 
+    to a wide extent. 
+- provides a file 
+    [install.tgz](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/qMngmnt-${project.version}-installer.tgz)
+    for script based installation 
+- serves as a dependency in maven projects 
+    providing resources to configure quality checkers 
+    and other resources ensuring quality, like glossaries. 
