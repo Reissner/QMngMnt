@@ -89,7 +89,7 @@ which provides all what is needed to perform all parts of an installation.
 In particular, it contains the abovementioned `Readme.md`. 
 As described therein, the first part with basic and uniform installation is manual, 
 but for the second, specific part, 
-[one can use scripts](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md#sssInstScript) 
+[one can use scripts](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md#installation-with-script-) 
 to complete installation. 
 These scripts are also contained in the `qMngmnt-xxxx-installer.tgz` file. 
 
