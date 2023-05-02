@@ -1,5 +1,7 @@
-# Installing and installed Extensions for Google Chrome 
+<!-- markdownlint-disable no-trailing-spaces -->
+<!-- markdownlint-disable no-inline-html -->
 
+# Installing and installed Extensions for Google Chrome 
 
 The technique to install extensions to Google Chrome is published 
 for various cases e.g. [Linux](https://developer.chrome.com/docs/extensions/mv3/external_extensions/#preference-linux). 
