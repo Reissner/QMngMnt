@@ -181,11 +181,23 @@ So we accept the errors.
 Then run the script [`instZypper.sh`](./instZypper.sh) 
 which is mostly a sequence of commands `zypper in -y ...`. 
 Note that in rare cases, also software is uninstalled, using `zypper rm ...` so as for `python2`. 
-In particular, `wget` and `snapd` are installed that way and later used to install further software 
+In particular, `wget`, `flatpak` and `snapd` are installed that way and later used to install further software 
 not available via `zypper` directly. 
-Whereas `snap` provided by `snapd` is standalone like `zypper`, `wget` is just for downloading. 
+Whereas `snap` provided by `snapd` and `flatpak` are standalone like `zypper`, 
+`wget` is just for downloading. 
 It is used in conjunction with `rpm` to install software. 
 Note that `rpm`, like `zypper` is available on the base system. 
+
+**CAUTION**: Seemingly, `snap` sets the PATH correctly, 
+somewhere adding `/snap/bin`, whereas `flatpak` does not. 
+One has to do **manually** in a config file like `~/.profile` or `~/.bashrc` (`SysAdmin` is individual)
+
+```[sh]
+export PATH="$PATH\
+:~/SysAdmin/Addon/GitAhead/latest\
+:~/SysAdmin/Addon/TikzEdt/latest\
+:/var/lib/flatpak/exports/bin/"
+```
 
 At this point in particular Google Chrome is already installed, 
 but still the extensions are missing 
@@ -232,6 +244,14 @@ Similar mechanisms are available for our browsers to install extensions
 and for `conda` to install packages via `pip`. 
 Some packages are also installed outside `conda` environments. 
 These are installed via [`instPip.sh`](./instPip.sh). 
+
+As for `flatpak`, also ``conda` and `pip` install in `~/.local/bin` 
+which has to be added in a config file like `~/.profile` or `~/.bashrc` 
+
+```[sh]
+export PATH="$PATH\
+:~/.local/bin"
+```
 
 ### Installation from `yast`
 
@@ -294,17 +314,20 @@ From `yast` install
     but not pedantic as this removes newline from code!!
     Appearance: show home button and bookmark bar. 
 
-  Two further extensions shall be mentioned:
+  Further extensions shall be mentioned 
+  but need none to little configuration :
 
   - "Super Auto Refresh Plus" very important 
     if designing something for `html` 
-    like markdown or code documentation (`javadoc` or `doxygen`). 
+    like code documentation (`javadoc` or `doxygen`). 
     Switch on "Bypass cache when reloading the page"
+
   - "Video downloader plus 7.2.0" (fun but also to store tutorials)
 
 
   and in the menu choose (**bottom!**) 
-  "Open Chrome Webstore" and from that choose the extensions we need: 
+  "Open Chrome Webstore" and from that choose the extensions we need. 
+  Those must be integrated into the script. 
   
 <!-- - `mathjax` to render math in the browser -->
 
@@ -872,6 +895,22 @@ There are cases, where there is no versioning (`EdsSharp`)
 but in general, there is a separate folder for each version, 
 a link `latest` pointing to that folder and optionally further files 
 prior to extracting folders, like `tgz` or related. 
+The binary is in a certain subfolder of `latest`, mostly `bin`. 
+To get this to run, the according folder must be added to the path. 
+This is done at the end of `~/.profile` 
+which looks like so: 
+
+```[sh]
+export PATH="$PATH\
+:~/SysAdmin/Addon/GitAhead/latest\
+:~/SysAdmin/Addon/TikzEdt/latest\
+:/var/lib/flatpak/exports/bin/"
+#:/snap/bin:~/SysAdmin/Addon/GccArmCurr/bin:/~/.local/bin"
+```
+
+Note that there is a special entry `/var/lib/flatpak/exports/bin/` 
+required for `flatpak`. 
+Also not all is really in `~`
 
 - `GitAhead` installed from https://gitahead.github.io/gitahead.com/
 - `TikzEdt` installed from https://code.google.com/archive/p/tikzedt/downloads 

@@ -12,9 +12,15 @@
 # basically this installation script is based on invocations of zypper 
 # but there are cases where other programs are used for installation 
 # - zypper and rpm are present at the basic installation 
-# - wget and snapd: must be installed and activated at first 
-zypper in -y wget snapd
+# - wget, snapd and flatpak: must be installed and activated at first 
+zypper in -y wget snapd flatpak
 systemctl enable snapd
+
+# unlike for zypper which complains if a repo is added, flatpak does not. 
+# Thus we dont need a separate script for adding 
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak install -y flathub org.gaphor.Gaphor
 
 zypper in -y MozillaThunderbird MozillaThunderbird-translations-common
 # If the main directory is not preserved `~/.thunderbird` must be reconstructed.
