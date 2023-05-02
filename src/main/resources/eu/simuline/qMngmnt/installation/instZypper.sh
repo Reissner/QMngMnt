@@ -135,7 +135,7 @@ zypper in -y java-11-openjdk-src java-11-openjdk java-11-openjdk-devel `# java11
   java-15-openjdk-src java-15-openjdk java-15-openjdk-devel `#j ava15 for trials` \
 	java-17-openjdk-src java-17-openjdk java-17-openjdk-devel `#j ava17 needed for redhead plugin` \
   java-1_8_0-openjdk-src java-1_8_0-openjdk java-1_8_0-openjdk-devel `# java1.8 for latex plugin` \
-  openjfx `# also for jabref` \
+  #openjfx `# also for jabref` \
   maven `# basic build tool`
 
 
