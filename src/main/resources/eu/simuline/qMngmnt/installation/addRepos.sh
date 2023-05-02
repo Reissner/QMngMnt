@@ -38,7 +38,7 @@ zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snap
 zypper --gpg-auto-import-keys refresh
 
 ## javafx, also needed for jabref
-zypper addrepo --refresh https://download.opensuse.org/repositories/home:fstrba:maven/openSUSE_Tumbleweed/home:fstrba:maven.repo
+#zypper addrepo --refresh https://download.opensuse.org/repositories/home:fstrba:maven/openSUSE_Tumbleweed/home:fstrba:maven.repo
 
 # for jabref
 zypper addrepo --refresh https://download.opensuse.org/repositories/home:jloehel/openSUSE_Tumbleweed/home:jloehel.repo 
