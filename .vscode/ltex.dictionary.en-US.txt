@@ -4,3 +4,4 @@ Webstore
 Windoofs
 Okular
 SAAS
+bashrc
