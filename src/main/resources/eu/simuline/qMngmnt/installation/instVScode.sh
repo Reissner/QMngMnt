@@ -9,7 +9,7 @@
 # to update the version just
 # code --force --install-extension ms-vscode.cpptools
 
-echo "install from markdown to perl" 
+echo "install from markdown to lisp" 
 
 # Textual: markdown  
 code --force --install-extension DavidAnson.vscode-markdownlint
@@ -19,6 +19,7 @@ code --force --install-extension shd101wyy.markdown-preview-enhanced
 #code --uninstall-extension --force jrieken.md-navigate
 code --force --install-extension alanwalk.markdown-navigation
 code --force --install-extension tchayen.markdown-links
+# ltex in the course of latex 
 
 # Velocity Template Language (VTL)
 code --force --install-extension luqimin.velocity
@@ -51,7 +52,6 @@ code --force --install-extension ms-python.pylint
 # code .
 # this will start in the background automatically.
 
-code --force --install-extension ithildir.java-properties
 
 # C and C++
 code --force --install-extension ms-vscode.cpptools-extension-pack
@@ -64,8 +64,6 @@ code --force --install-extension carlos-algms.make-task-provider
 code --force --install-extension ms-azuretools.vscode-docker
 code --force --install-extension ms-vscode-remote.remote-containers
 
-# spellchecker
-code --force --install-extension valentjn.vscode-ltex
 
 #code --list-extensions
 #code --install-extension ms-vscode.cpptools
@@ -88,9 +86,7 @@ code --force --install-extension apommel.matlab-interactive-terminal
 # lisp
 code --force --install-extension mattn.lisp
 
-
-# perl
-code --force --install-extension d9705996.perl-toolbox
+# no perl because this is in latex and friends 
 
 
 echo "install from java and groovy" 
@@ -130,6 +126,8 @@ code --force --install-extension dgileadi.java-decompiler
 
 
 code --force --install-extension ryanluker.vscode-coverage-gutters
+
+code --force --install-extension ithildir.java-properties
 
 echo "install misc" 
 
