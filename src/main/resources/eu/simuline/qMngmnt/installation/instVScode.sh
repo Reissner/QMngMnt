@@ -9,6 +9,8 @@
 # to update the version just
 # code --force --install-extension ms-vscode.cpptools
 
+echo "install from markdown to perl" 
+
 # Textual: markdown  
 code --force --install-extension DavidAnson.vscode-markdownlint
 code --force --install-extension joffreykern.markdown-toc
@@ -71,15 +73,34 @@ code --force --install-extension valentjn.vscode-ltex
 #code --install-extension Gimly81.matlab
 #code --install-extension DavidAnson.vscode-markdownlint
 
+# octave: IDE and run
+code --force --install-extension leafvmaple.octave
+code --force --install-extension toasty-technologies.octave
+code --force --install-extension lucasfa.octaveexecution
+
+# matlab: IDE and run (partially interactively)
+code --force --install-extension mathworks.language-matlab # IDE
+code --force --install-extension bramvanbilsen.matlab-code-run
+code --force --install-extension shinyypig.matlab-in-vscode
+code --force --install-extension apommel.matlab-interactive-terminal
+
+
+# lisp
+code --force --install-extension mattn.lisp
+
+
+# perl
+code --force --install-extension d9705996.perl-toolbox
+
+
+echo "install from java and groovy" 
+
 # groovy
 code --force --install-extension mellowmarshmallow.groovy
 code --force --install-extension nicolasvuillamy.vscode-groovy-lint
 code --force --install-extension argylewolflabs.vscode-groovy
 code --force --install-extension marlon407.code-groovy
 code --force --install-extension dontshavetheyak.groovy-guru
-
-# perl
-code --force --install-extension d9705996.perl-toolbox
 
 # java
 code --force --install-extension vscjava.vscode-java-pack
@@ -110,20 +131,8 @@ code --force --install-extension dgileadi.java-decompiler
 
 code --force --install-extension ryanluker.vscode-coverage-gutters
 
-# octave: IDE and run
-code --force --install-extension leafvmaple.octave
-code --force --install-extension toasty-technologies.octave
-code --force --install-extension lucasfa.octaveexecution
+echo "install misc" 
 
-# matlab: IDE and run (partially interactively)
-code --force --install-extension mathworks.language-matlab # IDE
-code --force --install-extension bramvanbilsen.matlab-code-run
-code --force --install-extension shinyypig.matlab-in-vscode
-code --force --install-extension apommel.matlab-interactive-terminal
-
-
-# lisp
-code --force --install-extension mattn.lisp
 
 # emails
 code --force --install-extension tomashubelbauer.email-viewer
