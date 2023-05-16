@@ -29,26 +29,6 @@ code --force --install-extension ncthbrt.antlr4
 code --force --install-extension redhat.vscode-xml
 code --force --install-extension dotjoshjohnson.xml
 
-# latex and friends 
-code --force --install-extension james-yu.latex-workshop
-code --force --install-extension mathematic.vscode-latex
-# bib
-code --force --install-extension phr0s.bib
-code --force --install-extension twday.bibmanager
-# nothing found for tikz
-# metapost 
-code --force --install-extension fjebaker.vscode-metapost
-# gnuplot is separate below 
-# TBD: zotero
-
-# gnuplot
-code --force --install-extension marioschwalbe.gnuplot
-code --force --install-extension fizzybreezy.gnuplot
-
-# svg
-code --force --install-extension jock.svg
-code --force --install-extension simonsiefke.svg-preview
-
 
 
 #git
@@ -151,6 +131,8 @@ code --force --install-extension tomashubelbauer.email-viewer
 # misc
 code --force --install-extension trond-snekvik.simple-rst
 code --force --install-extension maarti.jenkins-doc
+
+source ./instVScode4tex.sh
 
 
 
