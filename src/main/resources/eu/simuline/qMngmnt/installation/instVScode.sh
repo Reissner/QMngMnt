@@ -76,6 +76,7 @@ code --force --install-extension ms-vscode.cpptools-extension-pack
 
 # makefile
 code --force --install-extension ms-vscode.makefile-tools
+code --force --install-extension carlos-algms.make-task-provider
 
 # for docker 
 code --force --install-extension ms-azuretools.vscode-docker
@@ -143,9 +144,6 @@ code --force --install-extension apommel.matlab-interactive-terminal
 
 # lisp
 code --force --install-extension mattn.lisp
-
-# makefile 
-code --force --install-extension carlos-algms.make-task-provider
 
 # emails
 code --force --install-extension tomashubelbauer.email-viewer
