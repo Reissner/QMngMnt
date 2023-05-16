@@ -129,9 +129,17 @@ code --force --install-extension dgileadi.java-decompiler
 
 code --force --install-extension ryanluker.vscode-coverage-gutters
 
-# octave 
+# octave: IDE and run
 code --force --install-extension leafvmaple.octave
 code --force --install-extension toasty-technologies.octave
+code --force --install-extension lucasfa.octaveexecution
+
+# matlab: IDE and run (partially interactively)
+code --force --install-extension mathworks.language-matlab # IDE
+code --force --install-extension bramvanbilsen.matlab-code-run
+code --force --install-extension shinyypig.matlab-in-vscode
+code --force --install-extension apommel.matlab-interactive-terminal
+
 
 # lisp
 code --force --install-extension mattn.lisp
