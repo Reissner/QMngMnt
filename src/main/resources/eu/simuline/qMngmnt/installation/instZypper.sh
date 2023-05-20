@@ -67,17 +67,18 @@ zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell fo
 # texlive base and more 
 zypper in -y texlive-functional texlive-functional-doc `# the base` \
   texlive-functional `# provides functions like ifExists` \
-  texlive-xurl       texlive-import texlive-verbatimbox `# xurl: line break in urls` \
-  texlive-leaflet    texlive-leaflet-doc `# to support leaflets` \
-  texlive-splitindex texlive-robustindex xindy texlive-uptex `# indices` \
-  texlive-bib2gls    texlive-bib2gls-bin texlive-bib2gls-doc `# glossaries` \
-  texlive-hanging    texlive-stackengine texlive-tocloft texlive-etoc `# for doxygen` \
+  texlive-xurl        texlive-import texlive-verbatimbox `# xurl: line break in urls` \
+  texlive-leaflet     texlive-leaflet-doc `# to support leaflets` \
+  texlive-splitindex  texlive-robustindex xindy texlive-uptex `# indices` \
+  texlive-bib2gls     texlive-bib2gls-bin texlive-bib2gls-doc `# glossaries` \
+  texlive-hanging     texlive-stackengine texlive-tocloft texlive-etoc `# for doxygen` \
   texlive-draftwatermark texlive-draftwatermark-doc `# for watermarks like confidential or DRAFT` \
   texlive-jupynotex-doc `# for jupyter notebook` \
-  texlive-latex2man  texlive-latex2nemeth latex2rtf `# converter` \
-  texlive-pdfprivacy texlive-pdfprivacy-doc`# for pdf` \
-  texlive-dratex     texlive-dratex-doc `# only used to compile tex2ht` \
+  texlive-latex2man   texlive-latex2nemeth latex2rtf `# converter` \
+  texlive-pdfprivacy  texlive-pdfprivacy-doc`# for pdf` \
+  texlive-dratex      texlive-dratex-doc `# only used to compile tex2ht` \
   texlive-pdfpagediff texlive-pdfpagediff-doc pdftk `# for pdf` \
+  texlive-cprotect    texlive-cprotect-doc `# verbatim in macro` \
   exif exiftool `# show exif meta data, exiftool is better ` \
     `# Photini, exiv2 and gexif along the same lines as exif` \
   unoconv pandoc texinfo libreoffice` # converter; texinfo implies texihtml and texiroff` \
