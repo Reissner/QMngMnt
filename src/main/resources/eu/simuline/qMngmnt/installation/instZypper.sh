@@ -79,6 +79,7 @@ zypper in -y texlive-functional texlive-functional-doc `# the base` \
   texlive-dratex      texlive-dratex-doc `# only used to compile tex2ht` \
   texlive-pdfpagediff texlive-pdfpagediff-doc pdftk `# for pdf` \
   texlive-cprotect    texlive-cprotect-doc `# verbatim in macro` \
+  texlive-newverbs    texlive-newverbs-doc `# verbatim as macro` \
   exif exiftool `# show exif meta data, exiftool is better ` \
     `# Photini, exiv2 and gexif along the same lines as exif` \
   unoconv pandoc texinfo libreoffice` # converter; texinfo implies texihtml and texiroff` \
