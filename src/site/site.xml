@@ -3,7 +3,8 @@
   <version position="right"/>
   <body>
   <menu name="Overview">
-  <item name="Generalities" href="general.html" />
+    <item name="Generalities" href="general.html" />
+    <item name="literature"  href="literature.html" />
   </menu>
   <menu ref="parent" />
   <menu ref="reports" />
