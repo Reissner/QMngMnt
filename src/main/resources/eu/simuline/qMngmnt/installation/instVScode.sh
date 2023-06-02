@@ -1,13 +1,25 @@
 #!/bin/sh -
 
 # The following commands control vs code's extension manager: 
-#code --list-extensions --show-versions
-#code --install-extension ms-vscode.cpptools
-#code --uninstall-extension ms-vscode.csharp
-# The name of the extension is always name of the provider dot name of the extension.
+# Explanation 
+# code --extensions-dir <dir>
+#     Set the root path for extensions.
+# code --list-extensions
+#     List the installed extensions.
+# code --show-versions
+#     Show versions of installed extensions, when using --list-extension.
+# code --install-extension (<extension-id> | <extension-vsix-path>)
+#     Installs an extension.
+# code --uninstall-extension (<extension-id> | <extension-vsix-path>)
+#     Uninstalls an extension.
+# code --enable-proposed-api (<extension-id>)
+#     Enables proposed API features for extensions. 
+#     Can receive one or more extension IDs to enable individually.
+# The extension-id is always name of the provider dot name of the extension.
 # I feel better solved with java: domain.
 # to update the version just
 # code --force --install-extension ms-vscode.cpptools
+
 
 echo "install from markdown to lisp" 
 
