@@ -38,7 +38,8 @@ zypper in -y calligra-extras-okular okular-spectre evince
 # for version control; essentially git, but also rarely mercurial which installs perl as side effect
 # To make accessible in dolphin also install according plugins
 # also install some further GUIs but in the long run maybe replaced by vs code
-zypper in -y git git-doc bash-git-prompt git-filter-repo mercurial `# git and mercurial` \
+zypper in -y git git-doc bash-git-prompt git-filter-repo git-lfs `# git` \
+  mercurial `# mercurial` \
   dolphin-plugins gh gitg git-web git-cola glab git-mr `# GUI backends for git/mercurial` \
   kdiff3 kdiff3-lang diffmk diff-pdf `# diffing tools` # meld mgdiff tdiff tkdiff
 
