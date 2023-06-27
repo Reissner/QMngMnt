@@ -51,7 +51,7 @@ zypper in -y git git-doc bash-git-prompt git-filter-repo git-lfs `# git` \
 # - gcc currently mainly for octave (with documentation with doxygen)
 # - scala for eval , 
 # - go 
-zypper in -y gcc gcc-c++ gcc-fortran gcc-ada gcc-go cross-arm-gcc11 \
+zypper in -y gcc gcc-c++ gcc-fortran gcc-ada gcc-go cross-arm-gcc13 \
   `#Also available: gcc-d, gcc-objc, gcc-obj-c++` \
   doxygen doxygen2man doxywizard `# doxygen, mainly for C` \
   autoconf automake libtool make `#make includes gnumake and cross platform cmake` \
@@ -135,8 +135,6 @@ popd
 
 # maybe needed more packages and higher versions
 zypper in -y java-11-openjdk-src java-11-openjdk java-11-openjdk-devel `# java11 already included in base installation ` \
-	java-13-openjdk-src java-13-openjdk java-13-openjdk-devel `#  java13 for trials` \
-  java-15-openjdk-src java-15-openjdk java-15-openjdk-devel `#j ava15 for trials` \
 	java-17-openjdk-src java-17-openjdk java-17-openjdk-devel `#j ava17 needed for redhead plugin` \
   java-1_8_0-openjdk-src java-1_8_0-openjdk java-1_8_0-openjdk-devel `# java1.8 for latex plugin` \
   #openjfx `# also for jabref` \
