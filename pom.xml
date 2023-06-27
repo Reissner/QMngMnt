@@ -224,6 +224,7 @@
             	<directory>src/main/resources/eu/simuline/qMngmnt/latex/</directory>
               <includes>
                 <include>.latexmkrc</include>
+							  <include>.chktexrc</include>
               </includes>
             </fileset>
           </filesets>
@@ -295,7 +296,7 @@
 						</goals>
 					</execution>
 
-                   <execution>
+          <execution>
             <?m2e execute onConfiguration,onIncremental?>
             <goals>
               <goal>build-classpath</goal>
@@ -312,11 +313,12 @@
 						<artifactItem>
             	<groupId>eu.simuline.m2latex</groupId>
 	            <artifactId>latex-maven-plugin</artifactId>
-	            <version>2.0-SNAPSHOT</version>
+	            <version>${versionLatexPlugin}</version>
 							<type>jar</type>
 							<overWrite>true</overWrite>
 							<outputDirectory>${project.basedir}/src/main/resources/eu/simuline/qMngmnt/latex</outputDirectory>
-							<includes>**/.latexmkrc</includes>
+							<includes>**/.latexmkrc, **/.chktexrc</includes>
+							<!--includes>**/.chktexrc</includes-->
 							<fileMappers>
 								<org.codehaus.plexus.components.io.filemappers.FlattenFileMapper />
 							</fileMappers>
