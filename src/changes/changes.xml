@@ -15,7 +15,18 @@
 	<body>
 
 		<!-- write software for various formats to check links. 
-			Most important this is for markdown and for latex, but also for apidocs, maybe html. -->
+			Most important this is for markdown and for latex, but also for apidocs, maybe html. 
+			Alternatively: html only. 
+			This presupposes that all, included markdown and latex is converted into html. 
+			Additional pdf must have the same links. 
+			The advantage of this is, that links can be constructed. 
+			So become visible only after processing. 
+
+			One way to avoid own implementations is 
+			https://maven.apache.org/plugins/maven-linkcheck-plugin/index.html
+			This is based on doxia and is likely to be supported for quite a while. 
+			This is a maven plugin, means only checks within a project are checked. 
+			-->
 		<!-- TBD: write a texinfo maven plugin or search one -->
 		<!-- TBD: Tex-parser: 
 	 to be generalized according to documentation in grammar. 
