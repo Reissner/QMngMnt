@@ -426,19 +426,20 @@
 
       <!-- create html and pdf and other formats from latex -->
       <!-- this is activated for developer tests only -->
-      <!--plugin>
+      <plugin>
 				<groupId>eu.simuline.m2latex</groupId>
 				<artifactId>latex-maven-plugin</artifactId>
-				<version>1.6-SNAPSHOT</version>
+				<version>${versionLatexPlugin}</version>
 
 				<configuration>
 					<settings>
 						<latex2pdfCommand>lualatex</latex2pdfCommand>
 						<cleanUp>false</cleanUp>
+            <texSrcDirectory>src/main/resources/eu/simuline/qMngmnt/latex</texSrcDirectory>
 					</settings>	
 				</configuration>
 				<executions>
-					<execution>
+					<!--execution>
 						<id>process-latex-sources-pdf</id>
 						<goals>
 							<goal>pdf</goal>
@@ -450,7 +451,7 @@
 						<goals>
 							<goal>cfg</goal>
 						</goals>
-					</execution>
+					</execution-->
 					<execution>
 						<id>clear-latex-sources</id>
 						<goals>
@@ -467,7 +468,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin-->
+			</plugin>
     </plugins>
   </build>
 
