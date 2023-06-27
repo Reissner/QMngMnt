@@ -107,6 +107,7 @@
     <maven.compiler.target>11</maven.compiler.target>
     <versionTikzuml>tikzuml-v1.0-2016-03-29</versionTikzuml>
     <versionJabref>5.9-1.x86_64</versionJabref>
+    <versionLatexPlugin>2.0-SNAPSHOT</versionLatexPlugin>
   </properties>
 
 
@@ -323,7 +324,7 @@
 						<artifactItem>
             	<groupId>eu.simuline.m2latex</groupId>
 	            <artifactId>latex-maven-plugin</artifactId>
-	            <version>2.0-SNAPSHOT</version>
+	            <version>${versionLatexPlugin}</version>
 							<type>jar</type>
 							<overWrite>true</overWrite>
 							<outputDirectory>${project.basedir}/src/main/resources/eu/simuline/qMngmnt/installation</outputDirectory>
