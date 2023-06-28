@@ -108,6 +108,8 @@
     <versionTikzuml>tikzuml-v1.0-2016-03-29</versionTikzuml>
     <versionJabref>5.9-1.x86_64</versionJabref>
     <versionLatexPlugin>2.0-SNAPSHOT</versionLatexPlugin>
+    <instDir>src/main/resources/eu/simuline/qMngmnt/installation/</instDir>
+    <latexDir>src/main/resources/eu/simuline/qMngmnt/latex/</latexDir>
   </properties>
 
 
@@ -196,17 +198,17 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>3.0.0-M5</version>
+        <version>3.0.0-M6</version>
       </plugin>
 
       <!-- configuration for clean plugin -->
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.0</version>
         <configuration>
           <filesets>
             <fileset>
-              <directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
+              <directory>${instDir}</directory>
               <includes>
                 <include>${versionTikzuml}.tbz</include>
                 <include>find_uno.py</include>
@@ -215,16 +217,22 @@
               </includes>
             </fileset>
             <fileset>
-            	<directory>src/main/resources/eu/simuline/qMngmnt/installation/</directory>
+            	<directory>${instDir}</directory>
               <includes>
                 <include>instVScode4tex.sh</include>
               </includes>
             </fileset>
             <fileset>
-            	<directory>src/main/resources/eu/simuline/qMngmnt/latex/</directory>
+            	<directory>${latexDir}</directory>
               <includes>
                 <include>.latexmkrc</include>
 							  <include>.chktexrc</include>
+              </includes>
+            </fileset>
+            <fileset>
+            	<directory>src/main/resources</directory>
+              <includes>
+                <include>.latexmkrc</include>
               </includes>
             </fileset>
           </filesets>
@@ -277,24 +285,23 @@
 						</goals>
 					</execution-->
 
-
-
 					<execution>
 						<?m2e execute onConfiguration,onIncremental?>
 						<id>unpack-latex-bibs-interfaces-src-build</id>
+						<phase>initialize</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
-						<phase>initialize</phase>
 					</execution>
 
-					<execution>
+          <!-- not necessary because maven-jxr-plugin used -->
+					<!--execution>
 						<id>unpack-latex-bibs-interfaces-src-site</id>
 						<phase>pre-site</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
-					</execution>
+					</execution-->
 
           <execution>
             <?m2e execute onConfiguration,onIncremental?>
@@ -316,23 +323,39 @@
 	            <version>${versionLatexPlugin}</version>
 							<type>jar</type>
 							<overWrite>true</overWrite>
-							<outputDirectory>${project.basedir}/src/main/resources/eu/simuline/qMngmnt/latex</outputDirectory>
-							<includes>**/.latexmkrc, **/.chktexrc</includes>
-							<!--includes>**/.chktexrc</includes-->
+							<outputDirectory>${latexDir}</outputDirectory>
+							<includes>.latexmkrc, .chktexrc</includes>
 							<fileMappers>
-								<org.codehaus.plexus.components.io.filemappers.FlattenFileMapper />
+								<org.codehaus.plexus.components.io.filemappers.IdentityMapper/>
 							</fileMappers>
 						</artifactItem>
+
 						<artifactItem>
             	<groupId>eu.simuline.m2latex</groupId>
 	            <artifactId>latex-maven-plugin</artifactId>
 	            <version>${versionLatexPlugin}</version>
 							<type>jar</type>
 							<overWrite>true</overWrite>
-							<outputDirectory>${project.basedir}/src/main/resources/eu/simuline/qMngmnt/installation</outputDirectory>
-							<includes>**/instVScode4tex.sh</includes>
+							<outputDirectory>src/main/resources</outputDirectory>
+							<includes>.latexmkrc.raw</includes>
+							<fileMappers><!-- hack! -->
+								<org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
+                  <pattern>c.raw$</pattern>
+                  <replacement>c</replacement>
+								</org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
+							</fileMappers>
+						</artifactItem>
+
+						<artifactItem>
+            	<groupId>eu.simuline.m2latex</groupId>
+	            <artifactId>latex-maven-plugin</artifactId>
+	            <version>${versionLatexPlugin}</version>
+							<type>jar</type>
+							<overWrite>true</overWrite>
+							<outputDirectory>${instDir}</outputDirectory>
+							<includes>instVScode4tex.sh</includes>
 							<fileMappers>
-								<org.codehaus.plexus.components.io.filemappers.FlattenFileMapper />
+								<org.codehaus.plexus.components.io.filemappers.IdentityMapper />
 							</fileMappers>
 						</artifactItem>
 					</artifactItems>
