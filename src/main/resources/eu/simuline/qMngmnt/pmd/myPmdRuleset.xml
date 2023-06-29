@@ -7,7 +7,7 @@
   <description>
   This file is part of the quality assurance mechanism. 
 
-  This ruleset file is for pmd 6.50.0 and shall be updated 
+  This ruleset file is for pmd 6.55.0 and shall be updated 
   whenever the version of pmd changes. 
 
   Note that each ruleset provided by the current pmd version 
@@ -40,6 +40,7 @@
   <rule ref="category/java/bestpractices.xml/CheckResultSet" /><!--D-->
   <rule ref="category/java/bestpractices.xml/ConstantsInInterface" />
   <rule ref="category/java/bestpractices.xml/DefaultLabelNotLastInSwitchStmt" />
+  <rule ref="category/java/bestpractices.xml/DoubleBraceInitialization" />
   <rule ref="category/java/bestpractices.xml/ForLoopCanBeForeach" />
   <!--rule ref="category/java/bestpractices.xml/ForLoopVariableCount" /--><!--C -->
   <!--rule ref="category/java/bestpractices.xml/GuardLogStatement" /--><!--C -->
@@ -47,35 +48,33 @@
   <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseAfterAnnotation" />
   <!--rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseBeforeAnnotation" /-->
   <!--rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseTestAnnotation" /-->
-  <!--rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseTestAnnotation" /-->
-  <!-- missing: rules for junit5 -->
+  <rule ref="category/java/bestpractices.xml/JUnit5TestShouldBePackagePrivate" />
   <rule ref="category/java/bestpractices.xml/JUnitAssertionsShouldIncludeMessage" />
   <!--rule ref="category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts" /--><!--C -->
   <!--rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert" /--><!--C -->
   <rule ref="category/java/bestpractices.xml/JUnitUseExpected" />
+  <rule ref="category/java/bestpractices.xml/LiteralsFirstInComparisons" />
   <rule ref="category/java/bestpractices.xml/LooseCoupling" />
   <!--rule ref="category/java/bestpractices.xml/MethodReturnsInternalArray" /--><!--C -->
   <!--rule ref="category/java/bestpractices.xml/MissingOverride" /--><!--C -->
   <!--rule ref="category/java/bestpractices.xml/OneDeclarationPerLine" /--><!--C -->
-  <!--rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInCaseInsensitiveComparisons" /-->
-  <!--rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInComparisons" /-->
   <rule ref="category/java/bestpractices.xml/PreserveStackTrace" />
   <rule ref="category/java/bestpractices.xml/PrimitiveWrapperInstantiation" />
   <rule ref="category/java/bestpractices.xml/ReplaceEnumerationWithIterator" />
   <rule ref="category/java/bestpractices.xml/ReplaceHashtableWithMap" />
   <rule ref="category/java/bestpractices.xml/ReplaceVectorWithList" />
 
-  <!--rule ref="category/java/bestpractices.xml/SimplifiableTestAssertion" /-->
+  <rule ref="category/java/bestpractices.xml/SimplifiableTestAssertion" />
 
   <rule ref="category/java/bestpractices.xml/SwitchStmtsShouldHaveDefault" />
   <!--rule ref="category/java/bestpractices.xml/SystemPrintln" /--><!--C -->
 
+  <rule ref="category/java/bestpractices.xml/UnusedAssignment" />
   <rule ref="category/java/bestpractices.xml/UnusedFormalParameter" /><!--D-->
   <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" /><!--D-->
   <rule ref="category/java/bestpractices.xml/UnusedPrivateField" /><!--D-->
   <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod" /><!--D-->
-  <rule ref="category/java/bestpractices.xml/SimplifiableTestAssertion" />
-
+  
   <rule ref="category/java/bestpractices.xml/UseCollectionIsEmpty" />
   <rule ref="category/java/bestpractices.xml/UseStandardCharsets" />
 
@@ -118,8 +117,6 @@
   <!--rule ref="category/java/codestyle.xml/LongVariable" /--><!--C -->
 
 
-
- 
   <!--rule ref="category/java/codestyle.xml/MDBAndSessionBeanNamingConvention" /--><!--C -->
   <!--rule ref="category/java/codestyle.xml/MethodArgumentCouldBeFinal" /--><!--C -->
   <!--rule ref="category/java/codestyle.xml/MethodNamingConventions" /--><!--C -->
@@ -142,6 +139,7 @@
 
   
   <!--rule ref="category/java/codestyle.xml/UnnecessaryAnnotationValueElement" /--><!--C -->
+  <!--rule ref="category/java/codestyle.xml/UnnecessaryBoxing" /--> <!-- 7.0.0 -->
   <rule ref="category/java/codestyle.xml/UnnecessaryCast" />
   <!--rule ref="category/java/codestyle.xml/UnnecessaryConstructor" /--><!--C -->
   <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/><!--D-->
@@ -183,18 +181,18 @@
   <rule ref="category/java/design.xml/DoNotExtendJavaLangError" />
   <rule ref="category/java/design.xml/ExceptionAsFlowControl" />
   <!-- excluded for (X)FPNumber, for (X)MNumber and others -->
-  <rule ref="category/java/design.xml/ExcessiveClassLength" >
+  <!--rule ref="category/java/design.xml/ExcessiveClassLength" >
     <properties>
-      <property name="minimum"    value="2200"/><!-- default 1000 -->
+      <property name="minimum"    value="2200"/>
     </properties>
-  </rule>
+  </rule-->
    <!--rule ref="category/java/design.xml/ExcessiveImports" /--><!--C-->
 
-  <rule ref="category/java/design.xml/ExcessiveMethodLength">
+  <!--rule ref="category/java/design.xml/ExcessiveMethodLength">
     <properties>
-      <property name="minimum"    value="200"/><!--  -->
+      <property name="minimum"    value="200"/>
     </properties>
-  </rule>
+  </rule-->
   <rule ref="category/java/design.xml/ExcessiveParameterList" />
 
  <rule ref="category/java/design.xml/ExcessivePublicCount" >
@@ -207,16 +205,23 @@
 
   
   <rule ref="category/java/design.xml/ImmutableField" />
+  <!--rule ref="category/java/design.xml/InvalidJavaBean">
+    <properties>
+        <property name="ensureSerialization" value="false" />
+        <property name="packages" value="org.example.beans" />
+    </properties>
+</rule-->
+
   <!--rule ref="category/java/design.xml/LawOfDemeter" /--><!--C-->
   <rule ref="category/java/design.xml/LogicInversion" />
   <!--rule ref="category/java/design.xml/LoosePackageCoupling" /--><!--C-->
   <rule ref="category/java/design.xml/MutableStaticState" />
 
-  <!--rule ref="category/java/design.xml/NcssCount" /--><!--C-->
+  <rule ref="category/java/design.xml/NcssCount"/><!--C-->
   <rule ref="category/java/design.xml/NPathComplexity" />
   <rule ref="category/java/design.xml/SignatureDeclareThrowsException" />
   <rule ref="category/java/design.xml/SimplifiedTernary" /><!--D-->
-   <rule ref="category/java/design.xml/SimplifyBooleanExpressions" />
+  <rule ref="category/java/design.xml/SimplifyBooleanExpressions" />
   <rule ref="category/java/design.xml/SimplifyBooleanReturns" />
   <rule ref="category/java/design.xml/SimplifyConditional" />
   <!--rule ref="category/java/design.xml/SingularField" /--><!--C-->
@@ -304,7 +309,6 @@
 
   <rule ref="category/java/errorprone.xml/EmptyCatchBlock" /><!--D-->
   <rule ref="category/java/errorprone.xml/EmptyFinalizer" />
-  <rule ref="category/java/errorprone.xml/EmptyStatementNotInLoop" /><!--D-->
   
   <rule ref="category/java/errorprone.xml/EqualsNull" />
   
@@ -332,6 +336,7 @@
   <!--rule ref="category/java/errorprone.xml/MoreThanOneLogger" /--><!--C-->
   
   <rule ref="category/java/errorprone.xml/NonCaseLabelInSwitchStatement" />
+  <rule ref="category/java/errorprone.xml/NonSerializableClass" />
   <rule ref="category/java/errorprone.xml/NonStaticInitializer" />
   <rule ref="category/java/errorprone.xml/NullAssignment" /><!--C-->
   <rule ref="category/java/errorprone.xml/OverrideBothEqualsAndHashcode" /><!--D-->
@@ -377,24 +382,16 @@
   <rule ref="category/java/multithreading.xml/UseNotifyAllInsteadOfNotify" />
 
 
-
-  <rule ref="category/java/performance.xml/AppendCharacterWithChar" />
-  <rule ref="category/java/performance.xml/BigIntegerInstantiation" /><!--D-->
-  <!--rule ref="category/java/performance.xml/ConsecutiveAppendsShouldReuse" /-->
-  <rule ref="category/java/performance.xml/ConsecutiveLiteralAppends" />
-
-
-  <!--rule ref="category/java/performance.xml/AddEmptyString" /--><!--C-->
+   <!--rule ref="category/java/performance.xml/AddEmptyString" /--><!--C-->
   <!--rule ref="category/java/performance.xml/AppendCharacterWithChar" /--><!--C-->
   <!--rule ref="category/java/performance.xml/AvoidArrayLoops" /--><!--C-->
   <rule ref="category/java/performance.xml/AvoidCalendarDateCreation" />
   <!--rule ref="category/java/performance.xml/AvoidFileStream" /--><!--C-->
   <!--rule ref="category/java/performance.xml/AvoidInstantiatingObjectsInLoops" /--><!--C-->
-  <!--rule ref="category/java/performance.xml/BigIntegerInstantiation" /--><!--C-->
 
-  <!--rule ref="category/java/performance.xml/ConsecutiveAppendsShouldReuse" /--><!--C-->
-   <!--rule ref="category/java/performance.xml/ConsecutiveLiteralAppends" /--><!--C-->
-
+  <rule ref="category/java/performance.xml/BigIntegerInstantiation" /><!--D-->
+  <!--rule ref="category/java/performance.xml/ConsecutiveAppendsShouldReuse" /-->
+  <rule ref="category/java/performance.xml/ConsecutiveLiteralAppends" />
 
   <rule ref="category/java/performance.xml/InefficientEmptyStringCheck" />
   <rule ref="category/java/performance.xml/InefficientStringBuffering" />
@@ -408,6 +405,7 @@
   <!--rule ref="category/java/performance.xml/UseArrayListInsteadOfVector" /--><!--C-->
   <!--rule ref="category/java/performance.xml/UseArraysAsList" /--><!--C-->
   <rule ref="category/java/performance.xml/UseIndexOfChar" />
+  <rule ref="category/java/performance.xml/UseIOStreamsWithApacheCommonsFileItem" />
   <rule ref="category/java/performance.xml/UselessStringValueOf" />
   <!--rule ref="category/java/performance.xml/UseStringBufferForStringAppends" /--><!--C-->
   <rule ref="category/java/performance.xml/UseStringBufferLength" />
