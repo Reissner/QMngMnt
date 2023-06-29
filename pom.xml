@@ -323,6 +323,19 @@
 	            <version>${versionLatexPlugin}</version>
 							<type>jar</type>
 							<overWrite>true</overWrite>
+							<outputDirectory>${instDir}</outputDirectory>
+							<includes>instVScode4tex.sh</includes>
+							<fileMappers>
+								<org.codehaus.plexus.components.io.filemappers.IdentityMapper />
+							</fileMappers>
+						</artifactItem>
+
+            <artifactItem>
+            	<groupId>eu.simuline.m2latex</groupId>
+	            <artifactId>latex-maven-plugin</artifactId>
+	            <version>${versionLatexPlugin}</version>
+							<type>jar</type>
+							<overWrite>true</overWrite>
 							<outputDirectory>${latexDir}</outputDirectory>
 							<includes>.latexmkrc, .chktexrc</includes>
 							<fileMappers>
@@ -343,19 +356,6 @@
                   <pattern>c.raw$</pattern>
                   <replacement>c</replacement>
 								</org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
-							</fileMappers>
-						</artifactItem>
-
-						<artifactItem>
-            	<groupId>eu.simuline.m2latex</groupId>
-	            <artifactId>latex-maven-plugin</artifactId>
-	            <version>${versionLatexPlugin}</version>
-							<type>jar</type>
-							<overWrite>true</overWrite>
-							<outputDirectory>${instDir}</outputDirectory>
-							<includes>instVScode4tex.sh</includes>
-							<fileMappers>
-								<org.codehaus.plexus.components.io.filemappers.IdentityMapper />
 							</fileMappers>
 						</artifactItem>
 					</artifactItems>
