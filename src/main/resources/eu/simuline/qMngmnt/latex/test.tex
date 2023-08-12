@@ -97,6 +97,11 @@ Maybe the most widely used tool for building a single \LaTeX{} document
 is \texttt{latexmk} and the plugin is designed to cooperate with \texttt{latexmk}, 
 switching to \texttt{latexmk} if an error occurs or if a section must be added 
 and then again switching back to the plugin if all documents shall be complied. 
+Starting with version 2.0, 
+the \href{https://github.com/Reissner/latex-maven-plugin}{\texttt{latex-maven-plugin}} 
+has also a goal \texttt{dvl} which creates a file \texttt{.latexmkrc} 
+which defines a configuration for \texttt{latexmk} 
+and which is in line with the options used for the latex plugin. 
 
 
 
@@ -104,9 +109,12 @@ In the long run,
 all projects, even this one shall use the \texttt{latex-maven-plugin}. 
 This is currently not possible because this would introduce a cyclic dependency, 
 because on the one hand, the latex plugin is subject to the rules 
-prescribed in this quality management project and must be referenced in the latex plugin project, 
-and on the other hand, this quality management project needs the plugin to build. 
-This can only be resolved if this one project refers to a lower version of the sibling project. 
+prescribed in this quality management project 
+and must be referenced in the latex plugin project, 
+and on the other hand, 
+this quality management project needs the plugin to build. 
+This can only be resolved if this one project 
+refers to a lower version of the sibling project. 
 At the beginning, this is not possible. 
 In general, compilation should work with default parameters. 
 
@@ -116,13 +124,14 @@ only using command line tools \texttt{lualatex} and \texttt{bibtex}
 Later we require a glossary and an index, glossary with \texttt{bib2gls} 
 and an index, where the tooling is not yet so clear. 
 Instead of directly using the combination of these tools, 
-one could use \texttt{latexmk} with an appropriate config file \texttt{.latexmkrc}. 
+one could use \texttt{latexmk} 
+with an appropriate config file \texttt{.latexmkrc} created by the plugin. 
 
 \subsection{Configuration}\label{subsec:toolConf}
 
-This section collects configuration of tex documents. 
+This section collects configuration of \TeX{} documents. 
 A big part of configuration is the set of packages used 
-and the optios of the packages. 
+and the options of the packages. 
 Note that these packages partially presuppose the abovementioned tools. 
 These tools are mandatory also in other cases for sake of reproducibility. 
 
@@ -132,10 +141,10 @@ This document is just an example.
 \lstinputlisting[firstline=2, lastline=2]{test}%\RequirePackage
 
 Then comes the declaration of the \texttt{documentclass}. 
-Currently we support the classes \texttt{article}, \texttt{book} and \texttt{beamer}. 
-Since this is a (western) european company, only a4 paper is supported. 
+Currently, we support the classes \texttt{article}, \texttt{book} and \texttt{beamer}. 
+Since this is a (western) European company, only a4 paper is supported. 
 This shall be provided by the package \texttt{geometry}, 
-but the option shall be given not as package option but as documentclass option 
+but the option shall be given not as package option but as \texttt{documentclass} option 
 to make it available to other packages also. 
 Font size of 12pt shall be in general used. 
 
@@ -153,17 +162,25 @@ After that, in the long run further packages shall be input from a general heade
 In the time to be, we specify here the packages needed and prohibited: 
 %
 \begin{description}
-  \item[prohibited] \texttt{inputenc}, \texttt{fontenc} because these do not fit \texttt{lualatex}. 
-  \item[mandatory] \texttt{geometry}, \texttt{microtype}, \texttt{rerunfilecheck}, \texttt{listings}, \texttt{hyperref}. 
+  \item[prohibited] 
+  \texttt{inputenc}, 
+  \texttt{fontenc} because these do not fit \texttt{lualatex}. 
+  \item[mandatory] 
+  \texttt{geometry}, \texttt{microtype}, \texttt{rerunfilecheck}, 
+  \texttt{listings}, \texttt{hyperref}. 
+  The package \texttt{hyperref} must be used, among others, with option \texttt{destlabel} 
+  as explained in Section~\ref{sec:secs}. 
   This listing is incomplete. 
   \item[future] in future \texttt{biblatex} is mandatory. 
 \end{description}
 
-\section{Sections}\label{sec:secs}
+\section{Sections and other structures}\label{sec:secs}
 
-Each document needs a title and an author and an identification of the version of the document. 
+Each document needs a title and an author 
+and an identification of the version of the document. 
 What is not allowed is a date, because this corrupts certain equality checks: 
-A generated PDF file shall change only if this is really intended and not because the date changes 
+A generated PDF file shall change only 
+if this is really intended and not because the date changes 
 (which happens every day).  
 If a document refers to software, as e.g\@. a manual, 
 the version of the document is that of the software. 
@@ -178,6 +195,23 @@ Each of them must have an entry in the table of contents.
 An introductory section is mandatory and in most cases, 
 it is advisable to have a summary or a miscellaneous section, 
 or a section with open points. 
+
+Each section, no matter which level, i.e. applies also to chapters in books, 
+is numbered and has a label for reference. 
+If it has subsections, it has some introducing text mentioning all immediate subsections 
+and reference them. 
+
+Also figures, tables and listings are labeled and must be referenced at least once. 
+
+Note that it is mandatory to use the package \texttt{hyperref} 
+with at least the option \texttt{destlabel}. 
+This allows to access sections and floating structures 
+of PDF document on the internet. 
+For example, the manual of the latex plugin 
+is located at \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf}. 
+Its chapter on installation has label \texttt{chap:install}, 
+so this chapter is accessible 
+via \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:install}. 
 
 
 \section{Miscellaneous}\label{sec:misc}
