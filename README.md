@@ -419,6 +419,18 @@ https://web.archive.org/web/20161217190546/http://www.excelsior-usa.com/articles
 https://www.guardsquare.com/manual/configuration/examples
 <!-- markdownlint-enable no-bare-urls -->
 
+plantuml
+
+https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/
+https://kroki.io/  also mairmaid 
+
+
+uml tools: 
+- https://de.wikipedia.org/wiki/Fujaba
+- https://github.com/ModelioOpenSource/Modelio
+- https://eclipse.dev/papyrus/
+- gaphor 
+
 ## To Be Done <a id='ssTBD'></a>
 
 In the long run, the directory layout shall be the following tree, optional directories in brackets:
