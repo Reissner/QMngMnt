@@ -365,11 +365,45 @@ It is accessible on the site via
 
 The same configurations are also used by maven plugins. 
 
+### LaTeX or markdown 
+
+Ideally, there is a single documentation system 
+but LaTeX and markdown offer unique advantages 
+the other does not offer. 
+While LaTeX moves slowly, markdown develops quickly 
+and so additional abilities must be taken into account. 
+
+At time of this writing, the following distinctive features are present. 
+For features of LaTeX, the tool or the package or the class in the LaTeX universe 
+realizing the feature is given 
+
+| Feature       | LaTeX          | markdown |
+| :------------ | :------------- | :------ |
+| math formulae | (lua)latex     | ?   |<!-- TBD: reference? -->
+| bibliography  | bibtex         | ?   |<!-- TBD: shall be biber -->
+| index         | makeindex      | ?   |<!-- TBD: shall be xindy -->
+| glossary      | makeglossaries | ?   |
+| executable    | pythontex      | -   |
+| raster pics   | (lua)latex     | yes |
+| fig           | (lua)latex     | ?   |
+| gnuplot       | (lua)latex     | ?   |
+| metapost      | (lua)latex     | ?   |
+| svg           | (lua)latex     | ?   |
+
+LaTeX not only offers glossaries and bibliographies, 
+it offers access to terminology and literature management. 
+
 ## Safety <a id='ssSafety'></a>
 
 Have a look at [https://snyk.io/blog/10-maven-security-best-practices/](https://snyk.io/blog/10-maven-security-best-practices/)
 
-Some literature on safety is [here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/).
+Some literature on safety is [here](src/main/resources/eu/simuline/qMngmnt/literature/Safety/). 
+
+Tools we use shall not expose information to a server outside this organization. 
+This affects among others language servers. 
+In this respect our tools must be evaluated 
+and the result of evaluation must be documented. 
+<!-- TBD -->
 
 ## Miscellaneous <a id='ssMisc'></a>
 <!-- markdownlint-disable no-bare-urls -->
