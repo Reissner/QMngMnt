@@ -129,6 +129,30 @@ this requires an update of quality management, which is slow.
 but then it requires even an update of the latex plugin. 
 Note also that one has to take care of cyclic dependencies between the two projects. -->
 
+<!-- drop a word on plantuml used in markdown. -->
+<!-- markddown: flaw is lack of file inclusion 
+  Paradox resolves this https://developer.lightbend.com/docs/paradox/current/index.html 
+  I dont consider this optimal, but maybe worth a look. -->
+<!-- plantuml can include files 
+  (https://forum.plantuml.net/6577/ability-include-blocks-code-from-plantuml-file-into-another) 
+which is good in the context of markdown but offers also a chance to use one and the same puml file 
+also in latex https://plantuml.com/command-line describes a command line tool. 
+Also offers ouput in latex. 
+This is based on tikz and needs extension of the latex plugin. -->
+
+<!-- concerning markdown evaluate the following: 
+well-ar.plantuml seems not to work for me 
+jebbs.plantuml
+seems to do highlighting, preview, but via server: security gap 
+https://plantuml.com/de/picoweb shows an alternative 
+yzane.markdown-pdf  converts to pdf but also to html (png and jpg irrelevant)
+Not yet activated. 
+yog.yog-plantuml-highlight seems not to work for me
+pomdtr.markdown-kroki  with lot of formats, among other mermaid and plantuml
+Must be evaluated: https://kroki.io/  kroki!
+-->
+
+
 		<release version="0.0.5" date='2023-05-01' description='Emphasis on script based installation'>
       <action dev="ER" type="add">
         For script based installation now also extension of browsers are included 

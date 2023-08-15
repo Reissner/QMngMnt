@@ -32,6 +32,14 @@ code --force --install-extension shd101wyy.markdown-preview-enhanced
 code --force --install-extension alanwalk.markdown-navigation
 code --force --install-extension tchayen.markdown-links
 # ltex in the course of latex 
+# plantuml 
+code --force --install-extension myml.vscode-markdown-plantuml-preview
+#code --force --install-extension well-ar.plantuml # seems not to work 
+code --force --install-extension pomdtr.markdown-kroki
+#code --force --install-extension yog.yog-plantuml-highlight # seems not to work for me
+#code --force --install-extension jebbs.plantuml # seems to do highlighting, preview, 
+# but via server: security gap 
+#code --force --install-extension yzane.markdown-pdf  converts to pdf but also to html (png and jpg irrelevant)
 
 # Velocity Template Language (VTL)
 code --force --install-extension luqimin.velocity
