@@ -23,7 +23,7 @@
 
 echo "install from markdown to lisp" 
 
-# Textual: markdown  
+# Textual: markdown and friends 
 code --force --install-extension DavidAnson.vscode-markdownlint
 code --force --install-extension joffreykern.markdown-toc
 code --force --install-extension yzhang.markdown-all-in-one
@@ -47,6 +47,9 @@ code --force --install-extension luqimin.velocity
 # antlr
 code --force --install-extension mike-lischke.vscode-antlr4
 code --force --install-extension ncthbrt.antlr4
+
+# lex/yacc and flex/bison
+code --force --install-extension daohong-emilio.yash
 
 # xml
 code --force --install-extension redhat.vscode-xml
@@ -82,6 +85,7 @@ code --force --install-extension carlos-algms.make-task-provider
 
 # for docker 
 code --force --install-extension ms-azuretools.vscode-docker
+code --force --install-extension dunstontc.vscode-docker-syntax
 code --force --install-extension ms-vscode-remote.remote-containers
 
 
@@ -158,6 +162,7 @@ code --force --install-extension tomashubelbauer.email-viewer
 # misc
 code --force --install-extension trond-snekvik.simple-rst
 code --force --install-extension maarti.jenkins-doc
+code --force --install-extension pdconsec.vscode-print
 
 source ./instVScode4tex.sh
 
