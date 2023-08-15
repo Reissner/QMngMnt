@@ -406,6 +406,10 @@ and the result of evaluation must be documented.
 <!-- TBD -->
 
 ## Miscellaneous <a id='ssMisc'></a>
+
+
+### Licensing 
+
 <!-- markdownlint-disable no-bare-urls -->
 https://www.mojohaus.org/license-maven-plugin/examples/example-download-licenses.html
 
@@ -413,23 +417,35 @@ https://www.simplify4u.org/sign-maven-plugin/
 
 https://github.com/verhas/License3j
 
+### Obfuscation 
+
+In general the idea is to provide software as a service (SAAS). 
+
 https://github.com/yWorks/yGuard obfuscation
 
 https://web.archive.org/web/20161217190546/http://www.excelsior-usa.com/articles/java-obfuscators.html
 https://www.guardsquare.com/manual/configuration/examples
-<!-- markdownlint-enable no-bare-urls -->
 
+
+### Markdown and friends 
+
+<!-- markdownlint-enable no-bare-urls -->
 plantuml
 
 https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/
 https://kroki.io/  also mairmaid 
 
+### UML tools 
 
 uml tools: 
 - https://de.wikipedia.org/wiki/Fujaba
 - https://github.com/ModelioOpenSource/Modelio
 - https://eclipse.dev/papyrus/
 - gaphor 
+
+Note that there also painting technologies like plantuml and according in latex. 
+
+### misc of misc 
 
 ## To Be Done <a id='ssTBD'></a>
 
