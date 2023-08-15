@@ -50,14 +50,15 @@ zypper in -y git git-doc bash-git-prompt git-filter-repo git-lfs `# git` \
 # programming languages: 
 # - gcc currently mainly for octave (with documentation with doxygen)
 # - scala for eval , 
-# - go 
+# - go, smalltalk  
 zypper in -y gcc gcc-c++ gcc-fortran gcc-ada gcc-go cross-arm-gcc13 \
   `#Also available: gcc-d, gcc-objc, gcc-obj-c++` \
   doxygen doxygen2man doxywizard `# doxygen, mainly for C` \
   autoconf automake libtool make `#make includes gnumake and cross platform cmake` \
   go-doc go `# go` \
   scala sbt `# scala; maybe not enough` \
-  mono-core js `# mono used for tikz editor only, js broadly used `
+  mono-core js `# mono used for tikz editor only, js broadly used ` \
+  squeak-vm `# squeak is a dialect of smalltalk and the package provides a development environment `
 
 
 zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell for emacs only` \
@@ -94,7 +95,6 @@ zypper in -y texlive-functional texlive-functional-doc `# the base` \
 # To improve this, one shall install texlive in the standardized way, not via suse. 
 mkdir -p /usr/share/texmf/bibtex/bst/abstract/
 wget -nc -O /usr/share/texmf/bibtex/bst/abstract/abstract.bst http://tug.ctan.org/tex-archive/biblio/bibtex/utils/bibtools/abstract.bst
-
 
 # TBD: It is not ok just to patch into an existing and clean texlive installation. 
 # To improve this, one shall install texlive in the standardized way, not via suse. 
@@ -137,7 +137,7 @@ popd
 zypper in -y java-11-openjdk-src java-11-openjdk java-11-openjdk-devel `# java11 already included in base installation ` \
 	java-17-openjdk-src java-17-openjdk java-17-openjdk-devel `#j ava17 needed for redhead plugin` \
   java-1_8_0-openjdk-src java-1_8_0-openjdk java-1_8_0-openjdk-devel `# java1.8 for latex plugin` \
-  #openjfx `# also for jabref` \
+  `#openjfx # also for jabref` \
   maven `# basic build tool`
 
 
