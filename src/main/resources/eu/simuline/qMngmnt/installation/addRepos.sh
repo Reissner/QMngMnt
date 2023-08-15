@@ -30,6 +30,10 @@ rpm --import https://dl.google.com/linux/linux_signing_key.pub
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 zypper addrepo --refresh https://packages.microsoft.com/yumrepos/vscode vscode
 
+# for sure interesting in itself. 
+# currently used for squeak (package squeak-vm) which is a smalltalk dialect 
+zypper addrepo https://download.opensuse.org/repositories/Education/openSUSE_Tumbleweed/Education.repo
+
 # for publishing, to be honest currently for epstool only 
 zypper addrepo --refresh https://download.opensuse.org/repositories/Publishing/openSUSE_Tumbleweed/Publishing.repo
 
