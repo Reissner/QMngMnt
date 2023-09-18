@@ -393,6 +393,48 @@ realizing the feature is given
 LaTeX not only offers glossaries and bibliographies, 
 it offers access to terminology and literature management. 
 
+### Combining LaTeX and markdown 
+
+As already pointed out, ltex is a linter for both LaTeX and markdown. 
+Also, https://plantuml.com/latex shows some way of integration of plantuml 
+which is included in markdown. 
+
+Some problem is that markdown does not support inclusion of markdown files. 
+I shall suggest the syntax `![file](.../example.md)`. 
+
+From LaTeX side, there is a [markdown package](https://ctan.org/pkg/markdown). 
+
+### Check links and usage 
+
+To keep up consistency, links are vital. 
+There is a maven plugin to check links of a site, `maven-linkcheck-plugin`, 
+<!-- nullpointer exception and no issue tracker -->
+<!--plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-linkcheck-plugin</artifactId>
+				<version>1.2</version>
+</plugin-->
+but is not usable. 
+Thus, the plan is to write such a plugin. 
+It shall follow links in HTML files and in PDF files. 
+Whereas HTML files are easily parsed, 
+for PDF files `pdfinfo` is used. 
+
+- All outgoing links of `xxx.pdf` are given by `pdfinfo -url xxx.pdf`. 
+- For ingoing links of `xxx.pdf`, either the file itself is referenced 
+  or a so called 'destination'. 
+  All destinations are given by `pdfinfo -dests xxx.pdf`. 
+  One must distinguish: 
+  - Linking is not easy for files not created by this company, because no conventions apply. 
+  - Self-made files are created with LaTeX 
+    with `hyperref` package and option `destlabel` 
+    and so the destinations names are those of the according labels. 
+
+It is also important, to track whether all files in a site are reachable 
+by links starting with the central index file. 
+If not a warning shall be given. 
+
+
 ## Safety <a id='ssSafety'></a>
 
 Have a look at [https://snyk.io/blog/10-maven-security-best-practices/](https://snyk.io/blog/10-maven-security-best-practices/)
@@ -443,9 +485,10 @@ uml tools:
 - https://eclipse.dev/papyrus/
 - gaphor 
 
-Note that there also painting technologies like plantuml and according in latex. 
+Note that there also painting technologies like `plantuml` 
+and according technologies in latex. 
 
-### misc of misc 
+### Misc of Misc 
 
 ## To Be Done <a id='ssTBD'></a>
 
@@ -469,7 +512,10 @@ All top level elements shall be present, either active or commented out.
 For `maven-project-info-reports-plugin` do research on the set of available reports. 
 Maybe the pom spec gives the decisive hint. 
 
+Evaluate: 
+https://libguides.lib.msu.edu/c.php?g=995742&p=8207771
 
+https://www.overleaf.com/learn/latex/An_introduction_to_tagged_PDF_files%3A_internals_and_the_challenges_of_accessibility
 
 
 
