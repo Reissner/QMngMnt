@@ -127,7 +127,7 @@ Instead of directly using the combination of these tools,
 one could use \texttt{latexmk} 
 with an appropriate config file \texttt{.latexmkrc} created by the plugin. 
 
-\subsection{Configuration}\label{subsec:toolConf}
+\subsection{Configuration of tools and \LaTeX{} packages}\label{subsec:toolConf}
 
 This section collects configuration of \TeX{} documents. 
 A big part of configuration is the set of packages used 
@@ -153,12 +153,14 @@ Font size of 12pt shall be in general used.
 It is a requirement to support ``document development''. 
 This includes making a development environment as much 
 WYSIWIG\footnote{What you see is what you get}-like as possible. 
-To that end, one shall activate synctex as follows 
+To that end, one shall activate \texttt{synctex} as follows 
 
 \lstinputlisting[firstline=5, lastline=5]{test}%\documentclass
 
 
 After that, in the long run further packages shall be input from a general header file. 
+If an auxiliary tool cooperates with the package, 
+this is mentioned in the sequel. 
 In the time to be, we specify here the packages needed and prohibited: 
 %
 \begin{description}
@@ -172,7 +174,16 @@ In the time to be, we specify here the packages needed and prohibited:
   as explained in Section~\ref{sec:secs}. 
   This listing is incomplete. 
   \item[future] in future \texttt{biblatex} is mandatory. 
+  It shall be used in conjunction with \texttt{biber}. 
+  In general, a glossary is needed. Currently, \texttt{makeglossaries} is required, 
+  in future it shall be \texttt{makeglossaries-extra} instead. 
+  The tool tied to \texttt{makeglossaries} has the same name 
+  and shall be replaced by \texttt{bib2gls} tied to \texttt{makeglossaries}. 
+  In future, it shall be evaluated whether \texttt{xindy} is superior to \texttt{makeindex} 
+  in which case it shall be replaced. 
 \end{description}
+
+In the future, the latex plugin shall provide header files to unify the loaded packages. 
 
 \section{Sections and other structures}\label{sec:secs}
 
@@ -205,13 +216,16 @@ Also figures, tables and listings are labeled and must be referenced at least on
 
 Note that it is mandatory to use the package \texttt{hyperref} 
 with at least the option \texttt{destlabel}. 
+This defines for all labels destinations with the same name. 
 This allows to access sections and floating structures 
 of PDF document on the internet. 
 For example, the manual of the latex plugin 
 is located at \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf}. 
 Its chapter on installation has label \texttt{chap:install}, 
 so this chapter is accessible 
-via \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:install}. 
+via the destination with the same name 
+tied to the url 
+\url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:install}. 
 
 
 \section{Miscellaneous}\label{sec:misc}
@@ -220,7 +234,7 @@ A big subject is how to obtain reproducible documents.
 Also documents which contain computed data, either figure or computed pictures. 
 A discussion on \texttt{pythontex} can be found in~\cite{Poo15}. 
 We are lucky that \texttt{pythontex} allows computations in python but also in octave, 
-i.e.\@ in the matlab language,  
+i.e.\@ in the MATLAB language,  
 the two major languages we use besides our developing language java. 
 
 Note that there are alternatives to 
@@ -228,12 +242,12 @@ Note that there are alternatives to
 
 \subsection{How to deal with ltex}\label{subsec:ltex}
 
-Ltex has many rules but there is one particular, which is difficult to conform with. 
+Ltex has many rules, but there is one particular, which is difficult to conform with. 
 It is about spacing. 
 
 The root of the problem is, that \LaTeX{} inserts more space after full stop, 
 but not after other dot followed by a space. 
-But how does \LaTeX{} decide this? If the dot is preceeded by a lower case letter, 
+But how does \LaTeX{} decide this? If the dot is preceded by a lower case letter, 
 then it assumes a full stop, after an upper case letter it assumes no full stop. 
 This rule applies in most cases but not in all. 
 Here are two examples: 
@@ -241,33 +255,60 @@ Here are two examples:
 \begin{itemize}
   \item ``Apple Inc. sells phones''% chktex 12
   Here, \LaTeX{} thinks the period ends a sentence and wrongly adds an extra space.
-  \item ``My school scores were all A. Einstein would be proud of me!'
-  Here, \LaTeX{} does not realize that the period ends a sentence and does not add the expected space. 
-  Note that chtex does not find this problem. 
+  \item ``My school scores were all A. Einstein would be proud of me!''
+  Here, \LaTeX{} does not realize that the period ends a sentence 
+  and does not add the expected space. 
+  Note that \texttt{chktex} does not find this problem. 
 \end{itemize}
 
 The problem is solved by adding an invisible lower case letter by \texttt{\textbackslash@}. 
 Note how spacing improves: 
 \begin{itemize}
   \item ``Apple Inc.\@ sells phones''
-  \item ``My school scores were all A\@. Einstein would be proud of me!'
+  \item ``My school scores were all A\@. Einstein would be proud of me!''
 \end{itemize}
 
 \subsection{Terminology Management, Glossaries}\label{subsec:glos}
 
 Terminology management means that basic terms are defined at a single source. 
 It is decided that this places is a file in BIB format read by \texttt{bib2bls}. 
-It is conceivable to have more than one of these BIB files 
+This cooperates with \LaTeX{} via package \texttt{makeglossaries-extra}. 
+It is conceivable to have more than one of these BIB files, 
 but each term must be defined once over all BIB files. 
 
 A very good example of how useful and necessary terminology management is, 
 are the terms \gls{precN} and \gls{accN} referring to numbers 
 versus \gls{precM} and \gls{accM} referring to measurement. 
 
+\subsection{Citations}
+
+When citing from a source, this must be done with the \texttt{\textbackslash cite} 
+command specifying the document following the chapter or section or other structure, 
+like listing, table or figure. 
+
+Sometimes it is advantageous to add a link to the according PDF file 
+if this is accessible via internet/intranet. 
+As an example let us consider \url{https://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf}
+To reference a specific structure, 
+one shall use so-called destinations as described in \cite{Pdf17}, 
+Section 12.3.2.3. 
+Unfortunately, there is no specification on the names of the destinations 
+referring to structures 
+although \texttt{chap.1} is widely used to specify the beginning of chapter 1. 
+Only references to pages are specified. 
+Fortunately, the destinations of a document \texttt{manualLMP.pdf} 
+are listed via \texttt{pdfinfo -dests manualLMP.pdf}. 
+If a document is created with \LaTeX{} using package \texttt{hyperref} 
+with option \texttt{destlabel} as prescribed in Section~\ref{sec:secs}, 
+then the labels are destinations. 
+As an example, \texttt{manualLMP.pdf} has a chapter 4 with label \texttt{chap:GraphConversions}
+and so \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:GraphConversions} 
+points to the beginning of that chapter. 
+
 \subsection{Relation to other documentation systems}
 
 Here are important: 
-`markdown`': how to include markdown in a tex file. 
+`markdown`': how to include markdown in a \LaTeX{} file and the other way round. 
 jypyter notebooks: `jypynotex`'
 `texinfo`'. 
 
