@@ -411,48 +411,58 @@
       <!-- create html and pdf and other formats from latex -->
       <!-- this is activated for developer tests only -->
       <plugin>
-				<groupId>eu.simuline.m2latex</groupId>
-				<artifactId>latex-maven-plugin</artifactId>
-				<version>${versionLatexPlugin}</version>
+        <groupId>eu.simuline.m2latex</groupId>
+        <artifactId>latex-maven-plugin</artifactId>
+        <version>${versionLatexPlugin}</version>
 
-				<configuration>
-					<settings>
-						<latex2pdfCommand>lualatex</latex2pdfCommand>
-						<cleanUp>false</cleanUp>
+        <configuration>
+          <settings>
+            <!-- not synchronized with .latexmkrc -->
+            <latex2pdfCommand>lualatex</latex2pdfCommand>
+            <cleanUp>false</cleanUp>
             <texSrcDirectory>src/main/resources/eu/simuline/qMngmnt/latex</texSrcDirectory>
-					</settings>	
-				</configuration>
-				<executions>
-					<!--execution>
-						<id>process-latex-sources-pdf</id>
-						<goals>
-							<goal>pdf</goal>
-						</goals>
-					</execution>
+            <!-- synchronized with .latexmkrc -->
+            <!--chkTexOptions>-q -b0</chkTexOptions-->
+          </settings>
+        </configuration>
+        <executions>
 
 					<execution>
 						<id>process-latex-sources</id>
 						<goals>
 							<goal>cfg</goal>
 						</goals>
-					</execution-->
-					<execution>
-						<id>clear-latex-sources</id>
-						<goals>
-							<goal>clr</goal>
-						</goals>
 					</execution>
-					<execution>
-						<id>validate-converters</id>
-						<goals>
-							<goal>vrs</goal>
-						</goals>
-						<configuration>
-							<versionsWarnOnly>true</versionsWarnOnly>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+
+          <execution>
+            <id>clear-latex-sources</id>
+            <goals>
+              <goal>clr</goal>
+            </goals>
+          </execution>
+
+          <execution>
+						<?m2e execute onConfiguration?>
+            <id>inject-files</id>
+            <goals>
+              <goal>inj</goal>
+            </goals>
+            <configuration><!-- latexmkrc,chktexrc,vscodeExt,header -->
+              <injections>latexmkrc,chktexrc,header</injections>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>validate-converters</id>
+            <goals>
+              <goal>vrs</goal>
+            </goals>
+            <configuration>
+              <versionsWarnOnly>true</versionsWarnOnly>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
@@ -467,18 +477,18 @@
         </configuration>
       </plugin>
 
-			<!-- as a side effect, triggers 'generate-sources' forked phase execution  -->
+      <!-- as a side effect, triggers 'generate-sources' forked phase execution  -->
       <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>3.3.0</version>
-			</plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>3.3.0</version>
+      </plugin>
 
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.1.2</version>
         <reportSets />
       </plugin>
 
