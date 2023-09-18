@@ -22,6 +22,12 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 flatpak install -y flathub org.gaphor.Gaphor
 
+# not permanently active 
+# This is a fallback if version by zypper does not work 
+flatpak install -y flathub com.visualstudio.code
+cp ./CODE.sh /usr/bin/CODE
+#chmod a+x /usr/bin/CODE
+
 zypper in -y MozillaThunderbird MozillaThunderbird-translations-common
 # If the main directory is not preserved `~/.thunderbird` must be reconstructed.
 # Also ensure that there is a link to thunderbird on the desktop
@@ -82,9 +88,11 @@ zypper in -y texlive-functional texlive-functional-doc `# the base` \
   texlive-pdfpagediff texlive-pdfpagediff-doc pdftk `# for pdf` \
   texlive-cprotect    texlive-cprotect-doc `# verbatim in macro` \
   texlive-newverbs    texlive-newverbs-doc `# verbatim as macro` \
+  texlive-markdown    texlive-markdown-doc `# markdown into latex` \
+  texlive-accessibility texlive-accessibility-doc `# accessibility into latex` \
   exif exiftool `# show exif meta data, exiftool is better ` \
     `# Photini, exiv2 and gexif along the same lines as exif` \
-  unoconv pandoc texinfo libreoffice` # converter; texinfo implies texihtml and texiroff` \
+  unoconv pandoc texinfo libreoffice `# converter; texinfo implies texihtml and texiroff` \
   xfig gnuplot inkscape `# converter` \
   docbook2x discount `# the latter providing command 'markdown'` \
   rubber `# make utils texlive-arara? latexmake not present` \
