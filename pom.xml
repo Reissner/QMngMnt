@@ -220,25 +220,12 @@
               </includes>
             </fileset>
             <fileset>
-            	<directory>${instDir}</directory>
+              <directory>${instDir}</directory>
               <includes>
                 <include>instVScode4tex.sh</include>
               </includes>
             </fileset>
-            <fileset>
-            	<directory>${latexDir}</directory>
-              <includes>
-                <include>.latexmkrc</include>
-							  <include>.chktexrc</include>
-              </includes>
-            </fileset>
-            <fileset>
-            	<directory>src/main/resources</directory>
-              <includes>
-                <include>.latexmkrc</include>
-              </includes>
-            </fileset>
-          </filesets>
+         </filesets>
         </configuration>
       </plugin>
 
@@ -271,15 +258,15 @@
       This goal properties will set properties values 
 	     using dependency information 
     also dependencies are avaiable as variables, e.g. ${junit:junit:jar}-->
-			<!-- the properties-maven-plugin then writes those properties 
+    <!-- the properties-maven-plugin then writes those properties 
 	   in a file to ${project.build.outputDirectory}/mvn.properties  -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.6.0</version>
-				<executions>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.0</version>
+        <executions>
           <!-- TBD: clarify where needed -->
-					<!--execution>
+          <!--execution>
 						<?m2e execute onConfiguration,onIncremental?>
 						<id>determine-properties</id>
 						<phase>initialize</phase>
@@ -288,17 +275,17 @@
 						</goals>
 					</execution-->
 
-					<execution>
-						<?m2e execute onConfiguration,onIncremental?>
-						<id>unpack-latex-bibs-interfaces-src-build</id>
-						<phase>initialize</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-					</execution>
+          <execution>
+            <?m2e execute onConfiguration,onIncremental?>
+            <id>unpack-latex-bibs-interfaces-src-build</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+          </execution>
 
           <!-- not necessary because maven-jxr-plugin used -->
-					<!--execution>
+          <!--execution>
 						<id>unpack-latex-bibs-interfaces-src-site</id>
 						<phase>pre-site</phase>
 						<goals>
@@ -316,62 +303,33 @@
             </configuration>
           </execution>
 
-				</executions>
+        </executions>
 
-				<configuration>
-					<artifactItems>
-						<artifactItem>
-            	<groupId>eu.simuline.m2latex</groupId>
-	            <artifactId>latex-maven-plugin</artifactId>
-	            <version>${versionLatexPlugin}</version>
-							<type>jar</type>
-							<overWrite>true</overWrite>
-							<outputDirectory>${instDir}</outputDirectory>
-							<includes>instVScode4tex.sh</includes>
-							<fileMappers>
-								<org.codehaus.plexus.components.io.filemappers.IdentityMapper />
-							</fileMappers>
-						</artifactItem>
-
+        <configuration>
+          <artifactItems>
             <artifactItem>
-            	<groupId>eu.simuline.m2latex</groupId>
-	            <artifactId>latex-maven-plugin</artifactId>
-	            <version>${versionLatexPlugin}</version>
-							<type>jar</type>
-							<overWrite>true</overWrite>
-							<outputDirectory>${latexDir}</outputDirectory>
-							<includes>.latexmkrc, .chktexrc</includes>
-							<fileMappers>
-								<org.codehaus.plexus.components.io.filemappers.IdentityMapper/>
-							</fileMappers>
-						</artifactItem>
+              <groupId>eu.simuline.m2latex</groupId>
+              <artifactId>latex-maven-plugin</artifactId>
+              <version>${versionLatexPlugin}</version>
+              <type>jar</type>
+              <overWrite>true</overWrite>
+              <outputDirectory>${instDir}</outputDirectory>
+              <includes>instVScode4tex.sh</includes>
+              <fileMappers>
+                <org.codehaus.plexus.components.io.filemappers.IdentityMapper />
+              </fileMappers>
+            </artifactItem>
 
-						<artifactItem>
-            	<groupId>eu.simuline.m2latex</groupId>
-	            <artifactId>latex-maven-plugin</artifactId>
-	            <version>${versionLatexPlugin}</version>
-							<type>jar</type>
-							<overWrite>true</overWrite>
-							<outputDirectory>src/main/resources</outputDirectory>
-							<includes>.latexmkrc.raw</includes>
-							<fileMappers><!-- hack! -->
-								<org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
-                  <pattern>c.raw$</pattern>
-                  <replacement>c</replacement>
-								</org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
-							</fileMappers>
-						</artifactItem>
-					</artifactItems>
+          </artifactItems>
 
-				</configuration>
-
-			</plugin>
+        </configuration>
+      </plugin>
 
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.10.1</version>
+        <version>3.11.0</version>
       </plugin>
 
 
