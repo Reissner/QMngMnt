@@ -189,6 +189,7 @@
         <artifactId>maven-resources-plugin</artifactId>
         <version>3.3.0</version>
         <configuration>
+          <propertiesEncoding>UTF-8</propertiesEncoding>
           <nonFilteredFileExtensions>
             <nonFilteredFileExtension>pdf</nonFilteredFileExtension>
             <nonFilteredFileExtension>ppt</nonFilteredFileExtension>
