@@ -1,13 +1,21 @@
-<project name="Quality Management for Simuline Organization">
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd" name="Quality Management for Simuline Organization">
+
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.8</version>
+  </skin>
+
   <publishDate position="right"/>
   <version position="right"/>
   <body>
-  <menu name="Overview">
-    <item name="Generalities" href="general.html" />
-    <item name="literature"  href="literature.html" />
-  </menu>
-  <menu ref="parent" />
-  <menu ref="reports" />
-  <menu ref="modules" />
+    <menu name="Overview">
+      <item name="Generalities" href="general.html" />
+      <item name="literature" href="literature.html" />
+    </menu>
+    <menu ref="parent" />
+    <menu ref="reports" />
+    <menu ref="modules" />
   </body>
 </project>
