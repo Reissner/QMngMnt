@@ -420,6 +420,8 @@
             <!-- not synchronized with .latexmkrc -->
             <latex2pdfCommand>lualatex</latex2pdfCommand>
             <cleanUp>false</cleanUp>
+            <targets>chk,pdf</targets>
+            <mainFilesExcluded>test</mainFilesExcluded><!-- not yet able to compile this -->
             <texSrcDirectory>src/main/resources/eu/simuline/qMngmnt/latex</texSrcDirectory>
             <!-- synchronized with .latexmkrc -->
             <!--chkTexOptions>-q -b0</chkTexOptions-->
