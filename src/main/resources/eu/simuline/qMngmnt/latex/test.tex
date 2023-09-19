@@ -93,15 +93,43 @@ that if conversely the build process completes without error or warning,
 one can be sure that the result is without failure also. 
 Another point is that the plugin is for building all documents in one build run 
 but supports also development of a single document. 
-Maybe the most widely used tool for building a single \LaTeX{} document 
+Maybe the most widely used tool for development of a single \LaTeX{} document 
 is \texttt{latexmk} and the plugin is designed to cooperate with \texttt{latexmk}, 
 switching to \texttt{latexmk} if an error occurs or if a section must be added 
 and then again switching back to the plugin if all documents shall be complied. 
 Starting with version 2.0, 
 the \href{https://github.com/Reissner/latex-maven-plugin}{\texttt{latex-maven-plugin}} 
-has also a goal \texttt{dvl} which creates a file \texttt{.latexmkrc} 
+has also a goal \texttt{inj} for injecting files. 
+If properly configured (TBD\@: reference) it creates a file \texttt{.latexmkrc} 
 which defines a configuration for \texttt{latexmk} 
 and which is in line with the options used for the latex plugin. 
+An important tool both for quality assurance and for document development 
+is the linter \texttt{chktex} with its configuration file \texttt{.chhktexrc}. 
+Also this can be created with goal \texttt{inj} 
+so that it is equivalent whether running \texttt{chktex} or through the plugin. 
+The goal \texttt{inj} can and shall also be used to inject a header \texttt{header.tex} 
+to load the required packages. 
+Each latex main file shall use this header 
+to unify the documents style and to make them more maintainable. 
+In fact, one may deviate from this rule only with justification. 
+
+In the long run, the plugin shall also check the loaded packages, 
+including their versions. 
+This is important as the design goal to detect all warnings 
+can be reached only if the used packages are taken into account 
+when parametrizing the regular expression to detect a warning. 
+
+Note that the plugin also provides a script 
+to install extensions for VS code useful for developing latex documents. 
+This is not created by goal \texttt{inj}, 
+in fact it is not used directly. 
+Instead, this project provides the script \texttt{instVScode.sh} 
+to install a wider range of extensions. 
+The script provided by the latex plugin 
+goes into this but need not be invoked explicitly. 
+
+
+
 
 
 
@@ -207,7 +235,7 @@ An introductory section is mandatory and in most cases,
 it is advisable to have a summary or a miscellaneous section, 
 or a section with open points. 
 
-Each section, no matter which level, i.e. applies also to chapters in books, 
+Each section, no matter which level, i.e.\@ applies also to chapters in books, 
 is numbered and has a label for reference. 
 If it has subsections, it has some introducing text mentioning all immediate subsections 
 and reference them. 
@@ -255,7 +283,7 @@ Here are two examples:
 \begin{itemize}
   \item ``Apple Inc. sells phones''% chktex 12
   Here, \LaTeX{} thinks the period ends a sentence and wrongly adds an extra space.
-  \item ``My school scores were all A. Einstein would be proud of me!''
+  \item ``My school scores were all A. Einstein would be proud of me''
   Here, \LaTeX{} does not realize that the period ends a sentence 
   and does not add the expected space. 
   Note that \texttt{chktex} does not find this problem. 
@@ -263,9 +291,10 @@ Here are two examples:
 
 The problem is solved by adding an invisible lower case letter by \texttt{\textbackslash@}. 
 Note how spacing improves: 
+%
 \begin{itemize}
   \item ``Apple Inc.\@ sells phones''
-  \item ``My school scores were all A\@. Einstein would be proud of me!''
+  \item ``My school scores were all A\@. Einstein would be proud of me''
 \end{itemize}
 
 \subsection{Terminology Management, Glossaries}\label{subsec:glos}
@@ -290,7 +319,7 @@ Sometimes it is advantageous to add a link to the according PDF file
 if this is accessible via internet/intranet. 
 As an example let us consider \url{https://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf}
 To reference a specific structure, 
-one shall use so-called destinations as described in \cite{Pdf17}, 
+one shall use so-called destinations as described in~\cite{Pdf17}, 
 Section 12.3.2.3. 
 Unfortunately, there is no specification on the names of the destinations 
 referring to structures 
@@ -308,9 +337,9 @@ points to the beginning of that chapter.
 \subsection{Relation to other documentation systems}
 
 Here are important: 
-`markdown`': how to include markdown in a \LaTeX{} file and the other way round. 
-jypyter notebooks: `jypynotex`'
-`texinfo`'. 
+`markdown': how to include markdown in a \LaTeX{} file and the other way round. 
+jypyter notebooks: `jypynotex'
+and good old `texinfo'. 
 
 
 
