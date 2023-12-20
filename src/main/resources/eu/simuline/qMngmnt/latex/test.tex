@@ -25,12 +25,12 @@
 \bibliographystyle{abstract}%{alpha}%{aaai-named}%
 %\bibliographystyle{alpha}
 
+\title{On writing \LaTeX{} documents for the simuline organization}
+\author{Dr.~Ernst Reißner}
+\date{\today}
 
 \begin{document}
 
-\title{On writing \LaTeX{} documents for the simuline organization}
-\author{Dr.~Ernst Reißner}
-%\date{\today}% date is not allowed 
 \maketitle
 
 
@@ -82,7 +82,7 @@ Starting from version 1.5, it has a goal \texttt{vrs} listing all converters
 with their applicable versions. 
 It is recommended to have all of them installed. 
 In addition, there are lots of latex-packages required, 
-all of them in the \texttt{texlife} distribution 
+all of them in the \texttt{texlive} distribution 
 which contains also most of the converters, but not all of them. 
 The site of the plugin gives hints on the pieces of software used by the plugin 
 and provides a manual covering the full functionality. 
@@ -170,8 +170,9 @@ This document is just an example.
 
 Then comes the declaration of the \texttt{documentclass}. 
 Currently, we support the classes \texttt{article}, \texttt{book} and \texttt{beamer}. 
-Since this is a (western) European company, only a4 paper is supported. 
-This shall be provided by the package \texttt{geometry}, 
+Since this is a (western) European company, only a4 paper is supported, 
+of course except \texttt{beamer} for which \texttt{aspectratio} may be set. 
+The format shall be provided by the package \texttt{geometry}, 
 but the option shall be given not as package option but as \texttt{documentclass} option 
 to make it available to other packages also. 
 Font size of 12pt shall be in general used. 
@@ -201,28 +202,43 @@ In the time to be, we specify here the packages needed and prohibited:
   The package \texttt{hyperref} must be used, among others, with option \texttt{destlabel} 
   as explained in Section~\ref{sec:secs}. 
   This listing is incomplete. 
-  \item[future] in future \texttt{biblatex} is mandatory. 
+  \item[future] In future \texttt{biblatex} is mandatory. 
   It shall be used in conjunction with \texttt{biber}. 
+
   In general, a glossary is needed. Currently, \texttt{makeglossaries} is required, 
   in future it shall be \texttt{makeglossaries-extra} instead. 
   The tool tied to \texttt{makeglossaries} has the same name 
   and shall be replaced by \texttt{bib2gls} tied to \texttt{makeglossaries}. 
-  In future, it shall be evaluated whether \texttt{xindy} is superior to \texttt{makeindex} 
+
+  Once, it shall be evaluated whether \texttt{xindy} is superior to \texttt{makeindex} 
   in which case it shall be replaced. 
+
+  Since unification is a vital principle, in general documentation is in American English language. 
+  Nevertheless, earlier or later there is a need for further languages. 
+  Thus, the package \texttt{babel} is required. 
+  % a few words on hen to load the language. 
 \end{description}
 
 In the future, the latex plugin shall provide header files to unify the loaded packages. 
+% Header is almost transparent concering the latex compiler. 
+
+% nothing said about use of chktex and latexmk and in particular files .chktexrc and .latexmkrc. 
+% how to set up. 
+% also missing are metadata in PDF. 
+% what about ps or dvi? not used. Only PDF. in the long run also DOCX, HTML and EPUB. 
+% a word on the latex plugin and its version. 
+% also using the default and deviation: injections. 
 
 \section{Sections and other structures}\label{sec:secs}
 
-Each document needs a title and an author 
-and an identification of the version of the document. 
-What is not allowed is a date, because this corrupts certain equality checks: 
-A generated PDF file shall change only 
-if this is really intended and not because the date changes 
-(which happens every day).  
+Each document needs a title, an author, 
+a date and an identification of the version of the document.  
 If a document refers to software, as e.g\@. a manual, 
 the version of the document is that of the software. 
+Currently, reproducibility checks of a created PDF file is not required, 
+but if so, this is ensured as described 
+in the according section of the 
+\href{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#sec:chkReprod}{manual}. 
 
 Each document requires a table of contents. 
 If there are figures, tables or listings, then also an according table, 
@@ -252,7 +268,7 @@ is located at \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf}.
 Its chapter on installation has label \texttt{chap:install}, 
 so this chapter is accessible 
 via the destination with the same name 
-tied to the url 
+tied to the URL 
 \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:install}. 
 
 
@@ -296,6 +312,13 @@ Note how spacing improves:
   \item ``Apple Inc.\@ sells phones''
   \item ``My school scores were all A\@. Einstein would be proud of me''
 \end{itemize}
+
+\subsection{The various kinds of dashes}\label{subsec:dashes}
+
+An overview is given in 
+\url{https://site.uit.no/english/punctuation/hyphen/}. 
+TBD\@: make this more explicit. 
+Mention \texttt{chktex}. 
 
 \subsection{Terminology Management, Glossaries}\label{subsec:glos}
 
