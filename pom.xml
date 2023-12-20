@@ -227,11 +227,11 @@
                 <include>instVScode4tex.sh</include>
               </includes>
             </fileset>
-         </filesets>
+          </filesets>
         </configuration>
       </plugin>
 
-     <!-- This plugin will write properties values 
+      <!-- This plugin will write properties values 
 	   using dependency information into classpath.txt-->
       <!--plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -260,7 +260,7 @@
       This goal properties will set properties values 
 	     using dependency information 
     also dependencies are avaiable as variables, e.g. ${junit:junit:jar}-->
-    <!-- the properties-maven-plugin then writes those properties 
+      <!-- the properties-maven-plugin then writes those properties 
 	   in a file to ${project.build.outputDirectory}/mvn.properties  -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -430,7 +430,7 @@
             <latex2pdfCommand>lualatex</latex2pdfCommand>
             <cleanUp>false</cleanUp>
             <targets>chk,pdf</targets>
-            <mainFilesExcluded>test</mainFilesExcluded><!-- not yet able to compile this -->
+            <mainFilesExcluded>test</mainFilesExcluded>            <!-- not yet able to compile this -->
             <texSrcDirectory>src/main/resources/eu/simuline/qMngmnt/latex</texSrcDirectory>
             <!-- synchronized with .latexmkrc -->
             <!--chkTexOptions>-q -b0</chkTexOptions-->
@@ -438,12 +438,12 @@
         </configuration>
         <executions>
 
-					<execution>
-						<id>process-latex-sources</id>
-						<goals>
-							<goal>cfg</goal>
-						</goals>
-					</execution>
+          <execution>
+            <id>process-latex-sources</id>
+            <goals>
+              <goal>cfg</goal>
+            </goals>
+          </execution>
 
           <execution>
             <id>clear-latex-sources</id>
@@ -453,12 +453,12 @@
           </execution>
 
           <execution>
-						<?m2e execute onConfiguration?>
+            <?m2e execute onConfiguration?>
             <id>inject-files</id>
             <goals>
               <goal>inj</goal>
             </goals>
-            <configuration><!-- latexmkrc,chktexrc,vscodeExt,header -->
+            <configuration>              <!-- latexmkrc,chktexrc,vscodeExt,header -->
               <injections>latexmkrc,chktexrc,header</injections>
             </configuration>
           </execution>
