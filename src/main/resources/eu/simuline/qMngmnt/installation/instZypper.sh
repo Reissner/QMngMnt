@@ -90,6 +90,9 @@ zypper in -y texlive-functional texlive-functional-doc `# the base` \
   texlive-newverbs    texlive-newverbs-doc `# verbatim as macro` \
   texlive-markdown    texlive-markdown-doc `# markdown into latex` \
   texlive-accessibility texlive-accessibility-doc `# accessibility into latex` \
+  texlive-anyfontsize texlive-anyfontsize-doc `# allow any font size` \
+  texlive-glossaries-english texlive-glossaries-english-doc `# for glossaries` \
+  texlive-glossaries-german  texlive-glossaries-german-doc  `# for glossaries` \
   exif exiftool `# show exif meta data, exiftool is better ` \
     `# Photini, exiv2 and gexif along the same lines as exif` \
   unoconv pandoc texinfo libreoffice `# converter; texinfo implies texihtml and texiroff` \
