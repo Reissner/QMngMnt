@@ -1,21 +1,37 @@
-<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd" name="Quality Management for Simuline Organization">
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<site
+  xmlns="http://maven.apache.org/SITE/2.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SITE/2.0.0 https://maven.apache.org/xsd/site-2.0.0.xsd"
+  name="Quality Management">  <!-- maybe without name, check -->
+
+<poweredBy>
+  <logo name="Github" href="http://github.com/">
+    <image src="http://github.com/images/modules/header/logov3.png"/>
+  </logo>
+  <logo name="Maven" href="http://maven.apache.org/">
+    <image src="http://maven.apache.org/images/logos/maven-feather.png"/>
+  </logo>
+</poweredBy>
 
   <skin>
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-fluido-skin</artifactId>
-    <version>1.8</version>
+    <version>2.0.0-M8</version>
   </skin>
 
-  <publishDate position="right"/>
-  <version position="right"/>
+  <!--publishDate position="right"/>
+  <version position="right"/-->
+
+
   <body>
     <menu name="Overview">
+      <item name="Introduction" href="intro.html"/>
       <item name="Generalities" href="general.html" />
-      <item name="literature" href="literature.html" />
+      <item name="literature"   href="literature.html" />
     </menu>
-    <menu ref="parent" />
+    <!--menu ref="parent" /-->
     <menu ref="reports" />
-    <menu ref="modules" />
+    <!--menu ref="modules" /-->
   </body>
-</project>
+</site>
