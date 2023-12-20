@@ -94,6 +94,12 @@
     </mailingList-->
   </mailingLists>
 
+  <issueManagement>
+    <system>Github Issues</system>
+    <url>https://github.com/Reissner/QMngMnt/issues</url>
+    <!--url>https://github.com/akquinet/latex-maven-plugin/issues</url-->
+  </issueManagement>
+
   <!-- properties: ensures reproducibility -->
   <properties>
     <!-- to keep dependencies up to date: 
