@@ -175,10 +175,10 @@
 		    Invalid Maven version. It should, at least, be ${versionMvn}
                   </message>
                 </requireMavenVersion>
-                <!--requireJavaVersion>
-		  <version>11</version>
-		</requireJavaVersion-->
-                <!--dependencyConvergence/-->                <!-- this fails because of plugin-api -->
+                <requireJavaVersion>
+                  <version>${versionJava}</version>
+                </requireJavaVersion>
+                <dependencyConvergence/>
               </rules>
             </configuration>
           </execution>
@@ -338,6 +338,14 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.12.0</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-g</arg>
+            <arg>-Xlint:unchecked</arg>
+          </compilerArgs>
+          <source>${versionJava}</source>
+          <target>${versionJava}</target>
+        </configuration>
       </plugin>
 
 
@@ -383,6 +391,19 @@
         <artifactId>maven-deploy-plugin</artifactId>
         <version>3.1.1</version>
       </plugin>
+
+      <!-- javadoc plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.6.3</version>
+        <configuration>
+          <breakiterator>true</breakiterator>
+          <show>private</show>
+          <source>${versionJava}</source>
+        </configuration>
+      </plugin>
+
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
