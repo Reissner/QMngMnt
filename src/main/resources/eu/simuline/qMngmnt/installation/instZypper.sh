@@ -73,8 +73,8 @@ zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell fo
 # please for vs code run instVScode.sh also 
 
 # texlive base and more 
-zypper in -y texlive-functional texlive-functional-doc `# the base` \
-  texlive-functional `# provides functions like ifExists` \
+zypper in -y \
+  texlive-functional  texlive-functional-doc `# provides functions like ifExists` \
   texlive-xurl        texlive-import texlive-verbatimbox `# xurl: line break in urls` \
   texlive-leaflet     texlive-leaflet-doc `# to support leaflets` \
   texlive-splitindex  texlive-robustindex xindy texlive-uptex `# indices` \
