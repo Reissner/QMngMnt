@@ -109,12 +109,12 @@
     <!-- checked during validation -->
     <versionMvn>3.9.2</versionMvn>
     <versionJava>17</versionJava>
+    <!--maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target-->
     <versionTestPlugins>3.2.3</versionTestPlugins>
     <!-- Using platform encoding to copy filtered resources; 
     without project.build.sourceEncoding the build is platform dependent! -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
     <versionTikzuml>tikzuml-v1.0-2016-03-29</versionTikzuml>
     <versionJabref>5.9-1.x86_64</versionJabref>
     <versionLatexPlugin>2.0-SNAPSHOT</versionLatexPlugin>
