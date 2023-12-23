@@ -152,6 +152,15 @@ pomdtr.markdown-kroki  with lot of formats, among other mermaid and plantuml
 Must be evaluated: https://kroki.io/  kroki!
 -->
 
+<!-- search for installer qMngmnt-${project.version}-installer.tgz, 
+e.g. in general.md.vm. 
+There one can see how bad the idea is to bundle the installation scripts as a tgz file. 
+A good alternative would be to turn this into a plugin and to add a goal inj, 
+to inject these files, .e.g. in a separate folder. 
+Risk: maybe other functionality does not work any more.  -->
+
+<!-- https://cbea.ms/git-commit/ -->
+
 
 		<release version="0.0.5" date='2023-05-01' description='Emphasis on script based installation'>
       <action dev="ER" type="add">
