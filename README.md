@@ -40,40 +40,7 @@ subjects not fitting into that scheme are collected
 under a common [roof](#ssMisc).
 Aspects to be added are collected in [TBD](#ssTBD). 
 
-## General Thoughts <a id='ssGen'></a>
 
-At the time of this writing,
-at simuline there was a software developed but not maintained for a long span of time
-and so also quality management did not keep pace with advances in development technologies.
-In particular, new compiler and quality management tools became stricter.
-So we must distinguish between what is desirable in future
-and what is mandatory now.
-
-The core development is in java solely.
-This uniformity is important because of the tense resources of the company. 
-In general, it is a principle to keep the set of technologies and tools small and uniform. 
-Also, tools used must be kept in a small range and tools must be open source and free. 
-
-Besides, hardware and installation must be uniform. 
-What applies to hardware and installation also applies to configuration. 
-Beyond this, mainstream is preferred to special configuration. 
-Thus, we use en_US locale internally; 
-only for communication with customers and other stakeholders, 
-we may switch to another language if the customer desires to do so. 
-
-Documentation is done with latex, Markdown and jupyter notebooks only 
-and also the form of [documentation](#ssDocumentation) is quite restricted. 
-
-Related with estimation of uniformity is the focus on automation. 
-In particular, for installation we rely on scripts rather than on manual procedures. 
-Also in quality management, the first step is running a linting tool, 
-prior to manual review. 
-This applies both to code and to documentation. 
-
-This helps to keep up reproducibility. 
-
-Important are processes which help to be productive and to reach good quality. 
-As far as possible, processes shall be automated. 
 
 ## Hardware and Installation <a id='ssHwInst'></a>
 
@@ -325,110 +292,7 @@ We deactivate the following rules:
   It would be worth if all **further** inline `html` is avoided, 
   whereas the a-tag shall be allowed. 
 
-## Documentation <a id='ssDocumentation'></a>
 
-Textual documentation is in latex and in Markdown. 
-Both formats are written using VS Code with according extensions. 
-These comprise `ltex` which can [lint both, latex and Markdown](#sssLintLtex). 
-For latex, `latex-maven-plugin` is used to transform into any needed output format. 
-
-Besides textual documentation, there is also code documentation, 
-above all for java. 
-Also, code is written with VS Code and for java the extension `redhat.java` is used. 
-This supports [online linting and formatting](#sssLintFormat). 
-
-### Linting LaTeX and Markdown with `ltex` <a id='sssLintLtex'></a>
-
-There is a code checker for latex and for Markdown 
-at the same time, `ltex`. 
-Its [documentation](https://valentjn.github.io/ltex/settings-de.html)
-shows, among other things, how to treat documents with mixed language. 
-
-Essentially, one has to write in general on documentation, 
-then elaborate which is specific for the languages under use. 
-
-### Linting and Formatting Java Online <a id='sssLintFormat'></a>
-
-VS Code is used with extension `redhat.java` which includes linting and formatting also. 
-The configuration can be done locally, but also via internet. 
-We use the latter way to obtain uniformity across the projects 
-and to minimize installation overhead. 
-We are aware that there are also drawbacks as e.g. a lot of work when changing the ruleset. 
-The [ruleset](./src/site/resources/java/eclipse-java-google-style.xml) 
-is derived from the according config used by google. 
-It is accessible on the site via 
-[site](https://www.simuline.eu/QualityManagement/java/eclipse-java-google-style.xml).
-
-The same configurations are also used by maven plugins. 
-
-### LaTeX or markdown 
-
-Ideally, there is a single documentation system 
-but LaTeX and markdown offer unique advantages 
-the other does not offer. 
-While LaTeX moves slowly, markdown develops quickly 
-and so additional abilities must be taken into account. 
-
-At time of this writing, the following distinctive features are present. 
-For features of LaTeX, the tool or the package or the class in the LaTeX universe 
-realizing the feature is given 
-
-| Feature       | LaTeX            | markdown |
-| :------------ | :--------------- | :------ |
-| Math formulae | `(lua)latex`        | ?   |<!-- TBD: reference? -->
-| bibliography  | `bibtex`         | ?   |<!-- TBD: shall be biber -->
-| index         | `makeindex`      | ?   |<!-- TBD: shall be xindy -->
-| glossary      | `makeglossaries` | ?   |
-| executable    | `pythontex`      | -   |
-| raster pics   | `(lua)latex`     | yes |
-| fig           | `(lua)latex`     | ?   |
-| gnuplot       | `(lua)latex`     | ?   |
-| metapost      | `(lua)latex`     | ?   |
-| svg           | `(lua)latex`     | ?   |
-
-LaTeX not only offers glossaries and bibliographies, 
-it offers access to terminology and literature management. 
-
-### Combining LaTeX and markdown 
-
-As already pointed out, `ltex` is a linter for both LaTeX and markdown. 
-Also, <https://plantuml.com/latex> shows some way of integration of PlantUML 
-which is included in Markdown. 
-
-Some problem is that markdown does not support inclusion of markdown files. 
-I shall suggest the syntax `![file](.../example.md)`. 
-
-From LaTeX side, there is a [markdown package](https://ctan.org/pkg/markdown). 
-
-### Check links and usage 
-
-To keep up consistency, links are vital. 
-There is a maven plugin to check links of a site, `maven-linkcheck-plugin`, 
-<!-- nullpointer exception and no issue tracker -->
-<!--plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-linkcheck-plugin</artifactId>
-				<version>1.2</version>
-</plugin-->
-but is not usable. 
-Thus, the plan is to write such a plugin. 
-It shall follow links in HTML files and in PDF files. 
-Whereas HTML files are easily parsed, 
-for PDF files `pdfinfo` is used. 
-
-- All outgoing links of `xxx.pdf` are given by `pdfinfo -url xxx.pdf`. 
-- For ingoing links of `xxx.pdf`, either the file itself is referenced 
-  or a so called 'destination'. 
-  All destinations are given by `pdfinfo -dests xxx.pdf`. 
-  One must distinguish: 
-  - Linking is not easy for files not created by this company, because no conventions apply. 
-  - Self-made files are created with LaTeX 
-    with `hyperref` package and option `destlabel` 
-    and so the destinations names are those of the according labels. 
-
-It is also important, to track whether all files in a site are reachable 
-by links starting with the central index file. 
-If not a warning shall be given. 
 
 ## Safety <a id='ssSafety'></a>
 
