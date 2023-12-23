@@ -10,7 +10,10 @@ This project
     to a wide extent. 
 - provides a file 
     [qMngmnt-${project.version}-installer.tgz](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/qMngmnt-${project.version}-installer.tgz)
-    for script based installation 
+    for script based installation **but only for final revisions**. 
+    For snapshot revisions the user must choose from 
+    [folder](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/). 
+    <!-- not very professional, but a suggestion to improve was added to changes.xml. -->
 - serves as a dependency in maven projects 
     providing resources to configure quality checkers 
-    and other resources ensuring quality, like glossaries. 
+    and other resources ensuring quality, like bibliographies and glossaries. 
