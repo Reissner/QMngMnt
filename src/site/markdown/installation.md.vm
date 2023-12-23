@@ -1,0 +1,15 @@
+<!-- markdownlint-disable no-trailing-spaces -->
+<!-- markdownlint-disable no-inline-html -->
+
+# Installation 
+
+We provide TGZ files (tar gnuzip) 
+extracting them unveils a readme explaining the further steps. 
+This readme describes both manual and automatic, i.e. script based installations. 
+
+At time of this writing, 
+[qMngmnt-${project.version}-installer.tgz](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/qMngmnt-${project.version}-installer.tgz)
+is only available **for final revisions**. 
+For snapshot revisions the user must choose from 
+[folder](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/). 
+<!-- not very professional, but a suggestion to improve was added to changes.xml. -->

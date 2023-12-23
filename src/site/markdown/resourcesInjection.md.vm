@@ -1,0 +1,254 @@
+<!-- markdownlint-disable no-trailing-spaces -->
+<!-- markdownlint-disable no-inline-html -->
+
+# Injection of resources 
+
+
+Serves as a dependency in maven projects 
+providing resources to configure quality checkers 
+and other resources for documentation, like bibliographies and glossaries, improving quality more indirectly. 
+
+To use just add in the pom the following to make this version management accessible: 
+
+```[xml]
+<project ...>
+  <properties>
+    <versionQmngMnt>x.y.z</versionQmngMnt>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>publicRepoAtSimuline</id>
+      <name>repo at simuline</name>
+      <url>https://www.simuline.eu/RepositoryMaven</url>
+    </repository>
+  </repositories>
+</project>
+```
+
+Then one may activate checks with `checkstyle`, `PMD` and `spotbugs`. 
+The artifact of this quality management goes in as a dependency `qMngmnt`. 
+
+```
+<project ...>
+
+  ...
+
+  <build>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${versionCheckstyleMvnPlugin}</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>${versionCheckstyle}</version>
+            </dependency>
+            <dependency>
+              <groupId>eu.simuline</groupId>
+              <artifactId>qMngmnt</artifactId>
+              <version>${versionQmngMnt}</version>
+            </dependency>
+          </dependencies>
+
+          <configuration>
+            <headerLocation>
+            <!-- (Default: LICENSE.txt)
+	      User property: checkstyle.header.file
+	      Specifies the location of the License file 
+	      (a.k.a. the header file) that can be used by Checkstyle 
+	      to verify that source code has the correct license header. -->
+            </headerLocation>
+            <violationIgnore>
+            <!-- User property: checkstyle.violation.ignore
+		   Violations to ignore. 
+		   This is a comma-separated list, 
+		   each value being either a rule name, 
+		   a rule category or a java package name of rule class. -->
+            </violationIgnore>
+            <configLocation>
+              <!-- refers to the dependency qMngmnt -->
+          eu/simuline/qMngmnt/checkstyle/myChkStyleRuleset.xml
+              <!-- eu/simuline/qMngmnt/checkstyle/google_checks.xml -->
+              <!-- eu/simuline/qMngmnt/checkstyle/sun_checks.xml -->
+            </configLocation>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${versionPmdMvnPlugin}</version>
+          <!-- if update then also config/myruleset.xml as described there -->
+          <!--executions>
+          <execution>
+          <goals>
+          <goal>check</goal>
+          </goals>
+          </execution>
+          </executions-->
+          <dependencies>
+            <dependency>
+              <groupId>net.sourceforge.pmd</groupId>
+              <artifactId>pmd-core</artifactId>
+              <version>${versionPmd}</version>
+            </dependency>
+            <dependency>
+              <groupId>net.sourceforge.pmd</groupId>
+              <artifactId>pmd-java</artifactId>
+              <version>${versionPmd}</version>
+            </dependency>
+            <dependency>
+              <groupId>eu.simuline</groupId>
+              <artifactId>qMngmnt</artifactId>
+              <version>${versionQmngMnt}</version>
+            </dependency>
+          </dependencies>
+
+          <configuration>
+            <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+            <!--  in addition to "none", "csv", "xml", "txt" 
+                  or the full class name of the PMD renderer to use. -->
+            <minimumTokens>100</minimumTokens>  <!-- for cpd -->
+            <format>html</format>
+            <skip>false</skip>
+            <skipEmptyReport>false</skipEmptyReport>
+            <!--suppressMarker>NOPMD</suppressMarker-->
+            <includeTests>false</includeTests>
+            <rulesets>
+              <!-- refers to the dependency qMngmnt -->
+              <ruleset>eu/simuline/qMngmnt/pmd/myPmdRuleset.xml</ruleset>
+              <!--ruleset>${maven.pmd.rulesetfiles}</ruleset-->
+            </rulesets>
+            <outputDirectory>${project.basedir}/target/site/</outputDirectory>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.7.3.5</version>
+          <configuration>
+            <excludeFilterFile>${resourceDir}/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
+            <includeFilterFile>eu/simuline/qMngmnt/spotbugs/spotbugs-include.xml</includeFilterFile>
+            <debug>true</debug>
+            <!--xmlOutput>true</xmlOutput-->
+            <!-- TBD: ask which values effort and threshold can have. 
+		 documentation is very sloppy. -->
+            <!-- Optional directory to put spotbugs xdoc xml report -->
+            <!--xmlOutputDirectory>target/site</xmlOutputDirectory-->
+            <outputDirectory>target/site</outputDirectory>
+            <effort>Max</effort>      <!-- min, less, default, more, max -->
+            <!--threshold>High</threshold-->
+            <!-- Low, Medium, High. Medium is default -->
+            <xmlOutput>true</xmlOutput>
+            <failOnError>false</failOnError>
+            <onlyAnalyze>eu.simuline.arithmetics.*</onlyAnalyze>
+            <plugins>
+              <plugin>
+                <groupId>com.h3xstream.findsecbugs</groupId>
+                <artifactId>findsecbugs-plugin</artifactId>
+                <version>1.11.0</version>
+              </plugin>
+            </plugins>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+          <dependencies>
+            <!-- overwrite dependency on spotbugs 
+                 if you want to specify the version of spotbugs -->
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>4.7.3</version>
+            </dependency>
+            <!--dependency>
+	      <groupId>eu.simuline</groupId>
+	      <artifactId>qMngmnt</artifactId>
+	      <version>${versionQmngMnt}</version>
+            </dependency-->
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+```
+
+Finally, one can inject resources from `qMngmnt` directly as files 
+using the `maven-dependency-plugin`. 
+With this technique really files are created in phase `process-resources` 
+which must be cleaned up later with a properly configured `maven-clean-plugin`. 
+In this example, besides an explanatory markdown file, 
+only BIB files are injected, used for literature and glossaries. 
+Glossaries in BIB format are the base for terminology management, 
+literature databases are the base for literature management. 
+Note that injection with `maven-dependency-plugin` can inject basic files 
+extracted from this quality management 
+but also a project can inject other files from projects it depends on. 
+This is usual both for glossaries and for literature. 
+Literature here refers both to referrences in BIB files 
+but also to real texts e.g. in PDF format. 
+
+```
+<project ...>
+
+  ...
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <verbose>true</verbose>
+          <filesets>
+            <fileset>
+              <directory>${project.basedir}/src/site/</directory>
+              <includes>
+                <include>tex/lit*.bib</include>
+                <include>tex/glossary.bib</include>
+                <include>tex/readmeBibRc.md</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <artifactItems>
+            <artifactItem>
+              <groupId>eu.simuline</groupId>
+              <artifactId>qMngmnt</artifactId>
+              <version>${versionQmngMnt}</version>
+              <type>jar</type>
+              <overWrite>true</overWrite>
+              <outputDirectory>${project.basedir}/src/site/tex</outputDirectory>
+              <includes>**/latex/*.bib, **/latex/readmeBibRc.md</includes>
+              <fileMappers>
+                <org.codehaus.plexus.components.io.filemappers.FlattenFileMapper />
+              </fileMappers>
+            </artifactItem>
+          </artifactItems>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+```

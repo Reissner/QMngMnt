@@ -26,9 +26,12 @@
 
   <body>
     <menu name="Overview">
-      <item name="Introduction" href="intro.html"/>
-      <item name="Generalities" href="general.html" />
-      <item name="literature"   href="literature.html" />
+      <item name="Link Back"     href="linkBack.html"/>
+      <item name="Generalities"  href="general.html" />
+      <item name="Principles"    href="principlesRealize.html" />
+      <item name="Installation"  href="installation.html" />
+      <item name="Resources"     href="resourcesInjection.html" />
+      <item name="literature"    href="literature.html" />
     </menu>
     <!--menu ref="parent" /-->
     <menu ref="reports" />

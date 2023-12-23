@@ -6,14 +6,10 @@
 This project
 
 - provides general principles of quality 
-    and derives processes and decisions on tools realizing these principles 
-    to a wide extent. 
-- provides a file 
-    [qMngmnt-${project.version}-installer.tgz](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/qMngmnt-${project.version}-installer.tgz)
-    for script based installation **but only for final revisions**. 
-    For snapshot revisions the user must choose from 
-    [folder](http://www.simuline.eu/RepositoryMaven/eu/simuline/qMngmnt/${project.version}/). 
-    <!-- not very professional, but a suggestion to improve was added to changes.xml. -->
+  and derives processes and decisions on tools realizing these principles 
+  to a wide extent. 
+  This is something to [read](./principlesRealize.html).
+- provides a specification on [installation](./installation.html), what to install and how to do. 
 - serves as a dependency in maven projects 
-    providing resources to configure quality checkers 
-    and other resources ensuring quality, like bibliographies and glossaries. 
+  providing [resources](./resourcesInjection.html) to configure quality checkers 
+  and other resources for documentation, like bibliographies and glossaries, improving quality more indirectly. 
