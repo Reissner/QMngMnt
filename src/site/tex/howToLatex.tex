@@ -166,7 +166,7 @@ These tools are mandatory also in other cases for sake of reproducibility.
 Some packages must be loaded before declaration of the \texttt{documentclass}. 
 This document is just an example. 
 
-\lstinputlisting[firstline=2, lastline=2]{test}%\RequirePackage
+\lstinputlisting[firstline=2, lastline=2]{howToLatex}%\RequirePackage
 
 Then comes the declaration of the \texttt{documentclass}. 
 Currently, we support the classes \texttt{article}, \texttt{book} and \texttt{beamer}. 
@@ -177,14 +177,14 @@ but the option shall be given not as package option but as \texttt{documentclass
 to make it available to other packages also. 
 Font size of 12pt shall be in general used. 
 
-\lstinputlisting[firstline=4, lastline=4]{test}%\documentclass
+\lstinputlisting[firstline=4, lastline=4]{howToLatex}%\documentclass
 
 It is a requirement to support ``document development''. 
 This includes making a development environment as much 
 WYSIWIG\footnote{What you see is what you get}-like as possible. 
 To that end, one shall activate \texttt{synctex} as follows 
 
-\lstinputlisting[firstline=5, lastline=5]{test}%\documentclass
+\lstinputlisting[firstline=5, lastline=5]{howToLatex}%\documentclass
 
 
 After that, in the long run further packages shall be input from a general header file. 
