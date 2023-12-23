@@ -79,7 +79,6 @@ These can be easily carried and can currently also be used for development.
 In a next step we plan to deliver our software as a service (SAAS) to avoid having to check on various platforms 
 and to tackle questions on license management and reverse engineering. 
 
-
 All computers are installed with openSUSE Tumbleweed. 
 General information on installation can be fond in an according 
 [Readme.md](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md). 
@@ -92,7 +91,6 @@ but for the second, specific part,
 [one can use scripts](./src/main/resources/eu/simuline/qMngmnt/installation/Readme.md#installation-with-script-) 
 to complete installation. 
 These scripts are also contained in the `qMngmnt-xxxx-installer.tgz` file. 
-
 
 ## Tools <a id='ssTools'></a>
 
@@ -122,7 +120,6 @@ Many of the extensions, like `ltex` contribute to quality assurance.
 Uniformity of tools and processes itself helps keeping up quality. 
 
 Detail information on VS Code and how to use can be found in a separate [section](#sssVSCode). 
-
 
 The core tool besides VS Code and some java development extensions is `maven`
 which supports the deployment process of both software and documentation.
@@ -202,7 +199,6 @@ Release management must be based on `maven-release-plugin`.
 Please consult the [usage page](https://maven.apache.org/maven-release/maven-release-plugin/usage.html) 
 and do a dry-run first. 
 
-
 ### Version Control with Git <a id='sssVCSgit'>
 
 Here, we shall talk about how to use version control in general and `git` in particular. 
@@ -217,7 +213,6 @@ In the future, one shall prescribe a branching model for git.
 
 Also, the config files for git and also the inc-files must be specified. 
 
-
 ### On VS Code <a id='sssVSCode'></a>
 
 This section describes treatment of VS Code. 
@@ -228,10 +223,8 @@ TBD: Provide further pieces of information on `instVSCode.sh`.
 
 Among those are `ltex` for linting [documentation](#ssDocumentation). 
 
-
 One has to decide whether some setting is mandatory, 
 like that [for the current project](./.vscode/settings.json). 
-
 
 ## The Software Deployment Process <a id='ssSoftwareDep'></a>
 
@@ -340,7 +333,6 @@ above all for java.
 Also, code is written with VS Code and for java the extension `redhat.java` is used. 
 This supports [online linting and formatting](#sssLintFormat). 
 
-
 ### Linting LaTeX and Markdown with `ltex` <a id='sssLintLtex'></a>
 
 There is a code checker for latex and for Markdown 
@@ -377,27 +369,27 @@ At time of this writing, the following distinctive features are present.
 For features of LaTeX, the tool or the package or the class in the LaTeX universe 
 realizing the feature is given 
 
-| Feature       | LaTeX          | markdown |
-| :------------ | :------------- | :------ |
-| math formulae | (lua)latex     | ?   |<!-- TBD: reference? -->
-| bibliography  | bibtex         | ?   |<!-- TBD: shall be biber -->
-| index         | makeindex      | ?   |<!-- TBD: shall be xindy -->
-| glossary      | makeglossaries | ?   |
-| executable    | pythontex      | -   |
-| raster pics   | (lua)latex     | yes |
-| fig           | (lua)latex     | ?   |
-| gnuplot       | (lua)latex     | ?   |
-| metapost      | (lua)latex     | ?   |
-| svg           | (lua)latex     | ?   |
+| Feature       | LaTeX            | markdown |
+| :------------ | :--------------- | :------ |
+| Math formulae | `(lua)latex`        | ?   |<!-- TBD: reference? -->
+| bibliography  | `bibtex`         | ?   |<!-- TBD: shall be biber -->
+| index         | `makeindex`      | ?   |<!-- TBD: shall be xindy -->
+| glossary      | `makeglossaries` | ?   |
+| executable    | `pythontex`      | -   |
+| raster pics   | `(lua)latex`     | yes |
+| fig           | `(lua)latex`     | ?   |
+| gnuplot       | `(lua)latex`     | ?   |
+| metapost      | `(lua)latex`     | ?   |
+| svg           | `(lua)latex`     | ?   |
 
 LaTeX not only offers glossaries and bibliographies, 
 it offers access to terminology and literature management. 
 
 ### Combining LaTeX and markdown 
 
-As already pointed out, ltex is a linter for both LaTeX and markdown. 
-Also, https://plantuml.com/latex shows some way of integration of plantuml 
-which is included in markdown. 
+As already pointed out, `ltex` is a linter for both LaTeX and markdown. 
+Also, <https://plantuml.com/latex> shows some way of integration of PlantUML 
+which is included in Markdown. 
 
 Some problem is that markdown does not support inclusion of markdown files. 
 I shall suggest the syntax `![file](.../example.md)`. 
@@ -434,7 +426,6 @@ It is also important, to track whether all files in a site are reachable
 by links starting with the central index file. 
 If not a warning shall be given. 
 
-
 ## Safety <a id='ssSafety'></a>
 
 Have a look at [https://snyk.io/blog/10-maven-security-best-practices/](https://snyk.io/blog/10-maven-security-best-practices/)
@@ -448,7 +439,6 @@ and the result of evaluation must be documented.
 <!-- TBD -->
 
 ## Miscellaneous <a id='ssMisc'></a>
-
 
 ### Licensing 
 
@@ -468,22 +458,21 @@ https://github.com/yWorks/yGuard obfuscation
 https://web.archive.org/web/20161217190546/http://www.excelsior-usa.com/articles/java-obfuscators.html
 https://www.guardsquare.com/manual/configuration/examples
 
-
 ### Markdown and friends 
 
 <!-- markdownlint-enable no-bare-urls -->
-plantuml
 
-https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/
-https://kroki.io/  also mairmaid 
+<https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/>
+<https://kroki.io/> also mermaid 
 
 ### UML tools 
 
-uml tools: 
-- https://de.wikipedia.org/wiki/Fujaba
-- https://github.com/ModelioOpenSource/Modelio
-- https://eclipse.dev/papyrus/
-- gaphor 
+UML tools: 
+
+- <https://de.wikipedia.org/wiki/Fujaba>
+- <https://github.com/ModelioOpenSource/Modelio>
+- <https://eclipse.dev/papyrus/>
+- Gaphor 
 
 Note that there also painting technologies like `plantuml` 
 and according technologies in latex. 
@@ -513,10 +502,6 @@ For `maven-project-info-reports-plugin` do research on the set of available repo
 Maybe the pom spec gives the decisive hint. 
 
 Evaluate: 
-https://libguides.lib.msu.edu/c.php?g=995742&p=8207771
+<https://libguides.lib.msu.edu/c.php?g=995742&p=8207771>
 
-https://www.overleaf.com/learn/latex/An_introduction_to_tagged_PDF_files%3A_internals_and_the_challenges_of_accessibility
-
-
-
-
+<https://www.overleaf.com/learn/latex/An_introduction_to_tagged_PDF_files%3A_internals_and_the_challenges_of_accessibility>
