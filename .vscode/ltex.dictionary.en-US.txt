@@ -5,3 +5,7 @@ Windoofs
 Okular
 SAAS
 bashrc
+jupyter
+PlantUML
+Gaphor
+latexmk

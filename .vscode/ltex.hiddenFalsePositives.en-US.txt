@@ -1,3 +1,7 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qok ok\\E$"}
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q!\\E$"}
 {"rule":"ARROWS","sentence":"^\\QOpen eclipse and select Help->\"Install new Software\".\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qexecutable \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q -\nraster pics \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q yes\nfig \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q ?\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qgnuplot \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q ?\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qmetapost \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q ?\\E$"}
+{"rule":"FILE_EXTENSIONS_CASE","sentence":"^\\Qsvg \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q ?\\E$"}
