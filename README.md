@@ -1,6 +1,7 @@
 <!-- markdownlint-disable no-trailing-spaces -->
 <!-- markdownlint-disable no-inline-html -->
-# Quality Management for simuline (www.simuline.eu)
+
+# Quality Management for [simuline](www.simuline.eu)
 
 This project describes the quality management for simuline organization
 and applies to all its projects. 
@@ -9,10 +10,9 @@ Among the [General Thoughts](#ssGen) is the strong emphasis on uniformity, repro
 This applies in particular to [hardware and installation procedures](#ssHwInst), 
 but also to [tooling and their configuration](#ssTools). 
 
-
 The core mission of the simuline organization, 
 is to provide computational software and the core technology is `java` 
-which makes the application widely platform independent. 
+which makes the applications provided widely platform independent. 
 Further, we first want to restrict ourselves to deliver software as a service (SAAS). 
 Since computational software is particularly useful 
 if integrated into programming languages, 
@@ -43,33 +43,37 @@ Aspects to be added are collected in [TBD](#ssTBD).
 ## General Thoughts <a id='ssGen'></a>
 
 At the time of this writing,
-software was not maintained for a long span of time
-and so also quality management did not keep pace with advances in that field.
+at simuline there was a software developed but not maintained for a long span of time
+and so also quality management did not keep pace with advances in development technologies.
 In particular, new compiler and quality management tools became stricter.
 So we must distinguish between what is desirable in future
 and what is mandatory now.
 
 The core development is in java solely.
 This uniformity is important because of the tense resources of the company. 
-In general, it is a principle to keep the tool set small, i.e. uniform. 
+In general, it is a principle to keep the set of technologies and tools small and uniform. 
 Also, tools used must be kept in a small range and tools must be open source and free. 
 
 Besides, hardware and installation must be uniform. 
 What applies to hardware and installation also applies to configuration. 
 Beyond this, mainstream is preferred to special configuration. 
 Thus, we use en_US locale internally; 
-only for customer communication we may switch to another language if the customer desires to do so. 
+only for communication with customers and other stakeholders, 
+we may switch to another language if the customer desires to do so. 
 
-Documentation is done with latex and with Markdown only 
-and also the form of [documentation]() is quite restricted. 
+Documentation is done with latex, Markdown and jupyter notebooks only 
+and also the form of [documentation](#ssDocumentation) is quite restricted. 
 
 Related with estimation of uniformity is the focus on automation. 
 In particular, for installation we rely on scripts rather than on manual procedures. 
 Also in quality management, the first step is running a linting tool, 
 prior to manual review. 
+This applies both to code and to documentation. 
 
 This helps to keep up reproducibility. 
 
+Important are processes which help to be productive and to reach good quality. 
+As far as possible, processes shall be automated. 
 
 ## Hardware and Installation <a id='ssHwInst'></a>
 
