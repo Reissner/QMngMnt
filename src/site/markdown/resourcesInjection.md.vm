@@ -26,6 +26,15 @@ To use just add in the pom the following to make this version management accessi
 </project>
 ```
 
+The working principle of `qMngMnt` is by [dependency injection](#ssdepInj), 
+based on `dependency` sections of checker plugins, 
+or by [file injection](#ssFileInj) where the `dependencies` plugin 
+extracts a file and injects it into the working space. 
+
+
+## Dependency injection <a id='ssdepInj'></a>
+#[[##]]# Dependency injection <a id='ssdepInj'></a>
+
 Then one may activate checks with `checkstyle`, `PMD` and `spotbugs`. 
 The artifact of this quality management goes in as a dependency `qMngmnt`. 
 
@@ -184,6 +193,10 @@ The artifact of this quality management goes in as a dependency `qMngmnt`.
   </build>
 </project>
 ```
+
+
+## File injection <a id='ssFileInj'></a>
+#[[##]]# File injection <a id='ssFileInj'></a>
 
 Finally, one can inject resources from `qMngmnt` directly as files 
 using the `maven-dependency-plugin`. 
