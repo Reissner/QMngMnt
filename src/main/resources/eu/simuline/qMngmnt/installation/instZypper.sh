@@ -179,14 +179,13 @@ zypper in -y octave octave-devel python3-oct2py \
   libQt5Core-devel libQt5Gui-devel \
     libQt5PrintSupport-devel libQt5Xml-devel libQt5Network-devel \
   qrupdate-devel sundials-devel sundials-doc \
-    blas-devel libsndfile-devel freetype freetype-devel fontconfig-devel \
+    blas-devel libsndfile-devel fontconfig-devel \
   mpfr-devel `# for installing certain packages`
 
 
 # what is needed for docker  
 # decativated docker-kubic docker-kubic-bash-completion \
-zypper in -y python3-docker docker-client-java docker-client-java-javadoc \
-  yast2-docker
+zypper in -y python3-docker yast2-docker
 
 # this is a hack only
 if rpm -q firewalld  >/dev/null ;
