@@ -233,6 +233,12 @@
                 <include>instVScode4tex.sh</include>
               </includes>
             </fileset>
+            <fileset>
+              <directory>src/site/tex</directory>
+              <includes>
+                <include>litLMPpub.bib</include>
+              </includes>
+            </fileset>
           </filesets>
         </configuration>
       </plugin>
@@ -328,6 +334,18 @@
               </fileMappers>
             </artifactItem>
 
+            <artifactItem>
+              <groupId>eu.simuline.m2latex</groupId>
+              <artifactId>latex-maven-plugin</artifactId>
+              <version>${versionLatexPlugin}</version>
+              <type>jar</type>
+              <overWrite>true</overWrite>
+              <outputDirectory>src/site/tex</outputDirectory>
+              <includes>litLMPpub.bib</includes>
+              <fileMappers>
+                <org.codehaus.plexus.components.io.filemappers.IdentityMapper />
+              </fileMappers>
+            </artifactItem>
           </artifactItems>
 
         </configuration>
@@ -457,7 +475,6 @@
             <latex2pdfCommand>lualatex</latex2pdfCommand>
             <cleanUp>false</cleanUp>
             <targets>chk,pdf</targets>
-            <!--mainFilesExcluded>test</mainFilesExcluded-->            <!-- not yet able to compile this -->
             <!--texSrcDirectory>src/main/resources/eu/simuline/qMngmnt/latex</texSrcDirectory-->
             <!-- synchronized with .latexmkrc -->
             <!--chkTexOptions>-q -b0</chkTexOptions-->
