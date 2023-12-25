@@ -149,6 +149,8 @@ I shall suggest the syntax `![file](.../example.md)`.
 
 From LaTeX side, there is a [markdown package](https://ctan.org/pkg/markdown). 
 
+
+
 ### Check links and usage 
 #[[###]]# Check links and usage 
 
@@ -179,3 +181,16 @@ for PDF files `pdfinfo` is used.
 It is also important, to track whether all files in a site are reachable 
 by links starting with the central index file. 
 If not a warning shall be given. 
+
+
+### Writing rules applying in general 
+#[[###]]# Writing rules applying in general 
+
+All aspects mentioned so far may be checked automatically, 
+but there are also writing rules for which there are no checks 
+and even writing rules which require human judgement. 
+
+Most of the material is applicable independent of markup language, 
+i.e. latex or Markdown, also independent of content language. 
+
+This is collected in a [separate document](./WritingRules/writingRules.html). 
