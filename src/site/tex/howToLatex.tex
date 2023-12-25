@@ -2,27 +2,52 @@
 \RequirePackage[l2tabu, orthodox]{nag}
 
 \documentclass[a4paper,12pt]{article}
-\synctex=1
 
-\usepackage{geometry}%, showframe
-\usepackage{microtype}
-%\usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
+\input{header.tex}
 
-\usepackage{listings}
+\hypersetup{
+  pdfinfo={
+    Author   = {Ernst Reissner},
+    Title    = {On writing \LaTeX{} documents for the simuline organization},
+    Subject  = {quality documentation supported by latex plugin for maven},
+    Keywords = {quality;PDF;LaTeX;maven}
+  }
+}
 
-\usepackage{hyperref}
-\usepackage{rerunfilecheck}
+% \synctex=1
 
-\usepackage[toc, record]{glossaries-extra}% after hypertex
+% \usepackage{geometry}%, showframe
+% \usepackage{microtype}
+% %\usepackage[utf8]{inputenc}
+% %\usepackage[T1]{fontenc}
 
-\GlsXtrLoadResources[
-  %dual-entry-backlink={false},
-  src={../glossary},
-  sort={en-GB}
-]
+% \usepackage{listings}
 
-\bibliographystyle{abstract}%{alpha}%{aaai-named}%
+% \usepackage{hyperref}
+% \usepackage{rerunfilecheck}
+
+
+
+
+
+% \usepackage[toc, record]{glossaries-extra}% after hypertex
+
+% \GlsXtrLoadResources[
+%   %dual-entry-backlink={false},
+%   src={glossary},
+%   sort={en-GB}
+% ]
+
+
+\newcommand{\siteref}[2]{\href{http://www.simuline.eu/QualityManagement/#1}{#2}}
+\newcommand{\manref}[2]{\href{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#1}{#2}}
+
+\newcommand{\pkg}[1]{\texttt{#1}\index{package #1}}
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}\index{command \textbackslash #1}}
+\newcommand{\tool}[1]{\texttt{#1}\index{tool #1}}
+\newcommand{\file}[1]{\texttt{#1}\index{file #1}}
+
+%\bibliographystyle{abstract}%{alpha}%{aaai-named}%
 %\bibliographystyle{alpha}
 
 \title{On writing \LaTeX{} documents for the simuline organization}
@@ -37,215 +62,199 @@
 \newpage
 
 \tableofcontents % to create file .toc
-\listoffigures
-\listoftables
-%\newpage
+% \listoffigures
+% \listoftables
+\lstlistoflistings%
+% TBD: why the entry does not reliably occur? 
+\newpage 
 
 \section{Introduction}
 
 This document contains rules how to write documents specifically in \LaTeX. 
-Of course all rules for writing documents apply (TBD\@: reference) 
-and this documents focuses on aspects specific for latex documents. 
-The rules here are followed for simuline organization, 
+Of course, all \siteref{WritingRules/writingRules.html}{general rules} 
+for writing documents apply, 
+but this documents focuses on aspects specific for \LaTeX{} documents. 
+The rules here are mandatory for simuline organization, 
 but is applicable in a broader context maybe with modifications. 
 
-At the current stage, this document is only a torso. 
-Its purpose is to check whether the overall bibliography is usable. 
-
-
-\section{Tools}\label{sec:tools}
-
-\LaTeX{} is a compiled language. 
-Thus, one needs an editor, possibly with an according \LaTeX-extension, 
-the proper compiler and a viewer for each output format. 
-
-As an editor \texttt{Emacs} with extension \texttt{AUCTeX} 
-is a possible choice, but we chose visual \texttt{code} with an according extension. 
-TBD\@: add a reference to the installation script for \texttt{code}. 
-The main viewer is \texttt{Okular} but also \texttt{chrome} with markdown extension (TBD\@: which) 
-is needed. 
-What makes latex difficult from a point of view of tooling is, 
-that there is not a single converter but a universe of related tools, 
-e.g.\@ to make a bibliography or an index, 
-and also latex itself must be enriched loading appropriate packages. 
-
-TBD\@: add reference to the installation script \texttt{Zypper} 
-and installation script for visual code extensions, among them also those for latex. 
-TBD\@: think about how to reference documents in Markdown format. 
-
-
-As \texttt{maven} is the general build tool, we bundle all those converters 
-in a single maven plugin which does nothing but invoking converters by need. 
-For our special needs, we developed the 
-\href{https://github.com/Reissner/latex-maven-plugin}{\texttt{latex-maven-plugin}}. 
-Starting from version 1.5, it has a goal \texttt{vrs} listing all converters 
-with their applicable versions. 
-It is recommended to have all of them installed. 
-In addition, there are lots of latex-packages required, 
-all of them in the \texttt{texlife} distribution 
-which contains also most of the converters, but not all of them. 
-The site of the plugin gives hints on the pieces of software used by the plugin 
-and provides a manual covering the full functionality. 
-
-What is important from the point of view of quality management is, 
+The rules are centered around the latex maven plugin, 
+which is not only a build tool 
+but provides a lot of \href{http://www.simuline.eu/LatexMavenPlugin/features.html}{features} 
+which help in quality assurance. 
+The most important feature from the point of view of quality management is, 
 that the plugin detects failures and warnings so 
 that if conversely the build process completes without error or warning, 
 one can be sure that the result is without failure also. 
-Another point is that the plugin is for building all documents in one build run 
-but supports also development of a single document. 
-Maybe the most widely used tool for development of a single \LaTeX{} document 
-is \texttt{latexmk} and the plugin is designed to cooperate with \texttt{latexmk}, 
-switching to \texttt{latexmk} if an error occurs or if a section must be added 
-and then again switching back to the plugin if all documents shall be complied. 
-Starting with version 2.0, 
-the \href{https://github.com/Reissner/latex-maven-plugin}{\texttt{latex-maven-plugin}} 
-has also a goal \texttt{inj} for injecting files. 
-If properly configured (TBD\@: reference) it creates a file \texttt{.latexmkrc} 
-which defines a configuration for \texttt{latexmk} 
-and which is in line with the options used for the latex plugin. 
-An important tool both for quality assurance and for document development 
-is the linter \texttt{chktex} with its configuration file \texttt{.chhktexrc}. 
-Also, this can be created with goal \texttt{inj} 
-so that it is equivalent whether running \texttt{chktex} or through the plugin. 
-The goal \texttt{inj} can and shall also be used to inject a header \texttt{header.tex} 
-to load the required packages. 
-Each latex main file shall use this header 
-to unify the documents style and to make them more maintainable. 
-In fact, one may deviate from this rule only with justification. 
+It is open source and has public \href{https://github.com/Reissner/latex-maven-plugin}{development site}. 
+At time of this writing, the current version is 2.0.0. 
+Although it is the best version so far, 
+it is not satisfactory still. 
 
-In the long run, the plugin shall also check the loaded packages, 
-including their versions. 
-This is important as the design goal to detect all warnings 
-can be reached only if the used packages are taken into account 
-when parametrizing the regular expression to detect a warning. 
 
-Note that the plugin also provides a script 
-to install extensions for VS code useful for developing latex documents. 
-This is not created by goal \texttt{inj}, 
-in fact it is not used directly. 
-Instead, this project provides the script \texttt{instVScode.sh} 
-to install a wider range of extensions. 
-The script provided by the latex plugin 
-goes into this but need not be invoked explicitly. 
+At the current stage, this document is only a torso. 
+%Its purpose is to check whether the overall bibliography is usable. 
+
+
+\section{Installation and configuration}\label{sec:instConfig}
 
 
 
-
-
-
-In the long run, 
-all projects, even this one shall use the \texttt{latex-maven-plugin}. 
-This is currently not possible because this would introduce a cyclic dependency, 
-because on the one hand, the latex plugin is subject to the rules 
-prescribed in this quality management project 
-and must be referenced in the latex plugin project, 
-and on the other hand, 
-this quality management project needs the plugin to build. 
-This can only be resolved if this one project 
-refers to a lower version of the sibling project. 
-At the beginning, this is not possible. 
-In general, compilation should work with default parameters. 
-
-For now, this document is generated locally 
-only using command line tools \texttt{lualatex} and \texttt{bibtex} 
-(in future we will require \texttt{biber} which presupposes the package \texttt{biblatex}). 
-Later we require a glossary and an index, glossary with \texttt{bib2gls} 
-and an index, where the tooling is not yet so clear. 
-Instead of directly using the combination of these tools, 
-one could use \texttt{latexmk} 
-with an appropriate config file \texttt{.latexmkrc} created by the plugin. 
-
-\subsection{Configuration of tools and \LaTeX{} packages}\label{subsec:toolConf}
-
-This section collects configuration of \TeX{} documents. 
-A big part of configuration is the set of packages used 
-and the options of the packages. 
-Note that these packages partially presuppose the abovementioned tools. 
-These tools are mandatory also in other cases for sake of reproducibility. 
-
-Some packages must be loaded before declaration of the \texttt{documentclass}. 
-This document is just an example. 
-
-\lstinputlisting[firstline=2, lastline=2]{howToLatex}%\RequirePackage
-
-Then comes the declaration of the \texttt{documentclass}. 
-Currently, we support the classes \texttt{article}, \texttt{book} and \texttt{beamer}. 
-Since this is a (western) European company, only a4 paper is supported, 
-of course except \texttt{beamer} for which \texttt{aspectratio} may be set. 
-The format shall be provided by the package \texttt{geometry}, 
-but the option shall be given not as package option but as \texttt{documentclass} option 
-to make it available to other packages also. 
-Font size of 12pt shall be in general used. 
-
-\lstinputlisting[firstline=4, lastline=4]{howToLatex}%\documentclass
-
-It is a requirement to support ``document development''. 
-This includes making a development environment as much 
-WYSIWIG\footnote{What you see is what you get}-like as possible. 
-To that end, one shall activate \texttt{synctex} as follows 
-
-\lstinputlisting[firstline=5, lastline=5]{howToLatex}%\documentclass
-
-
-After that, in the long run further packages shall be input from a general header file. 
-If an auxiliary tool cooperates with the package, 
-this is mentioned in the sequel. 
-In the time to be, we specify here the packages needed and prohibited: 
+The installation scripts described in the context of 
+\siteref{installation.html}{installation in general} ensure 
+that \LaTeX{} packages and the tools released for documentation are installed. 
+Among these tools is also maven, but not the core tool for documentation written in \LaTeX, 
+\texttt{latex-maven-plugin}, because it is loaded by maven dynamically. 
+At the first sight, the plugin is a build tool, but in fact it is much more: 
+In maven build phase \texttt{validate} it may inject at the TEX-root directory a bunch of files, 
+the following of which are mandatory unless a justification not to use them is documented: 
 %
-\begin{description}
-  \item[prohibited] 
-  \texttt{inputenc}, 
-  \texttt{fontenc} because these do not fit \texttt{lualatex}. 
-  \item[mandatory] 
-  \texttt{geometry}, \texttt{microtype}, \texttt{rerunfilecheck}, 
-  \texttt{listings}, \texttt{hyperref}. 
-  The package \texttt{hyperref} must be used, among others, with option \texttt{destlabel} 
-  as explained in Section~\ref{sec:secs}. 
-  This listing is incomplete. 
-  \item[future] In future \texttt{biblatex} is mandatory. 
-  It shall be used in conjunction with \texttt{biber}. 
+\begin{itemize}
+  \item a header file \file{header.tex} 
+  which shall be included in any case loading the mandatory basic packages, more packages can be loaded with justification. 
+  This ensures completeness of build including rerun of converters, reliable detection of warnings, 
+  unifies the documents improving their maintainability and 
+  restriction to predefined headers ensures that the packages needed are installed, 
+  \item a configuration file \file{.chktexrc} to configure the checker tool \tool{chktex} 
+  which performs \LaTeX-specific checks and supplements \tool{ltex}, 
+  \item a configuration file \file{.latexmkrc} to configure the build tool \tool{latexmk}, 
+  which allows quick compilation in the course of document development 
+  with the same result as the plugin. 
+\end{itemize}
 
-  In general, a glossary is needed. Currently, \texttt{makeglossaries} is required, 
-  in future it shall be \texttt{makeglossaries-extra} instead. 
-  The tool tied to \texttt{makeglossaries} has the same name 
-  and shall be replaced by \texttt{bib2gls} tied to \texttt{makeglossaries}. 
+As described in~\cite{LatexPlugin}, \manref{\#sec:xmlPom}{Section 2.2}, 
+to that end, the plugin, to be more precise its executions, must be configured accordingly, 
+in particular injection with goal \texttt{inj} for at least the three injections enumerated above. 
+The \href{https://github.com/Reissner/QMngMnt/pom.xml}{pom} of this project may serve as a template also. 
 
-  Once, it shall be evaluated whether \texttt{xindy} is superior to \texttt{makeindex} 
-  in which case it shall be replaced. 
+The installation section described above installs also the editor VS Code 
+and provides a script \file{instVScode.sh} to install all needed extensions. 
+This script invokes another script provided by the latex plugin 
+installing the extensions for writing \LaTeX{} documents. 
+Thus, the latter script need not be invoked explicitly. 
 
-  Since unification is a vital principle, in general documentation is in American English language. 
-  Nevertheless, earlier or later there is a need for further languages. 
-  Thus, the package \texttt{babel} is required. 
-  % a few words on hen to load the language. 
-\end{description}
+It is worth reading the whole section on injections,%\
+~\cite{LatexPlugin}, \manref{\#sec:injFiles}{Section 3.4}, 
+for example to see how much the injected files are related, 
+but minimally, to make \tool{chktex} and \tool{latexmk} work, 
+add links from local config files \file{.chktexrc} and \file{.latexmkrc} to the central injected ones. 
+% TBD: hm, this looks odd. 
+% very noble would be if the plugin detects the file. If present ok, invoke chktex or latexmk without further ado. 
+% if not present, check whether the .xxxrc file is present in the root. 
+% if not: warning: not reproducible 
+% if so, use this with according parameters for loading it. 
 
-In the future, the latex plugin shall provide header files to unify the loaded packages. 
-% Header is almost transparent concering the latex compiler. 
+Besides the editor, also the viewer, above all \tool{Okular} is installed. 
+The latex plugin used as a build tool, merely invokes converters in a sensible ordering. 
+All these are installed, and among these also \tool{chktex} and \tool{latexmk}. 
+As described also in~\cite{LatexPlugin}, Section 2.2, 
+among the configuration is a list of \texttt{targets}. 
+Typically, \texttt{pdf} is among the targets, but it may also be \texttt{html}, 
+which is still to be used with care in the current version of the latex plugin 2.x.y. 
+What is mandatory is target \texttt{chk} invoking \tool{chktex} for final check. 
+Except for \texttt{targets}, it is recommended to stick to the default configuration 
+at least for final build because this is ``preferred usage'' and thus best tested. 
 
-% nothing said about use of chktex and latexmk and in particular files .chktexrc and .latexmkrc. 
-% how to set up. 
-% also missing are metadata in PDF. 
-% what about ps or dvi? not used. Only PDF. in the long run also DOCX, HTML and EPUB. 
-% a word on the latex plugin and its version. 
-% also using the default and deviation: injections. 
+In contrast to \tool{chktex}, the latex plugin does not invoke \tool{latexmk} directly, 
+at least not by default, but it increases productivity during document development 
+to configure it with a file \file{.latexmkrc}. 
+For further reading see~\manref{\#sec:devel}{Section 3.5}. 
+
+
+%TBD\@: think about how to reference documents in Markdown format. 
+
+
+\section{The {\LaTeX} files}\label{sec:latexFiles}
+
+Listing~\ref{lst:thisLatexFile} is a listing of the beginning of this file. 
+This is an example of an allowed \LaTeX{} main file, i.e.\@ a file to be compiled (not included). 
+For general thoughts see~\cite{LatexPlugin},~\manref{\#subsec:sourcesLatex}{Section 3.1.1}. 
+
+The central is the definition of the document class. 
+So far only classes \texttt{book}, \texttt{article} and \texttt{beamer} are tested sufficiently. 
+Note that files with beamer class have a special form treated in the manual. 
+Also, the options allowed for document classes vary. 
+Except for \texttt{beamer}, for which \texttt{aspectratio} may be set, 
+\texttt{a4paper} format is mandatory and deviation must be justified. 
+For beamer class, no font size shall be specified. 
+In general, the default 10pt is a good choice, 
+but in special cases other font sizes like 12pt may be specified. 
+It is no error that class \texttt{beamer} requires option \texttt{hyperref=destlabel}. 
+
+% TBD: here also the language if not english, american? must be specified as a sequence. 
+% TBD: clarify why in beamer we have destlabel set. 
+
+The declaration of the document class may be preceded by a lot of material, 
+but mandatory is loading \pkg{nag} with the given options. 
+
+At least input \file{header.tex} must be loaded, 
+or a justification must be documented for deviating from the default. 
+More packages can be loaded if really needed 
+and commands can be defined before and after including the mandatory header. 
+Note that paper format is processed by package \pkg{geometry} 
+and \file{header.tex} ensures proper loading. 
+
+To provide minimal metadata, Author, Title, Subject and keywords, 
+use command \cmd{hypersetup} as in Listing~\ref{lst:thisLatexFile}. 
+This is provided by package \pkg{hyperref} also loaded in \file{header.tex}. 
+
+
+\lstinputlisting[linerange={1-15},
+language=tex, basicstyle=\scriptsize,
+float, captionpos=b, label={lst:thisLatexFile}, 
+caption={The beginning of this \LaTeX{} file. }]%
+{./howToLatex.tex}% listing 
+
+
+% %
+% \begin{description}
+%   \item[mandatory] 
+%   \pkg{geometry}, \pkg{microtype}, \pkg{rerunfilecheck}, 
+%   \pkg{listings}, \pkg{hyperref}. 
+%   The package \pkg{hyperref} must be used, among others, with option \texttt{destlabel} 
+%   as explained in Section~\ref{sec:secs}. 
+%   This listing is incomplete. 
+%   \item[future] In future \pkg{biblatex} is mandatory. 
+%   It shall be used in conjunction with \tool{biber}. 
+
+%   In general, a glossary is needed. Currently, \pkg{makeglossaries} is required, 
+%   in future it shall be \pkg{glossaries-extra} instead. 
+%   The tool tied to \tool{makeglossaries} has the same name 
+%   and shall be replaced by \tool{bib2gls} tied to \tool{makeglossaries}. 
+
+%   Once, it shall be evaluated whether \tool{xindy} is superior to \tool{makeindex} 
+%   in which case it shall be replaced. 
+
+%   Since unification is a vital principle, in general documentation is in American English language. 
+%   Nevertheless, earlier or later there is a need for further languages. 
+%   Thus, the package \pkg{babel} is required. 
+%   % a few words on hen to load the language. 
+% \end{description}
+
+
 
 \section{Sections and other structures}\label{sec:secs}
 
 Each document needs a title, an author, 
-a date and an identification of the version of the document.  
+a date and an identification of the version of the document. 
+Title and related must be specified in the header, i.e.\@ not in the \texttt{document} environment. 
+In contrast, \cmd{maketitle} must be in that environment. 
+
 If a document refers to software, as e.g\@. a manual, 
 the version of the document is that of the software. 
 Currently, reproducibility checks of a created PDF file is not required, 
 but if so, this is ensured as described 
-in the according section of the 
-\href{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#sec:chkReprod}{manual}. 
+in the according section of the \manref{\#sec:chkReprod}{manual}. 
 
 Each document requires a table of contents. 
 If there are figures, tables or listings, then also an according table, 
 e.g.\@ table of figures, is required. 
 
-All documents shall have a reference, an index and a glossary. 
+All documents shall have a bibliography, an index and a glossary. 
 Each of them must have an entry in the table of contents. 
+This document is an exception in that it has no glossary. 
+The reason is that in short time, a new mechanism for glossaries is introduced, 
+so it is not worth to endow this document with an old style glossary now. 
+This applies to all other documents which do not have a glossary at present. 
 
 An introductory section is mandatory and in most cases, 
 it is advisable to have a summary or a miscellaneous section, 
@@ -258,8 +267,8 @@ and reference them.
 
 Also figures, tables and listings are labeled and must be referenced at least once. 
 
-Note that it is mandatory to use the package \texttt{hyperref} 
-with at least the option \texttt{destlabel}. 
+Note that the \file{header.tex} mentioned in Section~\ref{sec:instConfig} 
+loads the package \pkg{hyperref} with at least the option \texttt{destlabel}. 
 This defines for all labels destinations with the same name. 
 This allows to access sections and floating structures 
 of PDF document on the internet. 
@@ -271,17 +280,24 @@ via the destination with the same name
 tied to the URL 
 \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:install}. 
 
+The command \texttt{\textbackslash href\{url\}\{text\}} 
+allows referencing PDF files and structures therein directly. 
+Clicking on the URL or on the text label in the PDF file opens the linked resource. 
+
+A last feature the PDF format offers are meta-data. 
+See Section~\ref{sec:latexFiles} for how to set up meta-data. 
+
+
 
 \section{Miscellaneous}\label{sec:misc}
 
 A big subject is how to obtain reproducible documents. 
 Also documents which contain computed data, either figure or computed pictures. 
-A discussion on \texttt{pythontex} can be found in~\cite{Poo15}. 
-We are lucky that \texttt{pythontex} allows computations in python but also in octave, 
+A discussion on \tool{pythontex} and package \pkg{pythontex} can be found in~\cite{Poo15}. 
+We are lucky that \pkg{pythontex} allows computations in python but also in octave, 
 i.e.\@ in the MATLAB language,  
 the two major languages we use besides our developing language java. 
 
-Note that there are alternatives to 
 
 
 \subsection{How to deal with ltex}\label{subsec:ltex}
@@ -302,10 +318,11 @@ Here are two examples:
   \item ``My school scores were all A. Einstein would be proud of me''
   Here, \LaTeX{} does not realize that the period ends a sentence 
   and does not add the expected space. 
-  Note that \texttt{chktex} does not find this problem. 
+  Note that \tool{chktex} does not find this problem. 
 \end{itemize}
 
-The problem is solved by adding an invisible lower case letter by \texttt{\textbackslash@}. 
+The problem is solved by adding an invisible lower case letter by \texttt{\textbackslash\@}. 
+% TBD: why does index not work? maybe better with bibier. \index{\textbackslash\@}%\cmd{\@}. 
 Note how spacing improves: 
 %
 \begin{itemize}
@@ -318,23 +335,25 @@ Note how spacing improves:
 An overview is given in 
 \url{https://site.uit.no/english/punctuation/hyphen/}. 
 TBD\@: make this more explicit. 
-Mention \texttt{chktex}. 
+Mention \tool{chktex}. 
 
 \subsection{Terminology Management, Glossaries}\label{subsec:glos}
 
 Terminology management means that basic terms are defined at a single source. 
-It is decided that this places is a file in BIB format read by \texttt{bib2bls}. 
-This cooperates with \LaTeX{} via package \texttt{makeglossaries-extra}. 
+It is decided that this places is a file in BIB format read by \tool{bib2bls}. 
+This cooperates with \LaTeX{} via package \pkg{glossaries-extra}. 
 It is conceivable to have more than one of these BIB files, 
 but each term must be defined once over all BIB files. 
 
-A very good example of how useful and necessary terminology management is, 
-are the terms \gls{precN} and \gls{accN} referring to numbers 
-versus \gls{precM} and \gls{accM} referring to measurement. 
+This is a mandatory feature not yet realized in the latex plugin. 
+
+% A very good example of how useful and necessary terminology management is, 
+% are the terms \gls{precN} and \gls{accN} referring to numbers 
+% versus \gls{precM} and \gls{accM} referring to measurement. 
 
 \subsection{Citations}
 
-When citing from a source, this must be done with the \texttt{\textbackslash cite} 
+When citing from a source, this must be done with the \cmd{cite} 
 command specifying the document following the chapter or section or other structure, 
 like listing, table or figure. 
 
@@ -348,12 +367,12 @@ Unfortunately, there is no specification on the names of the destinations
 referring to structures 
 although \texttt{chap.1} is widely used to specify the beginning of chapter 1. 
 Only references to pages are specified. 
-Fortunately, the destinations of a document \texttt{manualLMP.pdf} 
+Fortunately, the destinations of a document \file{manualLMP.pdf} 
 are listed via \texttt{pdfinfo -dests manualLMP.pdf}. 
-If a document is created with \LaTeX{} using package \texttt{hyperref} 
+If a document is created with \LaTeX{} using package \pkg{hyperref} 
 with option \texttt{destlabel} as prescribed in Section~\ref{sec:secs}, 
 then the labels are destinations. 
-As an example, \texttt{manualLMP.pdf} has a chapter 4 with label \texttt{chap:GraphConversions}
+As an example, \file{manualLMP.pdf} has a chapter 4 with label \texttt{chap:GraphConversions}
 and so \url{http://www.simuline.eu/LatexMavenPlugin/manualLMP.pdf#chap:GraphConversions} 
 points to the beginning of that chapter. 
 
@@ -365,8 +384,30 @@ jupyter notebooks: `jupynotex'
 and good old `texinfo'. 
 
 
+\section{Features to be added}\label{sec:features}
 
-\printunsrtglossaries%
-\bibliography{litPublic}
+\pkg{babel} package must be preloaded in \file{header.tex}. 
+The start of \LaTeX{} files must be generalized thus (\cmd{documentclass} may have language setting). 
+Maybe we do not have all document classes which are relevant. 
+Think of letters and leaflets. 
+
+Traditional glossaries must be replaced by \pkg{glossaries-extra} in conjunction with \tool{bib2gls}. 
+Also, \pkg{biblatex} must be loaded in \file{header.tex} and \tool{biber} must be usable. 
+
+Finally, \file{header.tex} must be cleaned up. 
+
+
+In the long run, the plugin shall also check the loaded packages, 
+including their versions. 
+This is important as the design goal to detect all warnings 
+can be reached only if the used packages are taken into account 
+when parametrizing the regular expression to detect a warning. 
+
+
+
+%\printunsrtglossaries%
+\printindex
+\bibliographystyle{alpha}
+\bibliography{litPublic,litLMPpub}
 
 \end{document}
