@@ -170,6 +170,7 @@ zypper in -y kruler cheese `# webcam` \
 #octave octave-devel 
 zypper in -y octave octave-devel python3-oct2py \
   octave-forge-cgi octave-forge-data-smoothing octave-forge-interval \
+  octave-forge-image \
   octave-forge-signal octave-forge-statistics qhull \
   `# what follows is for compiling octave itself` \
   readline-devel rsvg-convert flex bison \
