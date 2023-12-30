@@ -82,7 +82,7 @@ $code --force --install-extension eamodio.gitlens
 # vulnerabilities
 $code --force --install-extension redhat.fabric8-analytics
 
-#
+# python and jupyter notebook 
 #$code --force --install-extension Gimly81.matlab
 #$code --force --install-extension ms-python.python
 $code --force --install-extension ms-python.pylint
@@ -91,7 +91,9 @@ $code --force --install-extension ms-python.pylint
 
 # to start vs code on the current directory just type
 # code .
-# this will start in the background automatically.
+# this will start in the background automatically. 
+
+$code --force --install-extension ms-toolsai.jupyter
 
 
 # C and C++
