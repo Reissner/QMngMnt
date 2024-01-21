@@ -75,8 +75,10 @@ $code --force --install-extension dotjoshjohnson.xml
 
 
 
-#git
+# git
 $code --force --install-extension eamodio.gitlens
+# github
+$code --force --install-extension github.vscode-github-actions
 
 # related with maven (mostly java) 
 # vulnerabilities
