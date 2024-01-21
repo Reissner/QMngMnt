@@ -213,6 +213,9 @@ zypper in -y virtualbox
 
 zypper in -y gnome-keyring
 
+
+zypper in -y apache2-devel apache2-manual apache2-mod_php8 apache2-mod_perl
+
 #zypper rm -y ksshaskpass
 
 # deinstall python 2.7 and dependencies
