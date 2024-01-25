@@ -1,5 +1,7 @@
 #!/bin/sh -
 
+# run as root 
+
 dir=/opt/google/chrome/extensions
 #dir=/usr/share/google-chrome/extensions/
 declare -A exts
@@ -27,6 +29,9 @@ exts[webSecurity]=jdacdjpphmjekpfghmgfmniodedbdpih
 
 # zoom scheduler 1.8.16 
 exts[zoomScheduler]=kgjfgplpablkjnlkjmjdecgdpfankdle
+
+# React Developer Tools
+exts[reactDevTools]=fmkadmapgofadopljbjfkapdkoienihi
 
 for i in "${!exts[@]}"
 do
