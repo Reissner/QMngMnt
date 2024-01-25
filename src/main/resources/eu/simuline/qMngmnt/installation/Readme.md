@@ -61,14 +61,14 @@ Initially, this may cause problems but if so just switch off the external screen
 and use the laptop screen. 
 Then the kicker shall be placed correctly. 
 
-From start menu choose "System Settings" 
-and therein move to "Hardware"--!>"Display and Monitor". 
-Click opens dialog "Display Configuration". 
-First we choose device other than "Laptop Screen" which is the external one. 
+From start menu choose "`System Settings`" 
+and therein move to "`Hardware`"--!>"`Display and Monitor`". 
+Click opens dialog "`Display Configuration`". 
+First we choose device other than "`Laptop Screen`" which is the external one. 
 It shall be enabled and primary. 
-Then move on to "Laptop Screen" which shall be enabled also but 
+Then move on to "`Laptop Screen`" which shall be enabled also but 
 (which is automatically) not primary. 
-Then choose that it is a "Replica of" the external screen. 
+Then choose that it is a "`Replica of`" the external screen. 
 
 Note that if the big screen is switched off or disconnected, 
 the laptop screen is represented correctly, 
@@ -76,10 +76,10 @@ and if the external screen is reconnected,
 this is the one represented correctly. 
 
 Still needed is Windows behavior: 
-In "System Settings" choose "Workspace"--!>"Window Management" 
-to open "Window Behavior". 
-In tab "Focus" choose windows activation policy: "Focus follows mouse" and 
-Raising windows: "Raise on hover, ..."
+In "`System Settings`" choose "`Workspace`"--!>"`Window Management`" 
+to open "`Window Behavior`". 
+In tab "`Focus`" choose windows activation policy: "`Focus follows mouse`" and 
+Raising windows: "`Raise on hover, ...`"
 
 ### Printer Settings <a id='sssHwPrint'></a>
 
@@ -87,8 +87,8 @@ For the printer just open this document in `okular`
 (which should be installed before as described [above](#ssBasic])) 
 and try to print. 
 If offers only print to file, to printer is configured. 
-Then enter YaST and select "Hardware"--!>"Printers". 
-Note that also in "System Settings" one can choose "Hardware"--!>"Printers" 
+Then enter YaST and select "`Hardware`"--!>"`Printers`". 
+Note that also in "System Settings" one can choose "`Hardware`"--!>"`Printers`" 
 but that seems not work properly. 
 YaST also offers printing a test page.
 
@@ -285,11 +285,10 @@ Sometimes the desired package does not show up.
 Maybe only because the repository is not added. 
 In this case try a [one click install](#sssOneClick). 
 
-
-
 #### YaST Virtualization Hypervisor
 
 Choose KVM server and tools
+
 ### Manual configurations 
 
 First add a link to `yast` to the desktop. 
