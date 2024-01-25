@@ -179,6 +179,9 @@ $code --force --install-extension ithildir.java-properties
 
 echo "install misc" 
 
+# Web development 
+$code --force --install-extension ritwickdey.liveserver
+$code --force --install-extension ecmel.vscode-html-css
 
 # emails
 $code --force --install-extension tomashubelbauer.email-viewer
@@ -187,7 +190,7 @@ $code --force --install-extension tomashubelbauer.email-viewer
 $code --force --install-extension trond-snekvik.simple-rst
 $code --force --install-extension maarti.jenkins-doc
 $code --force --install-extension pdconsec.vscode-print
-$code --force --install-extension pdconsec.vscode-print
+
 
 source ./instVScode4tex.sh $@
 
