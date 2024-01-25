@@ -1,6 +1,8 @@
 
 #!/bin/sh -
 
+# run as root 
+
 # ar is a shortcut for addrepo, 
 # -f is a shortcut for --refresh and this is AUTO-refresh 
 

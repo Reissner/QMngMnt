@@ -1,5 +1,7 @@
 #!/bin/sh -
 
+# run as root 
+
 # This is a shell script to install all software needed on a computer 
 # with minimal installation of suse tumbleweed. 
 # It can also be used for update of these pieces of software 
@@ -213,8 +215,9 @@ zypper in -y virtualbox
 
 zypper in -y gnome-keyring
 
-
+# Web development 
 zypper in -y apache2-devel apache2-manual apache2-mod_php8 apache2-mod_perl
+zypper in -y nodejs20 nodejs20-devel nodejs20-docs
 
 #zypper rm -y ksshaskpass
 

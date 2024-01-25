@@ -1,5 +1,7 @@
 #!/bin/sh -
 
+# run as user 
+
 # USAGE: 
 # without argument defaults to `code`
 # with single argument giving the name of the clone of code. 

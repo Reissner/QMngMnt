@@ -1,5 +1,7 @@
 #!/bin/sh -
 
+# run as user 
+
 # installation based on python
 # but excluding conda environments. 
 /usr/bin/python3 -m pip install --upgrade pip
