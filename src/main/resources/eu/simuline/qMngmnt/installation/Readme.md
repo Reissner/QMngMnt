@@ -224,6 +224,18 @@ The user still has to acknowledge manually twice
 and close the browser also manually for each extension. 
 After the last extension is installed, the script returns. 
 
+There are separate scripts to install via pip and via `conda`, 
+namely [`instConda.sh`](./instConda.sh) 
+and [`instPip.sh`](./instPip.sh). 
+
+Among the packages installed by [`instZypper.sh`](./instZypper.sh) 
+is also `nodejs` which provides the `npm` package manager 
+for `javascript` packages. 
+Installations with this are done in [`instNPM.sh`](./instNPM.sh). 
+Note that `npx` also coming with `nodejs` 
+is frequently a better alternative 
+since it executes packages without installing them. 
+
 
 
 CAUTION: For several pieces of software, 
