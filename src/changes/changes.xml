@@ -161,6 +161,8 @@ Risk: maybe other functionality does not work any more.  -->
 
 <!-- https://cbea.ms/git-commit/ -->
 
+<!-- rework instGCexts.sh: seems to no longer work. -->
+
 
 		<release version="0.0.5" date='2023-05-01' description='Emphasis on script based installation'>
       <action dev="ER" type="add">
