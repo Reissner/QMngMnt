@@ -49,6 +49,16 @@ zypper --gpg-auto-import-keys refresh
 # for jabref
 zypper addrepo --refresh https://download.opensuse.org/repositories/home:jloehel/openSUSE_Tumbleweed/home:jloehel.repo 
 
+
+
+# for scala 
+#zypper addrepo --refresh https://download.opensuse.org/repositories/devel:/languages:/scala/openSUSE_Tumbleweed/ scala
+
+zypper addrepo --refresh http://download.opensuse.org/tumbleweed/repo/non-oss/ openSUSE-Tumbleweed-Non-Oss
+zypper addrepo --refresh http://download.opensuse.org/tumbleweed/repo/oss/ openSUSE-Tumbleweed-Oss
+zypper addrepo --refresh http://download.opensuse.org/source/tumbleweed/repo/oss/ openSUSE-Tumbleweed-Source
+zypper addrepo --refresh http://download.opensuse.org/update/tumbleweed/ openSUSE-Tumbleweed-Update
+
 zypper refresh -f
 
 
