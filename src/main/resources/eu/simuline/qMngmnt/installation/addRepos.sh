@@ -10,7 +10,7 @@
 # Note that there seems to be no simple way to add a repository if not yet present. 
 # Thus except at first run this script displays errors on repos already added. 
 
-zypper ar --refresh https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman
+#zypper ar --refresh https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman
 
 # for whatsapp 
 zypper ar --refresh https://download.opensuse.org/repositories/home:plater/Tumbleweed/home:plater.repo
@@ -39,7 +39,7 @@ zypper addrepo https://download.opensuse.org/repositories/Education/openSUSE_Tum
 # for publishing, to be honest currently for epstool only 
 zypper addrepo --refresh https://download.opensuse.org/repositories/Publishing/openSUSE_Tumbleweed/Publishing.repo
 
-zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
+#zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
 
 zypper --gpg-auto-import-keys refresh
 
