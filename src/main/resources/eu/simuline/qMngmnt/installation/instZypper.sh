@@ -98,13 +98,17 @@ zypper in -y \
   texlive-anyfontsize texlive-anyfontsize-doc `# allow any font size` \
   texlive-glossaries-english texlive-glossaries-english-doc `# for glossaries` \
   texlive-glossaries-german  texlive-glossaries-german-doc  `# for glossaries` \
+  texlive-tikz-optics  texlive-tikz-optics-doc  `# grapical editing for tikz` \
+  texlive-adrconv      texlive-adrconv-doc   `# address database as bib file` \
   exif exiftool `# show exif meta data, exiftool is better ` \
     `# Photini, exiv2 and gexif along the same lines as exif` \
   unoconv pandoc texinfo libreoffice `# converter; texinfo implies texihtml and texiroff` \
   xfig gnuplot inkscape `# converter` \
   docbook2x discount `# the latter providing command 'markdown'` \
   rubber `# make utils texlive-arara? latexmake not present` \
-  epstool `# eps files in latex also for octave`
+  epstool `# eps files in latex also for octave` \
+  ktikz `# tikz only viewer not editor and thus no replacement for TikzEdt and also mono` \
+  dia `# if exports tikz may be a replacement for TikzEdt and also mono`
 
 
 # TBD: It is not ok just to patch into an existing and clean texlive installation. 
@@ -112,22 +116,22 @@ zypper in -y \
 mkdir -p /usr/share/texmf/bibtex/bst/abstract/
 wget -nc -O /usr/share/texmf/bibtex/bst/abstract/abstract.bst http://tug.ctan.org/tex-archive/biblio/bibtex/utils/bibtools/abstract.bst
 
-# TBD: It is not ok just to patch into an existing and clean texlive installation. 
-# To improve this, one shall install texlive in the standardized way, not via suse. 
-tikzVersion=${versionTikzuml}
-#tikzuml-v1.0-2016-03-29
-wget -nc -O $tikzVersion.tbz https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/src/$tikzVersion.tbz
-chmod a+w $tikzVersion.tbz
-if ! [[ -e $tikzVersion ]]; then
-  tar -xvf $tikzVersion.tbz
-  chmod -R a+w $tikzVersion
-  pushd $tikzVersion
-  mkdir -p /usr/share/texmf/tex/latex/tikz-uml/
-  cp tikz-uml.sty /usr/share/texmf/tex/latex/tikz-uml/
-  mkdir -p /usr/share/texmf/doc/latex/tikz-uml
-  cp -r doc/* /usr/share/texmf/doc/latex/tikz-uml
-  popd
-fi
+# # TBD: It is not ok just to patch into an existing and clean texlive installation. 
+# # To improve this, one shall install texlive in the standardized way, not via suse. 
+# tikzVersion=${versionTikzuml}
+# #tikzuml-v1.0-2016-03-29
+# wget -nc -O $tikzVersion.tbz https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/src/$tikzVersion.tbz
+# chmod a+w $tikzVersion.tbz
+# if ! [[ -e $tikzVersion ]]; then
+#   tar -xvf $tikzVersion.tbz
+#   chmod -R a+w $tikzVersion
+#   pushd $tikzVersion
+#   mkdir -p /usr/share/texmf/tex/latex/tikz-uml/
+#   cp tikz-uml.sty /usr/share/texmf/tex/latex/tikz-uml/
+#   mkdir -p /usr/share/texmf/doc/latex/tikz-uml
+#   cp -r doc/* /usr/share/texmf/doc/latex/tikz-uml
+#   popd
+# fi
 
 
 # TBD: this shall be done inside the project. 
