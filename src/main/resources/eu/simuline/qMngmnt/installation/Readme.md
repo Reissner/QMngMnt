@@ -225,7 +225,9 @@ After the last extension is installed, the script returns.
 
 There are separate scripts to install via pip and via `conda`, 
 namely [`instConda.sh`](./instConda.sh) 
-and [`instPip.sh`](./instPip.sh). 
+****no, it is to install conda itself;must change.****
+and [`instPip.sh`](./instPip.sh) 
+which installs both, `pip` and via `pip`. 
 
 Among the packages installed by [`instZypper.sh`](./instZypper.sh) 
 is also `nodejs` which provides the `npm` package manager 
@@ -256,7 +258,7 @@ and for `conda` to install packages via `pip`.
 Some packages are also installed outside `conda` environments. 
 These are installed via [`instPip.sh`](./instPip.sh). 
 
-As for `flatpak`, also ``conda` and `pip` install in `~/.local/bin` 
+As for `flatpak`, also `conda` and `pip` install in `~/.local/bin` 
 which has to be added in a config file like `~/.profile` or `~/.bashrc` 
 
 ```[sh]
@@ -841,7 +843,7 @@ anaconda and `miniconda` are distributions.
 - `conda`, `pip`, 
 - some basic utilities as `xz`. 
 
-The reason for needing `conda` is just the `mbed-cli`-tool 
+One reason for needing `conda` is the `mbed-cli`-tool 
 which is sensitive to python version and is currently available for python
 3.7.1 only. 
 Thus, `mbed-cli` shall be used in `conda` environment only. 
@@ -914,7 +916,7 @@ export PATH="$PATH\
 
 Note that there is a special entry `/var/lib/flatpak/exports/bin/` 
 required for `flatpak`. 
-Also not all is really in `~`
+Also, not all is really in `~`
 
 - `TikzEdt` installed from https://code.google.com/archive/p/tikzedt/downloads 
   but here the problem is, that we need modifications. 
