@@ -191,6 +191,12 @@ $code --force --install-extension trond-snekvik.simple-rst
 $code --force --install-extension maarti.jenkins-doc
 $code --force --install-extension pdconsec.vscode-print
 
+# something like that i would like for tikz 
+$code --force --install-extension corschenzi.mermaid-graphical-editor
+
+# javascript: VS code extensions 
+$code --force --install-extension dbaeumer.vscode-eslint
+$code --force --install-extension ms-vscode.extension-test-runner
 
 source ./instVScode4tex.sh $@
 
