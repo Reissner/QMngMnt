@@ -144,13 +144,13 @@ cp ./tex4ht/longtable.4ht /usr/share/texmf/tex/generic/tex4ht/longtable.4ht
 texconfig rehash # part of texlive 
 
 
-#zypper in -y jabref# this did not work: older version, problem with javafx
-jabrefVersion=${versionJabref}
-wget -nc -O ./jabref-$jabrefVersion.rpm https://www.fosshub.com/JabRef.html?dwl=jabref-$jabrefVersion.rpm
-rpm -i ./jabref-$jabrefVersion.rpm
-pushd /usr/local/bin/
-ln -sf /opt/jabref/bin/JabRef JabRef
-popd
+zypper in -y jabref # this did not work: older version, problem with javafx
+# jabrefVersion=${versionJabref}
+# wget -nc -O ./jabref-$jabrefVersion.rpm https://www.fosshub.com/JabRef.html?dwl=jabref-$jabrefVersion.rpm
+# rpm -i ./jabref-$jabrefVersion.rpm
+# pushd /usr/local/bin/
+# ln -sf /opt/jabref/bin/JabRef JabRef
+# popd
 
 
 # maybe needed more packages and higher versions
@@ -205,7 +205,17 @@ fi
 
 systemctl enable docker
 #usermod -aG docker `whoami`
-#zypper in -y MicroOS-release # sth like alpine with suse
+#zypper in -y MicroOS-release # sth like alpine with 
+
+# another containerization solution 
+zypper in -y podman podmansh #podman-docker
+
+
+zypper in -y distrobox distrobox-bash-completion
+# This was a trial on tikzit 
+# more general, distrobox is very useful to invite other linux distributions 
+#  libxcb-xkb-dev libxcb-render-util0-dev libxcb-image0 libxcb-keysyms1 libxcb-icccm4 libxcb-shape0-dev libxkbcommon-x11-0
+
 
 
 zypper in -y yum rpm-build `#to build rpm packages`
