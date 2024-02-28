@@ -31,7 +31,7 @@ chmod a+x /usr/bin/Gittyup
 # This is a fallback if version by zypper does not work 
 flatpak install -y flathub com.visualstudio.code
 cp ./CODE.sh /usr/bin/CODE
-#chmod a+x /usr/bin/CODE
+chmod a+x /usr/bin/CODE
 
 zypper in -y MozillaThunderbird MozillaThunderbird-translations-common
 # If the main directory is not preserved `~/.thunderbird` must be reconstructed.
