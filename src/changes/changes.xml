@@ -163,6 +163,17 @@ Risk: maybe other functionality does not work any more.  -->
 
 <!-- rework instGCexts.sh: seems to no longer work. -->
 
+<!-- supervise Gittyup and if it works well enough, 
+  eliminate GitAhead from all documentation 
+Also try to eliminate Gittyup messages at startup: 
+
+_IceTransSocketUNIXConnect: Cannot connect to non-local host localhost.localdomain
+_IceTransSocketUNIXConnect: Cannot connect to non-local host localhost.localdomain
+Qt: Session management error: Could not open network socket
+
+-->
+
+
 
 		<release version="0.0.5" date='2023-05-01' description='Emphasis on script based installation'>
       <action dev="ER" type="add">
