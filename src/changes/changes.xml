@@ -163,9 +163,7 @@ Risk: maybe other functionality does not work any more.  -->
 
 <!-- rework instGCexts.sh: seems to no longer work. -->
 
-<!-- supervise Gittyup and if it works well enough, 
-  eliminate GitAhead from all documentation 
-Also try to eliminate Gittyup messages at startup: 
+<!-- try to eliminate Gittyup messages at startup: 
 
 _IceTransSocketUNIXConnect: Cannot connect to non-local host localhost.localdomain
 _IceTransSocketUNIXConnect: Cannot connect to non-local host localhost.localdomain

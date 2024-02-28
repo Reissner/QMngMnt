@@ -194,7 +194,6 @@ One has to do **manually** in a config file like `~/.profile` or `~/.bashrc` (`S
 
 ```[sh]
 export PATH="$PATH\
-:~/SysAdmin/Addon/GitAhead/latest\
 :~/SysAdmin/Addon/TikzEdt/latest\
 :/var/lib/flatpak/exports/bin/"
 ```
@@ -363,11 +362,6 @@ From `yast` install
   `/usr/share/bash-git-prompt/README.md`.
     
   Follow the instructions in `/etc/bash_completion.d/git.sh`. -->
- 
-<!-- - some gui for git... there is sould make more experiments 
-  giggle, gitg, gitk, qgit, cgit, gitgslave, stgit fsagdfa, git-cola: 
-  Currently, only GitAhead described 
-  in [Installation by direct download: GitAhead](#instYast) is used. -->
   
 <!-- - `svn` and `kdesvn` which is used also by dolphin (see below). 
   Maybe in the long run, this is not really necessary. -->
@@ -913,7 +907,6 @@ which looks like so:
 
 ```[sh]
 export PATH="$PATH\
-:~/SysAdmin/Addon/GitAhead/latest\
 :~/SysAdmin/Addon/TikzEdt/latest\
 :/var/lib/flatpak/exports/bin/"
 #:/snap/bin:~/SysAdmin/Addon/GccArmCurr/bin:/~/.local/bin"
@@ -923,7 +916,6 @@ Note that there is a special entry `/var/lib/flatpak/exports/bin/`
 required for `flatpak`. 
 Also not all is really in `~`
 
-- `GitAhead` installed from https://gitahead.github.io/gitahead.com/
 - `TikzEdt` installed from https://code.google.com/archive/p/tikzedt/downloads 
   but here the problem is, that we need modifications. 
   Most probably, when trying to use, an error occurs, 

@@ -23,6 +23,9 @@ systemctl enable snapd
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y flathub org.gaphor.Gaphor
+flatpak install -y flathub com.github.Murmele.Gittyup
+cp ./Gittyup.sh /usr/bin/Gittyup
+chmod a+x /usr/bin/Gittyup
 
 # not permanently active 
 # This is a fallback if version by zypper does not work 
