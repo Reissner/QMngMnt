@@ -67,7 +67,7 @@ zypper in -y gcc gcc-c++ gcc-fortran gcc-ada gcc-go cross-arm-gcc13 \
   doxygen doxygen2man doxywizard `# doxygen, mainly for C` \
   autoconf automake libtool make `#make includes gnumake and cross platform cmake` \
   go-doc go `# go` \
-  scala sbt `# scala; maybe not enough` \
+  scala `# scala; maybe not enough` \
   mono-core js `# mono used for tikz editor only, js broadly used ` \
   squeak-vm `# squeak is a dialect of smalltalk and the package provides a development environment `
 
@@ -212,7 +212,7 @@ zypper dist-upgrade -y --from packman --allow-vendor-change
 # libavcodec58 libavdevice58 libavfilter7 libavformat58 libavutil56 
 zypper in -y --from packman ffmpeg \
   gstreamer-plugins-bad gstreamer-plugins-libav gstreamer-plugins-ugly \
-  libavresample4 vlc-codecs
+  libavresample4 #vlc-codecs packman ffmpeg 
 
 zypper in -y virtualbox
 
