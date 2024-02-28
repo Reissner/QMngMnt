@@ -168,8 +168,8 @@ zypper in -y kruler cheese `# webcam` \
   xsane spectacle gimp k3b `# scanning, screenshot, image processing and burning` \
   vlc `# films` \
   whatsapp-purple `# displaylink not found` \
-  `# the proper app: not working whatsie.x86_64` \
-  `# skype whatsapp is with snap currently` \
+  `# the proper app: not working whatsie.x86_64 could be whatsapp-for-linux` \
+  `# skype whatsapp is with snap currently, maybe skypeforlinux or flatpak` \
   kdeconnect-kde `# of course also on mobile kdeconnect must be installed. `
 
 
@@ -245,6 +245,19 @@ fi
 #fi
 #
 # already in zypper 
-snap install whatsdesk #teams-for-linux
+snap install whatsdesk 
+snap install whatsapp-for-linux #teams-for-linux
+snap install spark --edge
+
+# TBD: eliminate hard coded path 
+# install conda distribution
+# mkdir -p ~/Sysadmin/MiniConda
+# wget -nc https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/Sysadmin/MiniConda/miniconda.sh
+# bash ~/Sysadmin/MiniConda/miniconda.sh -b -u -p ~/Sysadmin/MiniConda
+# rm -rf ~/Sysadmin/MiniConda/miniconda.sh
+
+# ~/Sysadmin/MiniConda/bin/conda init bash
+
+# consult docs to uninstall conda 
 
 pwd
