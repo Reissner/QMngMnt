@@ -182,6 +182,14 @@ but in special cases other font sizes like 12pt may be specified.
 It is no error that class \texttt{beamer} requires option \texttt{hyperref=destlabel}. 
 Note that \texttt{beamer} documents shall comprise the proper presentation but also a handout. 
 The technique to use is the one given in~\cite{LatexPlugin},~Section 3.1.1. 
+According to Section~\ref{sec:instConfig}, 
+the header \file{header.tex} must be input, 
+which loads packages for internationalization. 
+Thus, the language must be given as an option of the document class 
+as described in ~\cite{LatexPlugin},~\manref{\#subsec:sourcesLatex}{Section 3.1.1}. 
+Typically, the language is just English, 
+but there are cases, where another language is needed 
+or even more than one language. 
 
 % TBD: here also the language if not english, american? must be specified as a sequence. 
 % TBD: clarify why in beamer we have destlabel set. 
