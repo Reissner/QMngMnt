@@ -272,13 +272,17 @@ snap install spark --edge
 
 # TBD: eliminate hard coded path 
 # install conda distribution
-# mkdir -p ~/Sysadmin/MiniConda
+# mkdir -p ~ernst/SysAdmin/Addon/MiniConda
 # wget -nc https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/Sysadmin/MiniConda/miniconda.sh
-# bash ~/Sysadmin/MiniConda/miniconda.sh -b -u -p ~/Sysadmin/MiniConda
-# rm -rf ~/Sysadmin/MiniConda/miniconda.sh
+# bash ~ernst/SysAdmin/Addon/MiniConda/miniconda.sh -b -u -p ~ernst/SysAdmin/Addon/MiniConda
+# rm -rf ~ernst/SysAdmin/Addon/MiniConda/miniconda.sh
 
-# ~/Sysadmin/MiniConda/bin/conda init bash
+# ~/SysAdmin/Addon/MiniConda/bin/conda init bash
 
 # consult docs to uninstall conda 
+
+#mkdir -p ~ernst/SysAdmin/Addon/PlantUML
+#cp ./plantuml-1.2024.3_GPL.jar ~ernst/SysAdmin/Addon/PlantUML
+
 
 pwd
