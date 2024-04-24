@@ -17,6 +17,7 @@
 # - wget, snapd and flatpak: must be installed and activated at first 
 zypper in -y wget snapd flatpak
 systemctl enable snapd
+systemctl enable snapd.apparmor.service
 
 # unlike for zypper which complains if a repo is added, flatpak does not. 
 # Thus we dont need a separate script for adding 
@@ -44,7 +45,7 @@ zypper in -y google-chrome-stable mathjax
 # calligra to allow odp,... and spectre for forms 
 # `evince` for support of xfa forms. 
 #  As soon as okular supports them, evince is no longer needed. 
-zypper in -y calligra-extras-okular okular-spectre evince
+zypper in -y okular-spectre evince
 
 # for version control; essentially git, but also rarely mercurial which installs perl as side effect
 # To make accessible in dolphin also install according plugins
@@ -67,10 +68,14 @@ zypper in -y gcc gcc-c++ gcc-fortran gcc-ada gcc-go cross-arm-gcc13 \
   doxygen doxygen2man doxywizard `# doxygen, mainly for C` \
   autoconf automake libtool make `#make includes gnumake and cross platform cmake` \
   go-doc go `# go` \
+  rustup `# rust` \
   scala `# scala; maybe not enough` \
   mono-core js `# mono used for tikz editor only, js broadly used ` \
   squeak-vm `# squeak is a dialect of smalltalk and the package provides a development environment `
 
+#rustup default stable # not as root 
+rustup update
+# rustup self uninstall 
 
 zypper in -y emacs `#emacs-auctex, maybe emacs no longer needed, maybe aspell for emacs only` \
   aspell aspell-de aspell-fr aspell-it aspell-pt_BR aspell-tl `#spellchecker for emacs` \
@@ -177,7 +182,7 @@ zypper in -y kruler cheese `# webcam` \
 # octave-devel is to be able to add packages
 #rpm -i ./octave-5.2.0-lp152.2.4.x86_64.rpm ./octave-devel-5.2.0-lp152.2.4.x86_64.rpm 
 #octave octave-devel 
-zypper in -y octave octave-devel python3-oct2py \
+zypper in -y octave octave-devel \
   octave-forge-cgi octave-forge-data-smoothing octave-forge-interval \
   octave-forge-image \
   octave-forge-signal octave-forge-statistics qhull \
@@ -235,6 +240,12 @@ zypper in -y gnome-keyring
 # Web development 
 zypper in -y apache2-devel apache2-manual apache2-mod_php8 apache2-mod_perl
 zypper in -y nodejs20 nodejs20-devel nodejs20-docs
+zypper in -y tomcat10
+# to use tomcat add 
+#export CATALINA_HOME=/usr/share/tomcat/
+#export CATALINA_BASE=/usr/share/tomcat/
+# to your ~/.profile 
+
 
 #zypper rm -y ksshaskpass
 
