@@ -198,6 +198,11 @@ $code --force --install-extension corschenzi.mermaid-graphical-editor
 $code --force --install-extension dbaeumer.vscode-eslint
 $code --force --install-extension ms-vscode.extension-test-runner
 
+
+# rust 
+$code --force --install-extension rust-lang.rust-analyzer
+
+
 source ./instVScode4tex.sh $@
 
 
