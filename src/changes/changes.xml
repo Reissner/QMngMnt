@@ -191,6 +191,16 @@ Qt: Session management error: Could not open network socket
 
   <!-- currently we seem to have conda but we shall use miniconda instead. -->
 
+  <!-- we need a list of what to do preparing a release. 
+  Among other things one shall update dependencies and plugins. 
+  This is done via 
+  mvn versions:display-dependency-updates
+  mvn versions:display-plugin-updates
+
+  If updates to the last version are not possible, this is documented in the pom 
+  next to the version. 
+-->
+
 
 
 
