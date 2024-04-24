@@ -59,6 +59,21 @@ $code --force --install-extension pomdtr.markdown-kroki
 #$code --force --install-extension yog.yog-plantuml-highlight # seems not to work for me
 #$code --force --install-extension jebbs.plantuml # seems to do highlighting, preview, 
 # but via server: security gap 
+# Error: plantuml.jar file not found: ""
+# Please download plantuml.jar from https://plantuml.com/download.  
+# If you are using VSCode or coc.nvim, 
+# then please set the setting "markdown-preview-enhanced.plantumlJarPath" 
+# to the absolute path of plantuml.jar file.
+# If you don't want to use plantuml.jar, 
+# then you can use the online plantuml server 
+# by setting the setting "markdown-preview-enhanced.plantumlServer" 
+# to the URL of the online plantuml server, 
+# for example: https://kroki.io/plantuml/svg/
+# https://shd101wyy.github.io/markdown-preview-enhanced/#/vscode-installation
+# uses a lot of server work. 
+# This is an item in the backlog 
+# https://plantuml.com/starting: how to run locally with docker 
+# previewer must be set back 
 #$code --force --install-extension yzane.markdown-pdf  converts to pdf but also to html (png and jpg irrelevant)
 
 # Velocity Template Language (VTL)
@@ -137,7 +152,7 @@ $code --force --install-extension mattn.lisp
 # no perl because this is in latex and friends 
 
 
-$echo "install from java and groovy" 
+echo "install from java and groovy" 
 
 # groovy
 $code --force --install-extension mellowmarshmallow.groovy
