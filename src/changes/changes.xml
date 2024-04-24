@@ -178,7 +178,9 @@ Qt: Session management error: Could not open network socket
 
   <!-- rework on instPip.sh. Details are described there -->
 
-  <!-- rework on instVScode.sh: plantuml: eliminate security risk -->
+  <!-- rework on instVScode.sh: plantuml: eliminate security risk. 
+  The solution is to use the jar locally. 
+  Such a jar is in installation folder. -->
 
   <!-- inform yourself on checkin of large files like pdf into git. 
   Gittyup releases a warning. 
