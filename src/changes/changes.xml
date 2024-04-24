@@ -180,13 +180,16 @@ Qt: Session management error: Could not open network socket
 
   <!-- rework on instVScode.sh: plantuml: eliminate security risk. 
   The solution is to use the jar locally. 
-  Such a jar is in installation folder. -->
+  Such a jar is in installation folder. 
+  This shall be eliminated from repo again, because it is large. -->
 
   <!-- inform yourself on checkin of large files like pdf into git. 
   Gittyup releases a warning. 
   Maybe there are adapted solutions. 
   one may also checkin via a script so that these formats are uncompressed before committing. 
   Here, two problems are mixed: pure size and being binary. -->
+
+  <!-- currently we seem to have conda but we shall use miniconda instead. -->
 
 
 
