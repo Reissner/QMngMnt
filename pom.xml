@@ -117,7 +117,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <versionTikzuml>tikzuml-v1.0-2016-03-29</versionTikzuml>
     <versionJabref>5.9-1.x86_64</versionJabref>
-    <versionLatexPlugin>2.0-SNAPSHOT</versionLatexPlugin>
+    <versionLatexPlugin>2.0</versionLatexPlugin>
     <instDir>src/main/resources/eu/simuline/qMngmnt/installation/</instDir>
     <latexDir>src/main/resources/eu/simuline/qMngmnt/latex/</latexDir>
   </properties>
