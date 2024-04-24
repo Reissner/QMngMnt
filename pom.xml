@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <!-- coordinates for model and artifact -->
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>eu.simuline</groupId>
   <artifactId>qMngmnt</artifactId>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.6</version>
   <packaging>jar</packaging>
 
   <name>Quality Management @ Simuline</name>
@@ -66,7 +64,7 @@
       scm:git:https://github.com/Reissner/QMngMnt.git
     </developerConnection>
     <url>https://github.com/Reissner/QMngMnt</url>
-    <tag>HEAD</tag>
+    <tag>qMngmnt-0.0.6</tag>
   </scm>
 
 
@@ -178,7 +176,7 @@
                 <requireJavaVersion>
                   <version>${versionJava}</version>
                 </requireJavaVersion>
-                <dependencyConvergence/>
+                <dependencyConvergence />
               </rules>
             </configuration>
           </execution>
