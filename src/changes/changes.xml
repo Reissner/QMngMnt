@@ -171,6 +171,11 @@ Qt: Session management error: Could not open network socket
 
 -->
 
+<!-- release notes: include this subject. 
+  Some inspiration is given in 
+  https://www.productplan.com/learn/release-notes-best-practices/ -->
+  <!-- references in particular of manuals and norms are always dated. -->
+
   <!-- rework on instPip.sh. Details are described there -->
 
   <!-- rework on instVScode.sh: plantuml: eliminate security risk -->
