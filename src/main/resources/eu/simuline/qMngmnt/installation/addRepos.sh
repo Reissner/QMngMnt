@@ -12,11 +12,38 @@
 
 #zypper ar --refresh https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman
 
+# for svneverever
+zypper ar --refresh https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo
+
 # for whatsapp 
-zypper ar --refresh https://download.opensuse.org/repositories/home:plater/Tumbleweed/home:plater.repo
+#zypper ar --refresh https://download.opensuse.org/repositories/home:plater/Tumbleweed/home:plater.repo
+zypper ar --refresh https://download.opensuse.org/repositories/network:im:whatsapp/openSUSE_Tumbleweed/network:im:whatsapp.repo
 
 # for skype
-zypper addrepo --refresh https://download.opensuse.org/repositories/home:alveus:main/openSUSE_Tumbleweed/home:alveus:main.repo
+#zypper addrepo --refresh https://download.opensuse.org/repositories/home:alveus:main/openSUSE_Tumbleweed/home:alveus:main.repo
+#zypper addrepo --refresh https://repo.skype.com/rpm/stable/skype-stable.repo
+
+
+
+
+# for visual code
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+zypper addrepo --refresh https://packages.microsoft.com/yumrepos/vscode vscode
+
+# for sure interesting in itself. 
+# currently used for squeak (package squeak-vm) which is a smalltalk dialect 
+zypper addrepo https://download.opensuse.org/repositories/Education/openSUSE_Tumbleweed/Education.repo
+
+zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
+
+zypper --gpg-auto-import-keys refresh
+
+## javafx, also needed for jabref
+#zypper addrepo --refresh https://download.opensuse.org/repositories/home:fstrba:maven/openSUSE_Tumbleweed/home:fstrba:maven.repo
+
+
+
+
 
 # for google chrome 
 zypper ar --refresh http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
@@ -28,26 +55,13 @@ rpm --import https://dl.google.com/linux/linux_signing_key.pub
 # rpm --import linux_signing_key.pub
 
 
-# for visual code
-rpm --import https://packages.microsoft.com/keys/microsoft.asc
-zypper addrepo --refresh https://packages.microsoft.com/yumrepos/vscode vscode
-
-# for sure interesting in itself. 
-# currently used for squeak (package squeak-vm) which is a smalltalk dialect 
-zypper addrepo https://download.opensuse.org/repositories/Education/openSUSE_Tumbleweed/Education.repo
-
-# for publishing, to be honest currently for epstool only 
-zypper addrepo --refresh https://download.opensuse.org/repositories/Publishing/openSUSE_Tumbleweed/Publishing.repo
-
-#zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
-
-zypper --gpg-auto-import-keys refresh
-
-## javafx, also needed for jabref
-#zypper addrepo --refresh https://download.opensuse.org/repositories/home:fstrba:maven/openSUSE_Tumbleweed/home:fstrba:maven.repo
-
 # for jabref
 zypper addrepo --refresh https://download.opensuse.org/repositories/home:jloehel/openSUSE_Tumbleweed/home:jloehel.repo 
+
+# for publishing, offers unique tools or more recent ones 
+# epstool pandoc gnuplot, texinfo, diffpdf, pdftk(!)
+zypper addrepo --refresh https://download.opensuse.org/repositories/Publishing/openSUSE_Tumbleweed/Publishing.repo
+
 
 
 
